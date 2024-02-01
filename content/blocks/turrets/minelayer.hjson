@@ -1,0 +1,92 @@
+type: ItemTurret
+name: Minelayer
+description: A turret that fires mines that detonate when an enemy ground unit touches them.
+health: 800
+size: 2
+reload: 300
+range: 200
+inaccuracy: 15
+rotateSpeed: 5
+shoot: {
+  shots: 6
+}
+targetAir: false
+velocityInaccuracy: 0.3
+ammoTypes: {
+  copper: {
+    speed: 7
+    damage: 20
+    lifetime: 1800
+    bulletWidth: 20
+    bulletHeight: 20
+    collidesAir: false
+    drag: 0.05
+    status: blasted
+    statusDuration: 20
+    sprite: md3-mine
+  },
+  lead: {
+    speed: 6
+    damage: 40
+    lifetime: 2400
+    reloadMultiplier: 0.6
+    bulletWidth: 20
+    bulletHeight: 20
+    collidesAir: false
+    drag: 0.05
+    status: blasted
+    statusDuration: 20
+    sprite: md3-mine
+  },
+  silicon: {
+    speed: 5
+    damage: 15
+    lifetime: 1200
+    bulletWidth: 20
+    bulletHeight: 20
+    collidesAir: false
+    drag: 0.05
+    splashDamage: 20
+    splashDamageRadius: 30
+    status: blasted
+    statusDuration: 20
+    sprite: md3-mine
+  }
+  pyratite: {
+    speed: 4
+    damage: 10
+    lifetime: 600
+    bulletWidth: 20
+    bulletHeight: 20
+    collidesAir: false
+    drag: 0.05
+    splashDamage: 20
+    splashDamageRadius: 30
+    status: blasted
+    statusDuration: 20
+    sprite: md3-mine
+  }
+  blast-compound: {
+    speed: 6
+    damage: 25
+    lifetime: 1200
+    bulletWidth: 20
+    bulletHeight: 20
+    collidesAir: false
+    drag: 0.065
+    splashDamage: 45
+    splashDamageRadius: 60,
+    reloadMultiplier: 0.7,
+    status: blasted
+    statusDuration: 20
+    sprite: md3-mine
+  }
+}
+requirements: [
+  graphite/45
+  titanium/30
+  silicon/60
+]
+shootSound: shootSnap
+category: turret
+research: salvo

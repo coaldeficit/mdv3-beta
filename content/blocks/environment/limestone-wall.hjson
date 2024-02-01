@@ -1,0 +1,5 @@
+type: StaticWall
+name: Limestone Wall
+variants: 2
+mapColor: A5985B
+useColor: true
