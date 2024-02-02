@@ -5,7 +5,7 @@ speed: 0.5
 health: 140
 weapons: [{
   name: cannoneer-weapon
-  layerOffset: -0.001
+  
   top: false
   y: 3
   x: 3.6
