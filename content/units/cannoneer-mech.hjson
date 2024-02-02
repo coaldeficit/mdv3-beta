@@ -25,6 +25,7 @@ weapons: [{
     backColor: 95db00
     status: corroded
     lifetime: 32
+    outline: false
   }
 }]
 range: 224
