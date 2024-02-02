@@ -15,7 +15,7 @@ shoot: {
   spread: 25
 }
 targetAir: false
-ammoTypes: {
+shootType: {
   lead: {
     speed: 4.5
     damage: 8
@@ -24,7 +24,7 @@ ammoTypes: {
     lifetime: 120
     homingPower: 0.05
     homingRange: 80
-    backColor: 000000
+    backColor: ff0000
     frontColor: ffff00
     bulletWidth: 3
     bulletHeight: 4
