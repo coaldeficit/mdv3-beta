@@ -19,7 +19,8 @@ const pelterBomb = extend(BombBulletType, {
     status: StatusEffects.tarred,
     pierce: true,
     lifetime: 240,
-    drag: 0.075
+    drag: 0.075,
+    layer: 99
   }),
   range(){ // note to anyone reading: always override the range function for any bomb-type projectiles so that the unit ai actually uses them
     return 140
