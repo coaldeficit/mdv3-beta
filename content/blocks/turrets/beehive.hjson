@@ -18,35 +18,36 @@ targetAir: false
 ammoTypes: {
   lead: {
     type: BasicBulletType
-    speed: 4.5
+    sprite: md3-striped-bullet
     damage: 8
+    speed: 4.5
     ammoMultiplier: 2
     pierce: true
     lifetime: 120
     homingPower: 0.05
     homingRange: 80
-    backColor: ff0000
+    backColor: 000000
     frontColor: ffff00
     bulletWidth: 3
     bulletHeight: 4
     collidesAir: false
-    sprite: md3-striped-bullet
   }
   zinc: {
-    speed: 4.5
+    type: BasicBulletType
+    sprite: md3-striped-bullet
     damage: 16
+    speed: 3.5
     ammoMultiplier: 7
     pierce: true
-    lifetime: 120
-    homingPower: 0.05
-    homingRange: 80
+    lifetime: 140
+    homingPower: 0.07
+    homingRange: 90
     backColor: 000000
-    frontColor: D0D8DF
+    frontColor: d0d8df
     bulletWidth: 6
     bulletHeight: 8
     collidesAir: false
     reloadMultiplier: 0.6
-    sprite: md3-striped-bullet
   }
 }
 requirements: [
