@@ -3,9 +3,9 @@ flying: false
 description: Rapidly fires weak corroding bullets at enemy units and structures.
 speed: 0.5
 health: 140
+type: mech
 weapons: [{
   name: cannoneer-weapon
-  
   top: false
   y: 3
   x: 3.6
