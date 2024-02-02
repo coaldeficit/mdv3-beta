@@ -4,7 +4,7 @@ description: Rapidly fires weak corroding bullets at enemy units and structures.
 speed: 0.5
 health: 140
 type: mech
-outlineColor: ffffffff
+outlineColor: ff0000ff
 weapons: [{
   name: cannoneer-weapon
   layerOffset: 0.0001
