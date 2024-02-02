@@ -15,8 +15,9 @@ shoot: {
   spread: 25
 }
 targetAir: false
-shootType: {
+ammoTypes: {
   lead: {
+    type: BasicBulletType
     speed: 4.5
     damage: 8
     ammoMultiplier: 2
