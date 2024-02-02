@@ -14,7 +14,7 @@ weapons: [{
   inaccuracy: 2
   reload: 10
   alternate: true
-  outline: false
+  outlineColor: ff0ff0ff
   shootSound: pew
   bullet: {
     type: BasicBulletType
