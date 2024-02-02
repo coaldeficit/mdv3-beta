@@ -7,7 +7,7 @@ type: mech
 outlineColor: ffffffff
 weapons: [{
   name: cannoneer-weapon
-  layerOffset: -0.0001
+  layerOffset: 0.0001
   top: false
   y: 3
   x: 3.6
