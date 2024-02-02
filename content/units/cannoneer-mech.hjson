@@ -6,7 +6,7 @@ health: 140
 type: mech
 weapons: [{
   name: cannoneer-weapon
-  layerOffset: -1
+  layerOffset: -0.00001
   top: false
   y: 3
   x: 3.6
