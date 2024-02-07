@@ -1,0 +1,53 @@
+name: Shotgunner
+description: placeholder
+flying: false
+speed: 0.65
+health: 145
+targetAir: false
+// leg properties copied over from merui please change as needed
+legStraightness: 0.3
+stepShake: 0
+legCount: 6
+legLength: 8
+lockLegBase: true
+legContinuousMove: true
+legExtension: -2
+legBaseOffset: 3
+legMaxLength: 1.1
+legMinLength: 0.2
+legLengthScl: 0.96
+legForwardScl: 1.1
+legGroupSize: 3
+rippleScale: 0.2
+legMoveSpace: 1
+allowLegStep: true
+hovering: true
+legPhysicsLayer: false
+shadowElevation: 0.1
+groundLayer: 74
+weapons: [{
+  name: shotgunner-weapon
+  top: true
+  rotate: true
+  y: 0
+  x: 0
+  shoot: {
+    type: ShootSpread
+    shots: 8
+    spread: 1.5
+  }
+  inaccuracy: 1
+  reload: 13
+  shootSound: shotgun
+  mirror: false
+  rotateSpeed: 7
+  velocityRnd: 0.5
+  bullet: {	
+    type: BasicBulletType	
+    speed: 5
+    damage: 4
+    lifetime: 15
+    width: 3
+    height: 6
+  }
+}]

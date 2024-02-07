@@ -1,6 +1,6 @@
-const CannonT3 = extend(UnitType, "ordnance-mech", {});
-CannonT3.constructor = () => extend(LegsUnit, {});
-CannonT3.immunities.add(StatusEffects.corroded);
+const ShotT3 = extend(UnitType, "ordnance-mech", {});
+ShotT3.constructor = () => extend(LegsUnit, {});
+ShotT3.immunities.add(StatusEffects.corroded);
 
 Blocks.multiplicativeReconstructor.addUpgrade(
   Vars.content.getByName(ContentType.unit, "md3-artilleryman-mech"),

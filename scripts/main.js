@@ -22,12 +22,12 @@ require('md3/frozen-wall');
 
 // unit stuff
 // ground
-// cannoneer line
-require("md3/units/ground/cannoneer/cannoneer")
-require("md3/units/ground/cannoneer/artilleryman")
-require("md3/units/ground/cannoneer/ordnance")
-require("md3/units/ground/cannoneer/mortar")
-require("md3/units/ground/cannoneer/howitzer")
+// shotgunner line
+require("md3/units/ground/shotgunner/shotgunner")
+require("md3/units/ground/shotgunner/artilleryman")
+require("md3/units/ground/shotgunner/ordnance")
+require("md3/units/ground/shotgunner/mortar")
+require("md3/units/ground/shotgunner/howitzer")
 
 // air
 // swarmer line
