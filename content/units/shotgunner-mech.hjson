@@ -45,9 +45,9 @@ weapons: [{
   bullet: {	
     type: BasicBulletType	
     speed: 5
-    damage: 7
+    damage: 9
     lifetime: 15
-    width: 6
+    width: 7
     height: 6
   }
 }]
