@@ -44,10 +44,10 @@ weapons: [{
   velocityRnd: 0.5
   bullet: {	
     type: ShrapnnelBulletType	
-    speed: 5
+    speed: 9
     damage: 9
-    lifetime: 15
-    width: 7
-    height: 6
+    lifetime: 9
+    width: 6
+    height: 5
   }
 }]
