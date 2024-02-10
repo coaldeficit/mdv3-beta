@@ -1,5 +1,5 @@
 # MoreDefences
-A mod made by IvyX and 7rodo that adds new turrets and walls to defend your core. Contains 25 new turrets, 21 new production blocks, 11 new walls and misc defence blocks, 15 new resources, a new liquid, 1 new power generator, 3 new drills, 8 new extractors, 2 new cores, 16 new environmental tiles and 21 new units including 2 boss units. Discord server invite: [Invite.](https://discord.gg/eEtw5GF2dk)
+A mod made by coal deficit and 7rodo that adds new turrets and walls to defend your core. Contains 25 new turrets, 21 new production blocks, 11 new walls and misc defence blocks, 15 new resources, a new liquid, 1 new power generator, 3 new drills, 8 new extractors, 2 new cores, 16 new environmental tiles and 21 new units including 2 boss units. Discord server invite: [Invite.](https://discord.gg/eEtw5GF2dk)
 
 ## Contributing
 ### Suggesting new Content
@@ -16,6 +16,7 @@ Some other good mods that IvyX (the person who made this mod and wrote the entir
 
 ## Contributors
 This is a list of people who have contributed to developing this mod.
+- [IvyX](https://github.com/TheRealIvyX): Former developer, made most of the content in the mod prior to handing over the project to [coal deficit](https://github.com/coaldeficit)
 - [7rodo](https://github.com/7rodo): Co-developer
 - AurumMighty#1679: Helped with respriting Pelter
 - [Awesomespore](https://github.com/Awesomespore): Made a pull request that nerfed instant's bullet range
