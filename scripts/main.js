@@ -4,21 +4,21 @@ require("md3/status-effects")
 require("md3/liquids")
 require("md3/unmineable-ores")
 
-require("md3/vanadium-extractor")
-require("md3/vanadium-megaextractor")
-require("md3/aerial-drill")
+require("md3/blocks/vanadium-extractor")
+require("md3/blocks/vanadium-megaextractor")
+require("md3/blocks/aerial-drill")
 require("md3/units/air/drones")
 require("md3/units/air/core-units")
-require("md3/zincite-extractor")
-require("md3/titaniumseperator")
+require("md3/blocks/zincite-extractor")
+require("md3/blocks/titaniumseperator")
 require("md3/units/refreshconstruct")
-require('md3/purifier');
-require('md3/sterilizer');
-require('md3/cobalt-twister');
-require('md3/ionizer');
+require('md3/blocks/purifier');
+require('md3/blocks/sterilizer');
+require('md3/blocks/cobalt-twister');
+require('md3/blocks/ionizer');
 // require('md3/overtower');
-require('md3/recoverer');
-require('md3/frozen-wall');
+require('md3/blocks/recoverer');
+require('md3/blocks/frozen-wall');
 
 // unit stuff
 // ground
