@@ -9,7 +9,7 @@ targetAir: false
 legStraightness: 0.3
 stepShake: 0
 legCount: 6
-legLength: 81
+legLength: 8
 lockLegBase: true
 legContinuousMove: true
 legExtension: -2
