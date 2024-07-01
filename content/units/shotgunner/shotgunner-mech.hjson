@@ -16,7 +16,7 @@ legExtension: -2
 legBaseOffset: 3
 legMaxLength: 1.1
 legMinLength: 0.2
-legLengthScl: 50
+legLengthScl: .96
 legForwardScl: 1.1
 legGroupSize: 3
 rippleScale: 0.1
@@ -31,7 +31,7 @@ weapons: [{
   name: shotgunner-weapon
   top: true
   rotate: true
-  y: 10
+  y:-10
   x: 0
   shoot: {
     type: ShootSpread
