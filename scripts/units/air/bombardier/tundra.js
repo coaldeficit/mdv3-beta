@@ -2,7 +2,7 @@ const vfx = require("md3/libs/vfx")
 const bulLib = require("md3/libs/bulletlib")
 const rng = require("md3/libs/rng")
 const blockcheck = require("md3/libs/blockcheck")
-const icewall = require("md3/frozen-wall")
+const icewall = require("md3/blocks/frozen-wall")
 const BomberT5 = extend(UnitType, "tundra-ship", {});
 BomberT5.constructor = () => extend(UnitEntity, {});
 
