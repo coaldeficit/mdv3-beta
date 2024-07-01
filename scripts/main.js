@@ -1,7 +1,7 @@
 require("md3/libs/rng")
 
 require("md3/status-effects")
-require("md3/liquids")
+// require("md3/liquids")
 require("md3/unmineable-ores")
 
 require("md3/blocks/vanadium-extractor")
