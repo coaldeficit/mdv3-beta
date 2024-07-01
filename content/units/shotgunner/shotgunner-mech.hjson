@@ -4,11 +4,12 @@ flying: false
 speed: 0.65
 health: 145
 targetAir: false
-// leg properties copied over from merui please change as needed
+
+// legs
 legStraightness: 0.3
 stepShake: 0
 legCount: 6
-legLength: 8
+legLength: 81
 lockLegBase: true
 legContinuousMove: true
 legExtension: -2
@@ -23,6 +24,7 @@ legMoveSpace: 1
 allowLegStep: true
 hovering: true
 legPhysicsLayer: false
+
 shadowElevation: 0.1
 groundLayer: 74
 weapons: [{
