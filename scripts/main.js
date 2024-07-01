@@ -24,7 +24,7 @@ require('md3/blocks/frozen-wall');
 // ground
 // shotgunner line
 require("md3/units/ground/shotgunner/shotgunner")
-require("md3/units/ground/shotgunner/artilleryman")
+require("md3/units/ground/shotgunner/pounder")
 require("md3/units/ground/shotgunner/ordnance")
 require("md3/units/ground/shotgunner/mortar")
 require("md3/units/ground/shotgunner/howitzer")
