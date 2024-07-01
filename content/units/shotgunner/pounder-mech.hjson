@@ -5,7 +5,9 @@ speed: 0.65
 health: 145
 targetAir: false
 
-legStraightness: 0.3
+// legs
+legStraightness: .5
+legSpeed: 0.7
 stepShake: 0
 legCount: 6
 legLength: 8
@@ -15,7 +17,7 @@ legExtension: -2
 legBaseOffset: 3
 legMaxLength: 1.1
 legMinLength: 0.2
-legLengthScl: 0.96
+legLengthScl: .96
 legForwardScl: 1.1
 legGroupSize: 3
 rippleScale: 0.2
@@ -23,6 +25,7 @@ legMoveSpace: 1
 allowLegStep: true
 hovering: true
 legPhysicsLayer: false
+
 shadowElevation: 0.1
 groundLayer: 74
 
