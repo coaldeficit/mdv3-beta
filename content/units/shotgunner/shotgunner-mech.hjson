@@ -31,7 +31,7 @@ weapons: [{
   name: shotgunner-weapon
   top: true
   rotate: true
-  y: 15
+  y: -5
   x: 0
   shoot: {
     type: ShootSpread
