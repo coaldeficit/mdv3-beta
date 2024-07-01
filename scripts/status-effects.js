@@ -56,7 +56,7 @@ let radiationEffect = extend(StatusEffect, "irradiated-status", {
     update(unit,time){
       this.super$update(unit,time);
       if (statusFunc.checkstatus(unit, StatusEffects.electrified) != false) {
-        unit.damagePierce(3)
+        unit.damagePierce(30)
       }
       if (statusFunc.checkstatus(unit, StatusEffects.melting) != false) {
         unit.damagePierce(0.5)
