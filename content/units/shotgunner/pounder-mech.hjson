@@ -6,27 +6,27 @@ health: 145
 targetAir: false
 
 // legs
-legStraightness: .5
-legSpeed: 0.7
+legStraightness: .1
+legSpeed: 2
 stepShake: 0
-legCount: 6
-legLength: 8
-lockLegBase: true
+legCount: 4
+legLength: 9
+lockLegBase: false
 legContinuousMove: true
 legExtension: -2
-legBaseOffset: 3
-legMaxLength: 1.1
-legMinLength: 0.2
+legBaseOffset: 5
+legMaxLength: 1
+legMinLength: .5
 legLengthScl: .96
-legForwardScl: 1.1
-legGroupSize: 3
-rippleScale: 0.2
+legForwardScl: 1.5
+legGroupSize: 6
+rippleScale: 0.4
 legMoveSpace: 1
 allowLegStep: true
 hovering: true
 legPhysicsLayer: false
 
-shadowElevation: 0.1
+shadowElevation: 0.15
 groundLayer: 74
 
 weapons: [{
@@ -43,9 +43,15 @@ weapons: [{
   bullet: {	
     type: ExplosionBuletType	
     speed: 7
-    damage: 9
-    lifetime: 120
+    damage: 20
+    lifetime: 35
     width: 13
     height: 12
+    splashDamageRadius: 35
+    splashDamage: 15
+    despawnEffect: flakExplosion 
+    smokeEffect: flakExplosion 
+    trailEffect: fireSmoke 
+    trailChance: 1
   }
 }]
