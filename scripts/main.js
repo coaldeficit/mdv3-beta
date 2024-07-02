@@ -45,7 +45,7 @@ require("md3/units/air/bombardier/tundra")
 
 // naval
 // lucifrons line
-require("md3/units/naval/lucifrons/lucifrons")
+// require("md3/units/naval/lucifrons/lucifrons")
 
 // bosses
 require("md3/units/bosses/havoc")
