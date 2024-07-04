@@ -1,7 +1,7 @@
 type: Floor
 name: Niebieskite
 variants: 4
-mapColor: 292A55
+mapColor: 1A1941
 useColor: true
 wall: niebieskite-wall
 decoration: niebieskite-boulder
