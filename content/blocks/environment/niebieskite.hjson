@@ -1,0 +1,7 @@
+type: Floor
+name: Niebieskite
+variants: 4
+mapColor: 292A55
+useColor: true
+wall: niebieskite-wall
+decoration: cinnabar-boulder
