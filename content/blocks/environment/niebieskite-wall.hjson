@@ -1,5 +1,5 @@
 type: StaticWall
 name: Niebieskite Wall
 variants: 2
-mapColor: 1A1941
+mapColor: 292A55
 useColor: true
