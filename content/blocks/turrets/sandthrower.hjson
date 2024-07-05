@@ -64,17 +64,6 @@ ammoTypes: {
       lifetime: 30
     }
   }
-  titaniumsand: {
-    speed: 2.75
-    damage: 14
-    ammoMultiplier: 5
-    width: 5
-    height: 8
-    reloadMultiplier: 0.85
-    frontColor: cca4e1
-    backColor: 9f80af
-    lifetime: 26
-  }
   blast-compound: {
     speed: 2.75
     damage: 4.2
