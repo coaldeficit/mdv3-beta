@@ -1,19 +1,30 @@
-name: Fieros
 parent: sun
 sectorSize: 4
-radius: 0.96
+radius: 1
 generator: AsteroidGenerator
 accessible: true
 alwaysUnlocked: false
 bloom: false
-startSector: 460
+startSector: 793
 iconColor: 292A55
 hasAtmosphere: true
-atmosphereColor: cb9d3020
+atmosphereColor: 45351120
 atmosphereRadIn: 0
-atmosphereRadOut: 0.2
+atmosphereRadOut: 0.1
 rotateTime: 2076
 orbitRadius: 132
+landCloudColor: e6c25730
+
+defaultEnv: 129
+updateLighting: true
+allowLaunchToNumbered: false
+allowLaunchSchematics: false
+allowLaunchLoadout: false
+allowWaveSimulation: false
+allowSectorInvasion: false
+clearSectorOnLose: true
+enemyBuildSpeedMultiplier: 0.6
+
 mesh: [
   { # DMM
     type: NoiseMesh
@@ -29,62 +40,47 @@ mesh: [
   },
   { # NIEBIESKITE
     type: NoiseMesh
-    seed: 89376199
+    seed: 89376196
     # Mesh "quality". More divisions = more hexagons.
-    divisions: 7
+    divisions: 6
     color1: 414279
-    color2: 43447d
-    radius: 0.95375
+    color2: 484985
+    radius: 0.945
     octaves: 3
     persistence: 1
-    scale: 1.3
-    mag: 0.5
+    scale: 1.1
+    mag: 0.6
     colorScale: 26
     colorThreshold: 0.6
   },
   { # METACINNABAR
     type: NoiseMesh
-    seed: 89376198
+    seed: 89376197
     # Mesh "quality". More divisions = more hexagons.
-    divisions: 7
+    divisions: 6
     color1: 2b2b2b
-    color2: 333333
-    radius: 0.9435
+    color2: 3b3b3b
+    radius: 0.92
     octaves: 3
     persistence: 1
     scale: 1.1
-    mag: 0.6
+    mag: 0.9
     colorScale: 21
     colorThreshold: 0.6
   },
   { # UNSPECIFIED PEACH STONE
     type: NoiseMesh
-    seed: 89376198
+    seed: 89376197
     # Mesh "quality". More divisions = more hexagons.
-    divisions: 7
-    color1: ebd9b9
-    color2: ffecc9
-    radius: 0.93165
+    divisions: 6
+    color1: b39976
+    color2: bfa37e
+    radius: 0.8975
     octaves: 3
     persistence: 1
     scale: 1.1
-    mag: 0.7
+    mag: 1.1
     colorScale: 23
-    colorThreshold: 0.5
-  },
-  { # FROZEN MERCURY
-    type: NoiseMesh
-    seed: 89376198
-    # Mesh "quality". More divisions = more hexagons.
-    divisions: 7
-    color1: d1d1d1
-    color2: ffffff
-    radius: 0.91875
-    octaves: 3
-    persistence: 1
-    scale: 1.1
-    mag: 0.8
-    colorScale: 27
     colorThreshold: 0.5
   },
 ]
@@ -96,49 +92,23 @@ cloudMesh: [
     # Mesh "quality". More divisions = more hexagons.
     divisions: 7
     color: e6c25740
-    radius: 0.1
+    radius: 0.075
     octaves: 1
     persistence: 1
     scale: 3
-    thresh: 0.5
-  },
-  {
-    type: HexSkyMesh
-	speed: 3
-    seed: 68356287
-    # Mesh "quality". More divisions = more hexagons.
-    divisions: 7
-    color: e6c25740
-    radius: 0.15
-    octaves: 1
-    persistence: 1
-    scale: 3.3
-    thresh: 0.4
-  },
-  {
-    type: HexSkyMesh
-	speed: 9
-    seed: 27456245
-    # Mesh "quality". More divisions = more hexagons.
-    divisions: 6
-    color: e6c25720
-    radius: 0.2
-    octaves: 1
-    persistence: 1
-    scale: 3.6
     thresh: 0.3
   },
   {
     type: HexSkyMesh
-	speed: 4
-    seed: 27456245
+	speed: 0.5
+    seed: 53645634
     # Mesh "quality". More divisions = more hexagons.
-    divisions: 6
+    divisions: 7
     color: e6c25720
-    radius: 0.4
+    radius: 0.1
     octaves: 1
     persistence: 1
-    scale: 3.9
-    thresh: 0.2
+    scale: 3
+    thresh: 0.15
   },
 ]
