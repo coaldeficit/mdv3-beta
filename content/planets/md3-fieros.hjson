@@ -25,7 +25,7 @@ allowSectorInvasion: false
 clearSectorOnLose: true
 enemyBuildSpeedMultiplier: 0.6
 
-itemWhitelist: [cobalt, cinnabar]
+itemWhitelist: [cobalt, cinnabar-item]
 
 mesh: [
   { # DMM
