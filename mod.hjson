@@ -1,7 +1,7 @@
 name: "md3"
 displayName: "[cyan]More[blue]Defences[]"
 subtitle: "now in version 3"
-author: "IvyX"
+author: "coal deficit"
 description: "A mod made by coal deficit and 7rodo that adds new turrets and walls to defend your core.\nDoes not work on iOS.\nCompletely functional in multiplayer (assuming server has the mod).\nDiscord server invite: https://discord.gg/eEtw5GF2dk.[]"
 version: "1.0"
 minGameVersion: "146"
