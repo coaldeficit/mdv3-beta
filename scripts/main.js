@@ -10,7 +10,7 @@ require("md3/blocks/aerial-drill")
 require("md3/units/air/drones")
 require("md3/units/air/core-units")
 require("md3/blocks/zincite-extractor")
-require("md3/blocks/titaniumseperator")
+// require("md3/blocks/titaniumseperator")
 require("md3/units/refreshconstruct")
 require('md3/blocks/purifier');
 require('md3/blocks/sterilizer');
