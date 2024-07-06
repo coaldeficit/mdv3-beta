@@ -10,13 +10,10 @@ Make an issue with the bug label and explain it in detail. Please also consider 
 ## Importing
 Go to the Mods menu, click/tap on Import Mod, click/tap on Import From Github, enter ``TheRealIvyX/MoreDefences`` into the box that appears and press OK. The game should close to reload mods. Reopen the game after it closes and you should be able to play with the mod.
 
-## Other good mods
-Some other good mods that IvyX (the person who made this mod and wrote the entirety of this readme) recommends are:
-- sk7725/BetaMindy: A great java mod made by sk7725. Adds many unique and interesting features, notable examples include: Pistons which together with several other blocks from this mod can be used to create moving ships, a Payload Cannon that can use literally any block as ammo as long as it fits, a Bumper that causes any units that touch it to bounce off, a planet that actually works in V7 and much more.
-
 ## Contributors
 This is a list of people who have contributed to developing this mod.
+- [coal deficit](https://github.com/coaldeficit): Developer
 - [IvyX](https://github.com/TheRealIvyX): Former developer, made most of the content in the mod prior to handing over the project to [coal deficit](https://github.com/coaldeficit)
 - [7rodo](https://github.com/7rodo): Co-developer
-- AurumMighty#1679: Helped with respriting Pelter
 - [Awesomespore](https://github.com/Awesomespore): Made a pull request that nerfed instant's bullet range
+- [meowkitty](https://github.com/meowkitty9694e): Made and remade various environmental tile sprites
