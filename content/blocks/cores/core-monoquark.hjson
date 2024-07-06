@@ -4,7 +4,7 @@ description: Core of the base. Once destroyed the sector is lost.
 details: Core of the first tier./nUnarmored and lacks storage capacity.\nMakes up for its weaknesses through low cost and low mass, being the only core light enough to be easily launched into other sectors under the high gravity of Fieros.
 size: 3
 unitType: alpha
-health: 1000
+health: 750
 itemCapacity: 1500
 unitCapModifier: 10
 squareSprite: false
