@@ -8,7 +8,7 @@ Feel free to join our discord server [(Invite)](https://discord.gg/eEtw5GF2dk), 
 Make an issue with the bug label and explain it in detail. Please also consider making a pull request that fixes the bug if possible if fixing said bug is too complicated for either of the devs.
 
 ## Importing
-Go to the Mods menu, click/tap on Import Mod, click/tap on Import From Github, enter ``TheRealIvyX/MoreDefences`` into the box that appears and press OK. The game should close to reload mods. Reopen the game after it closes and you should be able to play with the mod.
+Go to the Mods menu, click/tap on Import Mod, click/tap on Import From Github, enter ``coaldeficit/MoreDefences`` into the box that appears and press OK. The game should close to reload mods. Reopen the game after it closes and you should be able to play with the mod.
 
 ## Contributors
 This is a list of people who have contributed to developing this mod.
