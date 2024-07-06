@@ -1,0 +1,21 @@
+type: CoreBlock
+name: "Core: Monoquark"
+description: Core of the base. Once destroyed the sector is lost.
+details: Core of the first tier./nUnarmored and lacks storage capacity.\nMakes up for its weaknesses through low cost and low mass, being the only core light enough to be easily launched into other sectors under the high gravity of Fieros.
+size: 3
+unitType: alpha
+health: 1000
+itemCapacity: 1500
+unitCapModifier: 10
+squareSprite: false
+requirements: [
+  cobalt/750
+  cinnabar-item/750
+]
+category: effect
+research: {
+  root: true
+  name: Fieros
+  alwaysUnlocked: true
+  planet: md3-fieros
+}
