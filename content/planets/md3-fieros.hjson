@@ -25,6 +25,7 @@ allowSectorInvasion: false
 clearSectorOnLose: true
 enemyBuildSpeedMultiplier: 0.6
 
+defaultCore: core-monoquark
 itemWhitelist: [cobalt, cinnabar-item]
 
 mesh: [
