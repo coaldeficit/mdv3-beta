@@ -33,7 +33,7 @@ ammoTypes: {
     collidesAir: false
     layer: 111
   }
-  zinc: {
+  titanium: {
     type: BasicBulletType
     sprite: md3-striped-bullet
     damage: 16
