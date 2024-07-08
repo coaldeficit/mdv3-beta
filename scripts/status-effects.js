@@ -113,7 +113,7 @@ let blazedEffect = extend(StatusEffect, "blazed-status", {
     effect: vfx.permabuffstatus,
     color: Color.valueOf("#FC934E"),
     permanent: true,
-    description: 'Protects units affected by it from temperature-based status effect. Makes any units affected by it summon fireballs.',
+    description: 'Protects units affected by it from heat-based status effects. Makes any units affected by it summon fireballs.',
     update(unit,time){
       this.super$update(unit,time);
       if (this.fireballTimer == undefined) this.fireballTimer = -1
@@ -156,14 +156,12 @@ blazedEffect.affinity(StatusEffects.tarred, ((unit, result, time) => {
     unit.heal(2)
     result.set(blazedEffect, result.time)
 }));
-blazedEffect.affinity(liquidHydrogenEffect, ((unit, result, time) => {
+/*blazedEffect.affinity(liquidHydrogenEffect, ((unit, result, time) => {
     unit.heal(3)
     result.set(blazedEffect, result.time)
-}));
+}));*/
 blazedEffect.opposite(StatusEffects.burning);
 blazedEffect.opposite(StatusEffects.melting);
-blazedEffect.opposite(StatusEffects.wet);
-blazedEffect.opposite(StatusEffects.freezing);
 
 module.exports = {
     //liquidHydrogenEffect: liquidHydrogenEffect,
