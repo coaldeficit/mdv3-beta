@@ -89,6 +89,7 @@ drawer: {
       layerOffset: 0.001
       moveX: -1.25
       moveY: -1.75
+      under: true
     }
     {
       type: RegionPart
@@ -98,6 +99,7 @@ drawer: {
       layerOffset: 0.001
       moveX: 1.25
       moveY: -1.75
+      under: true
     }
   ]
 }

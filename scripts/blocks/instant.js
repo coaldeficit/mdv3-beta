@@ -10,6 +10,7 @@ let bullet = extend(MissileBulletType, {
   height: 11,
   hitSize: 10,
   trailChance: 1,
+  trailEffect: Fx.disperseTrail,
   trailColor: Color.valueOf("#7575C8"),
   backColor: Color.valueOf("#7575C8"),
   frontColor: Color.valueOf("#919FE7"),
