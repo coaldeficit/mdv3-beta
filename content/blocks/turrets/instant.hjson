@@ -7,6 +7,7 @@ range: 200
 shootSound: missileSmall
 inaccuracy: 0
 rotateSpeed: 2.5
+shootCone: 135
 shoot: {
   type: ShootAlternate
   shots: 2
