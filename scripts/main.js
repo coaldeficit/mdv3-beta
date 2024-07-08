@@ -19,6 +19,7 @@ require('md3/blocks/ionizer');
 // require('md3/overtower');
 require('md3/blocks/recoverer');
 require('md3/blocks/frozen-wall');
+require('md3/blocks/instant');
 
 // unit stuff
 // ground
