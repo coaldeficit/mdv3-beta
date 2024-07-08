@@ -67,7 +67,6 @@ requirements: [
   thorium/2000
   phase-fabric/500
   surge-alloy/750
-  tefium/300
 ]
 research: firenado
 category: turret

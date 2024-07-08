@@ -22,7 +22,7 @@ recoilAmount: 1
 requirements: [
   copper/100
   lead/100
-  zinc/60
+  titanium/60
 ]
 category: turret
 research: arc

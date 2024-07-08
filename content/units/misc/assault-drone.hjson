@@ -13,7 +13,7 @@ circleTarget: true
 commandLimit: 0
 targetAir: true
 itemCapacity: 5
-isCounted: false
+useUnitCap: false
 hitSize: 6
 targetFlags: [null]
 playerTargetFlags: [null]

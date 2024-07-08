@@ -101,23 +101,6 @@ ammoTypes: {
     lightning: 2
     lightningLength: 7
   }
-  polonium: {
-    type: ArtilleryBulletType
-    speed: 4
-    hitEffect: flakExplosion
-    knockback: 0.8
-    ammoMultiplier: 1.5
-    lifetime: 150
-    width: 11
-    height: 11
-    collidesTiles: false
-    splashDamageRadius: 85
-    splashDamage: 120
-    frontColor: e8a982
-    backColor: e68e57
-    status: md3-irradiated-status
-    statusDuration: 120
-  }
 }
 requirements: [
   copper/750

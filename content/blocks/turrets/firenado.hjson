@@ -33,10 +33,7 @@ ammoTypes: {
   }
 }
 requirements: [
-  bronze/500
-  aluminium/300
   cobalt/230
-  radiode/200
   thorium/170
   surge-alloy/150
 ]
