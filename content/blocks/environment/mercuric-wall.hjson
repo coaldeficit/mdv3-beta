@@ -1,0 +1,5 @@
+type: StaticWall
+name: Mercuric Wall
+variants: 3
+mapColor: 525252
+useColor: true
