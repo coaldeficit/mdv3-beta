@@ -3,7 +3,7 @@ const vfx = require("md3/libs/vfx")
 const bulLib = require("md3/libs/bulletlib")
 
 // LH2 effect
-let liquidHydrogenEffect = extend(StatusEffect, "liquid-hydrogen-status-effect", {
+/*let liquidHydrogenEffect = extend(StatusEffect, "liquid-hydrogen-status-effect", {
     isHidden(){
       return false
     },
@@ -38,10 +38,10 @@ liquidHydrogenEffect.affinity(StatusEffects.melting, ((unit, result, time) => {
     unit.damagePierce(12)
     result.set(StatusEffects.melting, Math.min(result.time, 300))
     unit.unapply(liquidHydrogenEffect)
-}));
+}));*/
 
 // radiation effect (explanation: intense enough radiation can damage electronics irl)
-let radiationEffect = extend(StatusEffect, "irradiated-status", {
+/*let radiationEffect = extend(StatusEffect, "irradiated-status", {
     isHidden(){
       return false
     },
@@ -77,7 +77,7 @@ radiationEffect.affinity(StatusEffects.melting, ((unit, result, time) => {
     let h = statusFunc.checkstatus(unit, radiationEffect).time
     result.set(StatusEffects.melting, result.time)
     unit.apply(radiationEffect, h)
-}));
+}));*/
 
 let insulatedEffect = extend(StatusEffect, "insulated-status", {
     isHidden(){
@@ -113,7 +113,7 @@ let blazedEffect = extend(StatusEffect, "blazed-status", {
     effect: vfx.permabuffstatus,
     color: Color.valueOf("#FC934E"),
     permanent: true,
-    description: 'Protects units affected by it from temperature-based status effect. Makes any units affected by it summon fireballs.',
+    description: 'Protects units affected by it from heat-based status effects. Makes any units affected by it summon fireballs.',
     update(unit,time){
       this.super$update(unit,time);
       if (this.fireballTimer == undefined) this.fireballTimer = -1
@@ -156,18 +156,16 @@ blazedEffect.affinity(StatusEffects.tarred, ((unit, result, time) => {
     unit.heal(2)
     result.set(blazedEffect, result.time)
 }));
-blazedEffect.affinity(liquidHydrogenEffect, ((unit, result, time) => {
+/*blazedEffect.affinity(liquidHydrogenEffect, ((unit, result, time) => {
     unit.heal(3)
     result.set(blazedEffect, result.time)
-}));
+}));*/
 blazedEffect.opposite(StatusEffects.burning);
 blazedEffect.opposite(StatusEffects.melting);
-blazedEffect.opposite(StatusEffects.wet);
-blazedEffect.opposite(StatusEffects.freezing);
 
 module.exports = {
-    liquidHydrogenEffect: liquidHydrogenEffect,
-    radiationEffect: radiationEffect,
+    //liquidHydrogenEffect: liquidHydrogenEffect,
+    //radiationEffect: radiationEffect,
     insulatedEffect: insulatedEffect,
     blazedEffect: blazedEffect,
 };

@@ -19,9 +19,8 @@ consumes: {
 requirements: [
    titanium/140
    thorium/175
-   surge-alloy/90
+   surge-alloy/300
    vanadium/125
-   tefium/60
 ]
 category: production
 research: surge-drill

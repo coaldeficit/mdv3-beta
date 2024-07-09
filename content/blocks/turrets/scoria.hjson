@@ -34,7 +34,6 @@ ammoTypes: {
 }
 requirements: [
 	lead/85
-	bronze/55
 	metaglass/60
 	titanium/80
 ]
