@@ -6,14 +6,16 @@ let bullet = extend(MissileBulletType, {
   ammoMultiplier: 1,
   collidesGround: false,
   lifetime: 10,
-  width: 11,
-  height: 11,
+  width: 15,
+  height: 15,
   hitSize: 10,
-  trailChance: 1,
+  trailChance: 60,
   trailEffect: Fx.disperseTrail,
+  trailRotation: true,
   trailColor: Color.valueOf("#7575C8"),
   backColor: Color.valueOf("#7575C8"),
-  frontColor: Color.valueOf("#919FE7"),
+  frontColor: Color.valueOf("#FFFFFF"),
+  despawnEffect: Fx.none,
   update(b) {
     if (Math.round(b.time) == 4) {
       let target = Units.bestEnemy(b.team, b.x, b.y, 200, (e) => {return !e.dead && !e.isGrounded()}, UnitSorts.weakest)
