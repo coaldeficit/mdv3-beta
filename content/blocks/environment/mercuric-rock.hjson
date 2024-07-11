@@ -4,4 +4,4 @@ variants: 3
 mapColor: 525252
 useColor: true
 wall: mercuric-wall
-decoration: cinnabar-boulder
+decoration: mercuric-boulder
