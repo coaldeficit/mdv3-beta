@@ -118,7 +118,7 @@ let blazedEffect = extend(StatusEffect, "blazed-status", {
       this.super$update(unit,time);
       if (this.fireballTimer == undefined) this.fireballTimer = -1
       this.fireballTimer++
-      let tempEffects = [StatusEffects.burning, StatusEffects.melting, StatusEffects.wet, StatusEffects.freezing]
+      let tempEffects = [StatusEffects.burning, StatusEffects.melting]
       tempEffects.forEach(function(effect){
         if (statusFunc.checkstatus(unit, effect) != false) unit.unapply(effect)
       })
@@ -127,9 +127,9 @@ let blazedEffect = extend(StatusEffect, "blazed-status", {
         this.fireballTimer = 0
         let blazedFireball = bulLib.makeBullet({
           type: BasicBulletType,
-          width: 2*(getBaseLog(1.5, Math.max(unit.type.health/150, 1))+1),
-          height: 2*(getBaseLog(1.5, Math.max(unit.type.health/150, 1))+1),
-          damage: 14*(getBaseLog(1.5, Math.max(unit.type.health/150, 1))+1),
+          width: 2*(getBaseLog(1.5, Math.max(Math.min(unit.type.health, 506.25)/150, 1))+1),
+          height: 2*(getBaseLog(1.5, Math.max(Math.min(unit.type.health, 506.25)/150, 1))+1),
+          damage: 3*(getBaseLog(1.5, Math.max(Math.min(unit.type.health, 506.25)/150, 1))+1),
           speed: 2,
           lifetime: 32+unit.type.hitSize,
           status: StatusEffects.burning,
@@ -139,11 +139,14 @@ let blazedEffect = extend(StatusEffect, "blazed-status", {
           color: Pal.gray,
           backColor: Color.valueOf("#FC934E"),
           trailColor: Color.valueOf("#FC934E"),
-          trailLength: 7*(getBaseLog(1.5, Math.max(unit.type.health/150, 1))+1),
-          trailWidth: (1*(getBaseLog(1.5, Math.max(unit.type.health/150, 1))+1))*0.75,
+          trailLength: 7*(getBaseLog(1.5, Math.max(Math.min(unit.type.health, 506.25)/150, 1))+1),
+          trailWidth: (1*(getBaseLog(1.5, Math.max(Math.min(unit.type.health, 506.25)/150, 1))+1))*0.75,
           shrinkX: 0,
           shrinkY: 0,
-          keepVelocity: false
+          keepVelocity: false,
+          pierceBuilding: unit.type.flying ? false : true,
+          pierce: unit.type.flying ? false : true,
+          pierceCap: unit.type.flying ? -1 : unit.type.allowLegStep ? 2 : 3
         })
         let offset = 18
         for (let i=0;i<10;i++) {
