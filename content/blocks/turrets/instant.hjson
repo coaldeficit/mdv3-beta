@@ -17,6 +17,7 @@ shoot: {
 }
 targetGround: false
 unitSort: weakest
+liquidCapacity: 20
 drawer: {
   type: DrawTurret
   basePrefix: reinforced-
@@ -114,6 +115,7 @@ requirements: [
 category: turret
 research: {
   parent: sublimate
+  planet: erekir
   # requiresUnlock: false
   objectives: [
     {
