@@ -8,7 +8,7 @@ Events.on(ClientLoadEvent, () => {
           try {
             Vars.ui.showCustomConfirm("MoreDefences Update Available", "Would you like to download it and restart the game?", "OK", "Ignore",
               () => {
-                if (true == false) {
+                if (true == true) {
                   Vars.ui.mods.githubImportMod(
                     Vars.mods.locateMod("md3").getRepo(),
                     Vars.mods.locateMod("md3").isJava()
