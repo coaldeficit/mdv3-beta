@@ -1,4 +1,5 @@
 let instant = extend(ItemTurret, "instant", {
+  coolantMultiplier: 2.5,
   coolant: new ConsumeLiquid(Liquids.water, 15/60)
 });
 let bullet = extend(MissileBulletType, {
@@ -18,6 +19,8 @@ let bullet = extend(MissileBulletType, {
   backColor: Color.valueOf("#7575C8"),
   frontColor: Color.valueOf("#FFFFFF"),
   despawnEffect: Fx.none,
+  knockback: 3,
+  impact: true,
   update(b) {
     if (Math.round(b.time) == 4) {
       let target = Units.bestEnemy(b.team, b.x, b.y, 200, (e) => {return !e.dead && !e.isGrounded()}, UnitSorts.weakest)
