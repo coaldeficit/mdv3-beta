@@ -17,7 +17,7 @@ shoot: {
 }
 targetGround: false
 unitSort: weakest
-liquidCapacity: 20
+coolantMultiplier: 5
 drawer: {
   type: DrawTurret
   basePrefix: reinforced-

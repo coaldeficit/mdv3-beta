@@ -1,4 +1,6 @@
-let instant = extend(ItemTurret, "instant", {});
+let instant = extend(ItemTurret, "instant", {
+  coolant: new ConsumeLiquid(Liquids.water, 15/60)
+});
 let bullet = extend(MissileBulletType, {
   speed: 20,
   damage: 370,
