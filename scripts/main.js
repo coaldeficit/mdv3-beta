@@ -24,6 +24,7 @@ require("md3/units/refreshconstruct")
 // require('md3/blocks/recoverer');
 require('md3/blocks/frozen-wall');
 require('md3/blocks/instant');
+require('md3/blocks/delay');
 
 // unit stuff
 // ground

@@ -166,9 +166,21 @@ blazedEffect.affinity(StatusEffects.tarred, ((unit, result, time) => {
 blazedEffect.opposite(StatusEffects.burning);
 blazedEffect.opposite(StatusEffects.melting);
 
+let delayedEffect = extend(StatusEffect, "delayed-status", {
+    isHidden(){
+      return false
+    },
+    speedMultiplier: 0.8,
+    healthMultiplier: 0.9,
+    localizedName: 'Delayed',
+    effect: vfx.delayedstatus,
+    color: Color.valueOf("#00ffff")
+});
+
 module.exports = {
     //liquidHydrogenEffect: liquidHydrogenEffect,
     //radiationEffect: radiationEffect,
     insulatedEffect: insulatedEffect,
     blazedEffect: blazedEffect,
+    delayedEffect: delayedEffect,
 };

@@ -85,6 +85,11 @@ const b135impactShockwave = Effect(13, 300, e => {
   Lines.stroke(e.fout() * 4 + 0.2)
   Lines.circle(e.x, e.y, e.fin() * 200)
 });
+const delayedstatus = new Effect(30, e => {
+  Draw.z(110)
+  Draw.color(Color.valueOf("#00ffff"))
+  Fill.circle(e.x, e.y, e.fout() * 1.5);
+});
 
 module.exports = {
     lh2status: lh2status,
@@ -96,4 +101,5 @@ module.exports = {
     permabuffstatus: permabuffstatus,
     insulatedstatus: insulatedstatus,
     b135impactShockwave: b135impactShockwave,
+    delayedstatus: delayedstatus,
 };
