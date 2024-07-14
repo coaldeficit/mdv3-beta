@@ -30,7 +30,7 @@ require('md3/blocks/instant');
 // shotgunner line
 require("md3/units/ground/shotgunner/shotgunner")
 require("md3/units/ground/shotgunner/pounder")
-require("md3/units/ground/shotgunner/ordnance")
+require("md3/units/ground/shotgunner/slugger")
 require("md3/units/ground/shotgunner/mortar")
 require("md3/units/ground/shotgunner/howitzer")
 
