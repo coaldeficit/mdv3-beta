@@ -1,6 +1,20 @@
+const vfx = require("md3/libs/vfx")
+
 const ShotT3 = extend(UnitType, "slugger-mech", {});
 ShotT3.constructor = () => extend(LegsUnit, {});
-ShotT3.immunities.add(StatusEffects.corroded);
+
+let suppress = extend(SuppressionFieldAbility, {
+  range: 96,
+  update(unit) {
+    if (this.timer + Time.delta >= this.reload) {
+      vfx.sluggerSuppress.at(unit.x, unit.y)
+    }
+    this.super$update(unit)
+  },
+  draw(unit) {},
+  localized() {return 'Repair Suppression'} // todo: switch to using bundles
+})
+ShotT3.abilities.add(suppress)
 
 Blocks.multiplicativeReconstructor.addUpgrade(
   Vars.content.getByName(ContentType.unit, "md3-pounder-mech"),

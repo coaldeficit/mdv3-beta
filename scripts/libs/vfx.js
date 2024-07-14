@@ -90,6 +90,11 @@ const delayedstatus = new Effect(30, e => {
   Draw.color(Color.valueOf("#00ffff"))
   Fill.circle(e.x, e.y, e.fout() * 1.5);
 });
+const sluggerSuppress = Effect(22, e => {
+  Draw.color(Pal.suppress)
+  Lines.stroke(e.fout() * 2)
+  Lines.circle(e.x, e.y, 4 + e.finpow() * 96)
+});
 
 module.exports = {
     lh2status: lh2status,
@@ -102,4 +107,5 @@ module.exports = {
     insulatedstatus: insulatedstatus,
     b135impactShockwave: b135impactShockwave,
     delayedstatus: delayedstatus,
+    sluggerSuppress: sluggerSuppress,
 };

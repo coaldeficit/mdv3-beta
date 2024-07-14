@@ -50,6 +50,7 @@ weapons: [{
     height: 12
     splashDamageRadius: 16
     splashDamage: 35
+    collidesAir: false
     despawnEffect: flakExplosion 
     smokeEffect: flakExplosion 
     trailEffect: fireSmoke 

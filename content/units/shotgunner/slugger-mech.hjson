@@ -1,12 +1,23 @@
 name: Slugger
 flying: false
-description: Rapid fires powerful slug shells that pierce enemy units and structures. Can walk over most terrain.
-speed: 0.3
-health: 1450
-armor: 15
-hitSize: 15
-hovering: true
-allowLegStep: true
+description: Rapidly fires powerful slug shells that pierce enemy units and structures. Suppresses enemy structure repair blocks. Can walk over most terrain.
+speed: 0.5
+health: 1400
+armor: 3
+hitSize: 17
+rotateSpeed: 3
+faceTarget: false
+#abilities: [
+#  {
+#    type: SuppressionFieldAbility
+#    range: 96
+#    orbRadius: 0
+#    particles: 0
+#    orbMidScl: 0
+#    orbSinScl: 0
+#    orbSinMag: 0
+#  }
+#]
 
 // legs
 legStraightness: .1
@@ -36,26 +47,23 @@ weapons: [{
   rotate: true
   y: -3
   x: 0
-   shoot: {
-    type: ShootSpread
-    shots: 4
-    spread: 1.5
-  }
-  inaccuracy: 0
-  reload: 24
-  shootSound: shotgun
+  inaccuracy: 12.5
+  reload: 6
+  shootSound: bigshot
   velocityRnd: 0.5
   mirror: false
+  rotateSpeed: 4
   bullet: {	
-    type: ShrapnnelBulletType	
-    speed: 13
-    damage: 12
-    lifetime: 12
+    speed: 3
+    damage: 10
+    splashDamageRadius: 16
+    splashDamage: 10
+    lifetime: 31
     width: 9
     height: 8
-    pierce: 2
+    pierce: true
+    pierceBuilding: true
+    pierceCap: 2
   }
 }]
-range: 60
 itemCapacity: 40
-targetAir: false
