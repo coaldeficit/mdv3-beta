@@ -170,7 +170,7 @@ let delayedEffect = extend(StatusEffect, "delayed-status", {
     isHidden(){
       return false
     },
-    speedMultiplier: 0.8,
+    speedMultiplier: 0.7,
     healthMultiplier: 0.9,
     localizedName: 'Delayed',
     effect: vfx.delayedstatus,
