@@ -1,6 +1,6 @@
 name: "Core: Monoquark"
 description: Core of the base. Once destroyed the sector is lost.
-details: Core of the first tier./nUnarmored and lacks storage capacity.\nMakes up for its weaknesses through low cost and low mass, being the only core light enough to be easily launched into other sectors under the high gravity of Fieros.
+details: "Core of the first tier.\nPoorly armored and lacks storage capacity.\nVery cheap and lightweight, can be launched onto other spots on fieros with relative ease compared to more massive cores."
 size: 3
 unitType: alpha
 health: 800
