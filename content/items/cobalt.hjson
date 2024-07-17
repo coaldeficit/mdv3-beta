@@ -4,3 +4,4 @@ description: A hard, slightly brittle metal used for most construction on Fieros
 cost: 0.5
 hardness: 0
 color: a8b0e6
+alwaysUnlocked: true

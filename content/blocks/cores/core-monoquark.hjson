@@ -16,6 +16,6 @@ category: effect
 research: {
   root: true
   name: Fieros
-  alwaysUnlocked: true
   planet: md3-fieros
 }
+alwaysUnlocked: true

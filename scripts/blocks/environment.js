@@ -15,6 +15,7 @@ let hotNiebieskite = extend(Floor, "niebieskite-hot", {});
 hotNiebieskite.attributes.set(Attribute.heat, 0.5);
 let hotMetacinnabar = extend(Floor, "metacinnabar-hot", {});
 hotMetacinnabar.attributes.set(Attribute.heat, 0.5);
+let dimethyl = extend(Floor, "dimethylmercury", {});
 
 module.exports = {
   //vanadinite: vanadinite,
@@ -22,4 +23,5 @@ module.exports = {
   //chalcanthite: chalcanthite,
   hotNiebieskite: hotNiebieskite,
   hotMetacinnabar: hotMetacinnabar,
+  dimethyl: dimethyl,
 };

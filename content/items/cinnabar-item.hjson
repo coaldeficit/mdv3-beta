@@ -4,3 +4,4 @@ description: A soft vein-filling volcanic mineral used for most construction on 
 cost: 0.5
 hardness: 0
 color: E34234
+alwaysUnlocked: true
