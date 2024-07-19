@@ -13,10 +13,15 @@ let chalcanthite = extend(OverlayFloor, "chalcanthite", {
 });*/
 let hotNiebieskite = extend(Floor, "niebieskite-hot", {});
 hotNiebieskite.attributes.set(Attribute.heat, 0.5);
+let hotMetacinnabar = extend(Floor, "metacinnabar-hot", {});
+hotMetacinnabar.attributes.set(Attribute.heat, 0.5);
+let dimethyl = extend(Floor, "dimethyl", {});
 
 module.exports = {
   //vanadinite: vanadinite,
   //adamite: adamite,
   //chalcanthite: chalcanthite,
-  hotNiebieskite: hotNiebieskite
+  hotNiebieskite: hotNiebieskite,
+  hotMetacinnabar: hotMetacinnabar,
+  dimethyl: dimethyl,
 };
