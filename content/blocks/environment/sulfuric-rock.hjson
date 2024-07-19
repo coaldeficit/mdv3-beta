@@ -1,0 +1,5 @@
+type: Floor
+name: Sulfuric Rock
+variants: 3
+wall: sulfuric-wall
+decoration: sulfuric-boulder
