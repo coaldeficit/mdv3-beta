@@ -9,6 +9,7 @@ require("md3/status-effects")
 require("md3/blocks/environment")
 
 require('md3/blocks/cores');
+require('md3/blocks/distribution');
 // require("md3/blocks/vanadium-extractor")
 // require("md3/blocks/vanadium-megaextractor")
 require("md3/blocks/aerial-drill")
