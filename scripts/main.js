@@ -4,6 +4,7 @@ require("md3/libs/shaders")
 require("md3/settings")
 require("md3/autoupdate")
 
+require("md3/items")
 require("md3/status-effects")
 // require("md3/liquids")
 require("md3/blocks/environment")
@@ -27,6 +28,8 @@ require("md3/units/refreshconstruct")
 require('md3/blocks/frozen-wall');
 require('md3/blocks/instant');
 require('md3/blocks/delay');
+
+require('md3/fieros-blacklist');
 
 // unit stuff
 // ground
