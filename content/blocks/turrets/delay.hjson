@@ -73,8 +73,7 @@ research: {
   objectives: [
     {
       type: SectorComplete
-      # \/ temporary, todo: replace with fortification
-      preset: peaks
+      preset: fortification
     }
     {
       type: OnSector
