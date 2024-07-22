@@ -75,9 +75,5 @@ research: {
       type: SectorComplete
       preset: fortification
     }
-    {
-      type: OnSector
-      preset: ravine
-    }
   ]
 }

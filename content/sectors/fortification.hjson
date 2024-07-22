@@ -3,12 +3,11 @@ planet: erekir
 sector: 63
 difficulty: 8
 research: {
-  parent: peaks
+  parent: ravine
   objectives: [
     {
       type: SectorComplete
-      preset: peaks
+      preset: ravine
     }
-    core-citadel
   ]
 }
