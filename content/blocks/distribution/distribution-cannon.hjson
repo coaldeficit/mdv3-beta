@@ -1,0 +1,17 @@
+type: MassDriver
+name: Distribution Cannon
+description: Fires small amounts of items at another Distribution Cannon in range
+size: 1
+itemCapacity: 20
+squareSprite: false
+reload: 80
+range: 75
+category: distribution
+research: {
+  parent: cobalt-channel
+  planet: md3-fieros
+}
+requirements: [
+  cobalt/60
+  cinnabar-item/40
+]
