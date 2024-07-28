@@ -1,6 +1,6 @@
 type: MassDriver
-name: Cargo Launcher
-description: Fires small amounts of items at another Cargo Launcher in range.
+name: Launcher
+description: Fires small amounts of items at another Launcher in range.
 size: 1
 itemCapacity: 15
 squareSprite: false
