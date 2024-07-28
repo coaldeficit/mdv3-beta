@@ -2,7 +2,7 @@ type: BeamDrill
 name: Laser Bore
 description: temp
 size: 2
-range: 5
+range: 7
 drillTime: 450
 tier: 2
 sparks: 15
@@ -12,8 +12,7 @@ sparkLife: 25
 sparkSpread: 110
 sparkRange: -4
 requirements: [
-  cobalt/20
-  cinnabar-item/10
+  cobalt/40
 ]
 category: production
 research: {
