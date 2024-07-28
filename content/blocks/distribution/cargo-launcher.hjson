@@ -5,11 +5,11 @@ size: 1
 itemCapacity: 15
 squareSprite: false
 reload: 120
-range: 40
+range: 44
 minDistribute: 5
 shake: 0
 bulletSpeed: 4
-bulletLifetime: 11
+bulletLifetime: 12
 envDisabled: 24
 category: distribution
 research: {
