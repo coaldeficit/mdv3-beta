@@ -1,0 +1,22 @@
+type: BeamDrill
+name: Laser Bore
+description: temp
+size: 2
+range: 5
+drillTime: 450
+tier: 2
+sparks: 15
+sparkSize: 5
+sparkRecurrence: 4
+sparkLife: 25
+sparkSpread: 110
+sparkRange: -4
+requirements: [
+  cobalt/20
+  cinnabar-item/10
+]
+category: production
+research: {
+  parent: core-monoquark
+  planet: md3-fieros
+}
