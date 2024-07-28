@@ -4,13 +4,14 @@ description: temp
 size: 2
 range: 7
 drillTime: 450
-tier: 2
+tier: 1
 sparks: 15
 sparkSize: 5
 sparkRecurrence: 4
 sparkLife: 25
 sparkSpread: 110
 sparkRange: -4
+envDisabled: 24
 requirements: [
   cobalt/40
 ]
