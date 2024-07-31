@@ -49,7 +49,7 @@ weapons: [{
   x: 0
   inaccuracy: 12.5
   reload: 6
-  shootSound: bigshot
+  shootSound: slugger-bullet
   velocityRnd: 0.5
   mirror: false
   rotateSpeed: 4
