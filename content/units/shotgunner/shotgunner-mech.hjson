@@ -52,3 +52,12 @@ weapons: [{
     height: 5
   }
 }]
+research: {
+  parent: dagger
+  objectives: [
+    {
+      type: SectorComplete
+      preset: reentry
+    },
+  ]
+}
