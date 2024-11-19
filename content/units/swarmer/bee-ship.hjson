@@ -12,10 +12,9 @@ rotatespeed: 3
 circleTarget: true
 targetFlags: [turret, battery, null]
 playerTargetFlags: [turret, battery, null]
-rotateShooting: false
 weapons: [{
   name: artillery-mount-2
-  top: false
+  top: true
   rotate: false
   y: 2
   x: 5
