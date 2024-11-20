@@ -14,7 +14,7 @@ playerTargetFlags: [turret, battery, null]
 faceTarget: false
 targetAir: false
 weapons: [{
-  name: artillery-mount-2
+  name: swarmer-weapon
   top: true
   rotate: true
   y: 2
