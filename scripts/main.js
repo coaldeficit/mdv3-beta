@@ -62,5 +62,8 @@ require("md3/units/air/bombardier/tundra")
 require("md3/units/bosses/havoc")
 require("md3/units/bosses/crusher")
 
+// misc
+require("md3/units/air/drones")
+
 // experimental
 // require("md3/experimental/experimental")

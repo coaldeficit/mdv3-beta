@@ -1,15 +1,15 @@
-name: Assault Drone
-description: A weak drone. Designed to distract weak enemy defences.
-speed: 2.3
+name: Assaulter
+description: A weak drone used as a source of extra firepower by some weapons systems. Self-destructs after a short period of time.
+speed: 2.5
 flying: true
-health: 40
-engineOffset: 3
-engineSize: 1.25
-drag: 0.1
-accel: 0.07
-range: 60
-rotateSpeed: 19
+health: 60
+engineOffset: 5
+engineSize: 2.5
+drag: 0.02
+accel: 0.03
+rotateSpeed: 3
 circleTarget: true
+faceTarget: false
 commandLimit: 0
 targetAir: true
 itemCapacity: 5
@@ -17,18 +17,29 @@ useUnitCap: false
 hitSize: 6
 targetFlags: [null]
 playerTargetFlags: [null]
+lifetime: 600
 weapons: [{
   name: generic-bomber-weapon
   y: 0
-  x: 1
-  reload: 13
-  alternate: true
-  shootSound: pew
+  x: 0
+  reload: 30
+  shootSound: lasershoot
   inaccuracy: 0
+  mirror: false
+  shootCone: 361
   bullet: {
-    speed: 4
-    damage: 5
-    ammoMultiplier: 1
-    lifetime: 15
+    type: LaserBoltBulletType
+    speed: 5.2
+    damage: 12
+    lifetime: 30
+    collidesTeam: false
+    healPercent: -1
+    backColor: f68021
+    lightColor: f68021
+    smokeEffect: hitLaserColor
+    hitEffect: hitLaserColor
+    despawnEffect: hitLaserColor
+    pierceCap: 3
+    pierceBuilding: true
   }
 }]
