@@ -10,7 +10,7 @@ rotateSpeed: 5
 targetInterval: 3
 shoot: {
   type: ShootSpread
-  spread: 3
+  spread: 6
   shots: 13
 }
 ammoTypes: {
@@ -22,14 +22,16 @@ ammoTypes: {
   }
   pyratite: {
     speed: 3
-    damage: 14
+    damage: 18
+    reloadMultiplier: 0.8
     ammoMultiplier: 2
     lifetime: 27
     status: burning
     statusDuration: 960
-    makeFire: true
-    frontColor: f8ad42
-    backColor: f6e096
+    incendAmount: 1
+    incendChance: 0.03
+    frontColor: f6e096
+    backColor: f8ad42
   }
   metaglass: {
     speed: 5
@@ -37,8 +39,8 @@ ammoTypes: {
     ammoMultiplier: 2
     lifetime: 16
     reloadMultiplier: 1.25
-    fragBullets: 5
-    fragSpread: 72
+    fragBullets: 7
+    fragSpread: 51.42
     fragVelocityMin: 1
     fragOffsetMax: 1
     fragLifeMin: 0.2
