@@ -12,12 +12,19 @@ circleTarget: true
 faceTarget: false
 commandLimit: 0
 targetAir: true
-itemCapacity: 5
+itemCapacity: 0
 useUnitCap: false
 hitSize: 6
 targetFlags: [null]
 playerTargetFlags: [null]
 lifetime: 600
+allowChangeCommands: false
+stances: [pursuetarget]
+playerControllable: false
+logicControllable: false
+physics: false
+crashDamageMultiplier: 0
+createWreck: false
 weapons: [{
   name: generic-bomber-weapon
   y: 0
@@ -27,6 +34,8 @@ weapons: [{
   inaccuracy: 0
   mirror: false
   shootCone: 361
+  useAttackRange: false
+  rotationLimit: 0
   bullet: {
     type: LaserBoltBulletType
     speed: 5.2
@@ -43,3 +52,4 @@ weapons: [{
     pierceBuilding: true
   }
 }]
+range: 280
