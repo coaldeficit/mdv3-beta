@@ -14,6 +14,7 @@ shoot: {
 shootSound: missile
 targetAir: false
 maxAmmo: 20
+unitSort: weakest
 requirements: [
   titanium/80
   graphite/80
