@@ -28,6 +28,7 @@ require("md3/units/refreshconstruct")
 require('md3/blocks/frozen-wall');
 require('md3/blocks/instant');
 require('md3/blocks/delay');
+require('md3/blocks/puncture');
 
 require('md3/fieros-blacklist');
 
