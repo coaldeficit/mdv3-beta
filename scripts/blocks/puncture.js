@@ -31,7 +31,7 @@ let titaMissile = extend(MissileBulletType, {
   hitEntity(b, entity, health) {
     let crit = false
     if (entity instanceof Unit) {
-      if (entity.maxHealth - health < 50) {
+      if (entity.maxHealth - health < 150) {
         b.damage *= 11
         crit = true
         b.data = "crit"
