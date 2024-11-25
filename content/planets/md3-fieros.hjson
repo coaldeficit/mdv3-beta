@@ -5,11 +5,11 @@ generator: AsteroidGenerator
 accessible: true
 alwaysUnlocked: false
 bloom: false
-startSector: 793
+startSector: 27
 iconColor: 292A55
 hasAtmosphere: true
 atmosphereColor: 45351120
-atmosphereRadIn: 0
+atmosphereRadIn: 0.05
 atmosphereRadOut: 0.1
 rotateTime: 2076
 orbitRadius: 132
@@ -26,65 +26,76 @@ clearSectorOnLose: true
 enemyBuildSpeedMultiplier: 0.6
 
 defaultCore: core-monoquark
-itemWhitelist: [cobalt, cinnabar-item]
 
 mesh: [
   { # DMM
     type: NoiseMesh
     seed: 69
     # Mesh "quality". More divisions = more hexagons.
-    divisions: 7
-    color: ebb9db
-    radius: 1
+    divisions: 6
+    color: 690940
+    radius: 1.05
     octaves: 1
     persistence: 1
     scale: 1
     mag: 0
   },
-  { # NIEBIESKITE
+  { # NIEBIESKITE, SULFURIC ROCK
     type: NoiseMesh
-    seed: 89376196
+    seed: 5647267
     # Mesh "quality". More divisions = more hexagons.
     divisions: 6
-    color1: 414279
-    color2: 484985
-    radius: 0.945
+    color1: 292A55
+    color2: 998B15
+    radius: 0.9219
     octaves: 3
     persistence: 1
-    scale: 1.1
+    scale: 0.6
+    mag: 1.3
+    colorScale: 1.59
+    colorThreshold: 0.6
+  },
+  { # SHALLOW NIEBIESKITE, SHALLOW CINNABAR
+    type: NoiseMesh
+    seed: 5647267
+    # Mesh "quality". More divisions = more hexagons.
+    divisions: 6
+    color1: bca6bd
+    color2: CC392E
+    radius: 0.98805
+    octaves: 3
+    persistence: 1
+    scale: 0.6
     mag: 0.6
-    colorScale: 26
+    colorScale: 1.59
     colorThreshold: 0.6
   },
-  { # METACINNABAR
+  { # METACINNABAR, MERCURIC ROCK
     type: NoiseMesh
-    seed: 89376197
+    seed: 5647267
     # Mesh "quality". More divisions = more hexagons.
     divisions: 6
-    color1: 2b2b2b
-    color2: 3b3b3b
-    radius: 0.92
-    octaves: 3
-    persistence: 1
-    scale: 1.1
-    mag: 0.9
-    colorScale: 21
-    colorThreshold: 0.6
+    color1: 121212
+    color2: 444444
+    radius: 0.882
+    octaves: 4
+    persistence: 0.4
+    scale: 0.6
+    mag: 1.6
+    colorScale: 8
+    colorThreshold: 0.55
   },
-  { # UNSPECIFIED PEACH STONE
+  { # PESSEGITE
     type: NoiseMesh
-    seed: 89376197
+    seed: 5647267
     # Mesh "quality". More divisions = more hexagons.
     divisions: 6
-    color1: b39976
-    color2: bfa37e
-    radius: 0.8975
-    octaves: 3
-    persistence: 1
-    scale: 1.1
-    mag: 1.1
-    colorScale: 23
-    colorThreshold: 0.5
+    color: f2c66d
+    radius: 0.745
+    octaves: 4
+    persistence: 0.5
+    scale: 0.6
+    mag: 3.2
   },
 ]
 cloudMesh: [
