@@ -5,6 +5,6 @@ ShotT5.immunities.add(StatusEffects.freezing);
 ShotT5.immunities.add(StatusEffects.wet);
 
 Blocks.tetrativeReconstructor.addUpgrade(
-  Vars.content.getByName(ContentType.unit, "md3-mortar-mech"),
+  Vars.content.getByName(ContentType.unit, "md3-rocketeer-mech"),
   Vars.content.getByName(ContentType.unit, "md3-howitzer-mech")
 )

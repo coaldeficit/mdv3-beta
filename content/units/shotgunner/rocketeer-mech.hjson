@@ -1,0 +1,32 @@
+name: Rocketeer
+flying: false
+description: Slowly fires long-range homing missiles and lobs groups of Daggers past enemy defences.
+speed: 0.5
+health: 6600
+armor: 7
+hitSize: 26
+rotateSpeed: 2
+
+// legs
+legSpeed: 0.2
+stepShake: 1
+legCount: 6
+legLength: 30
+legExtension: -15
+legBaseOffset: 10
+legLengthScl: .96
+legPairOffset: 3
+rippleScale: 2
+legMoveSpace: 1
+allowLegStep: true
+hovering: true
+legSplashDamage: 32
+legSplashRange: 30
+
+itemCapacity: 60
+research: {
+  parent: slugger-mech
+  objectives: [
+    exponential-reconstructor
+  ]
+}
