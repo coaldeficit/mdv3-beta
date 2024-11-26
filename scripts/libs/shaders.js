@@ -8,6 +8,7 @@ Events.on(ClientLoadEvent, e => {
       dmmShaderCache = new CacheLayer.ShaderLayer(dmmShader)
       CacheLayer.add(0, dmmShaderCache);
       environment.dimethyl.cacheLayer = dmmShaderCache
+      environment.cinnabarDMM.cacheLayer = dmmShaderCache
     } catch (error) {
       Vars.ui.showOkText("MoreDefences Shader Error", "An error has occured while loading shaders for MoreDefences.\nIf you are on mobile, your device may not support the shaders in MoreDefences.\n\nPlease disable \"Load Shaders On Startup\" in the MoreDefences settings and restart the game to avoid unintended behaviour.", ()=>{})
       return
