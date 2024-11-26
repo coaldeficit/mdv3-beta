@@ -16,11 +16,11 @@ hotNiebieskite.attributes.set(Attribute.heat, 0.5);
 let hotMetacinnabar = extend(Floor, "metacinnabar-hot", {});
 hotMetacinnabar.attributes.set(Attribute.heat, 0.5);
 let dimethyl = extend(Floor, "dimethyl", {});
-let cinnabarDMM = extend(Floor, "cinnabar-dimethyl", {
-  variants: 3,
-  speedMultiplier: 0.7,
-  isLiquid: true
-});
+//let cinnabarDMM = extend(Floor, "cinnabar-dimethyl", {
+//  variants: 3,
+//  speedMultiplier: 0.7,
+//  isLiquid: true
+//});
 
 module.exports = {
   //vanadinite: vanadinite,

@@ -1,2 +1,5 @@
 name: Cinnabar Dimethyl
+variants: 3
+speedMultiplier: 0.7
+isLiquid: true
 wall: cinnabar-dimethyl-wall
