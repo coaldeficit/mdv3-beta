@@ -29,5 +29,5 @@ module.exports = {
   hotNiebieskite: hotNiebieskite,
   hotMetacinnabar: hotMetacinnabar,
   dimethyl: dimethyl,
-  cinnabarDMM: cinnabarDMM,
+  //cinnabarDMM: cinnabarDMM,
 };
