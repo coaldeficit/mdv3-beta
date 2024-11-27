@@ -55,12 +55,12 @@ mesh: [
     colorScale: 1.59
     colorThreshold: 0.6
   },
-  { # SHALLOW NIEBIESKITE, SHALLOW CINNABAR
+  { # LITHIMENT, SHALLOW CINNABAR
     type: NoiseMesh
     seed: 5647267
     # Mesh "quality". More divisions = more hexagons.
     divisions: 6
-    color1: bca6bd
+    color1: 968895
     color2: CC392E
     radius: 0.98805
     octaves: 3
