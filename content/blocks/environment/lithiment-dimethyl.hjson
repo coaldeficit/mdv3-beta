@@ -1,8 +1,7 @@
-type: Floor
-name: Dilithiment
+name: Lithiment Dimethyl
 variants: 3
 mapColor: a47790
 useColor: true
-wall: dilithiment-wall
+wall: lithiment-dimethyl-wall
 speedMultiplier: 0.7
 isLiquid: true
