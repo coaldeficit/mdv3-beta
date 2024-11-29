@@ -1,0 +1,8 @@
+type: Floor
+name: Dilithiment
+variants: 3
+mapColor: a47790
+useColor: true
+wall: dilithiment-wall
+speedMultiplier: 0.7
+isLiquid: true
