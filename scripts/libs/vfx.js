@@ -95,6 +95,14 @@ const sluggerSuppress = Effect(22, e => {
   Lines.stroke(e.fout() * 2)
   Lines.circle(e.x, e.y, 4 + e.finpow() * 96)
 });
+const blastFuseShoot = Effect(12, e => {
+  Draw.color(Color.white, Color.valueOf("FF795E"), e.fin())
+  Lines.stroke(e.fout() * 1.2 + 0.5)
+  
+  Angles.randLenVectors(e.id, 7, 25 + e.finpow(), e.rotation, 50, (x, y) => {
+    Lines.lineAngle(e.x + x, e.y + y, Mathf.angle(x, y), e.fin() * 5 + 2)
+  });
+});
 
 module.exports = {
     lh2status: lh2status,
@@ -108,4 +116,5 @@ module.exports = {
     b135impactShockwave: b135impactShockwave,
     delayedstatus: delayedstatus,
     sluggerSuppress: sluggerSuppress,
+    blastFuseShoot: blastFuseShoot,
 };

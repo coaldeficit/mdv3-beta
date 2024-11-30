@@ -7,7 +7,6 @@ let rage = extend(Item, "rage", {})
 module.exports = {
   cobalt: cobalt,
   cinnabar: cinnabar,
-
   radium: radium,
   rage: rage,
 };
