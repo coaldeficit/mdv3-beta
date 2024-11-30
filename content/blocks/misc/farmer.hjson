@@ -2,7 +2,7 @@ type: AttributeCrafter
 name: Germinator
 description: An upgraded cultivator. Feeds spores nutritional supplements for faster growth.
 health: 600
-craftTime: 120
+craftTime: 100
 size: 3
 itemCapacity: 30
 liquidCapacity: 150
