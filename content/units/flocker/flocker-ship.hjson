@@ -1,4 +1,4 @@
-name: Swarmer
+name: Flocker
 description: A tanky swarming unit designed to distract enemy defences. 
 speed: 2.2
 flying: true
@@ -14,7 +14,7 @@ playerTargetFlags: [turret, battery, null]
 faceTarget: false
 physics: false
 weapons: [{
-  name: swarmer-weapon
+  name: flocker-weapon
   top: true
   rotate: true
   y: -2

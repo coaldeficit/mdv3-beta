@@ -6,16 +6,14 @@ drag: 0.01
 accel: 0.1
 hitSize: 80
 flying: true
-health: 20000
+health: 19000
 armor: 10
 rotateSpeed: 0.75
 circleTarget: true
-commandLimit: 6
 engineOffset: 11
 engineSize: 6.5
 targetAir: true
 faceTarget: false
 targetFlags: [reactor, generator, turret, null]
-playerTargetFlags: [reactor, generator, turret, null]
-range: 600
+range: 245
 itemCapacity: 230

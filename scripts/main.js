@@ -31,8 +31,6 @@ require('md3/blocks/delay');
 require('md3/blocks/puncture');
 require('md3/blocks/vanilla-turret-ammo');
 
-//require('md3/fieros-blacklist');
-
 // unit stuff
 // ground
 // shotgunner line
@@ -44,17 +42,11 @@ require("md3/units/ground/shotgunner/howitzer")
 
 // air
 // swarmer line
-require("md3/units/air/swarmer/swarmer")
-require("md3/units/air/swarmer/bee")
-require("md3/units/air/swarmer/hornet")
-require("md3/units/air/swarmer/messenger")
-require("md3/units/air/swarmer/communicator")
-// bombardier line
-require("md3/units/air/bombardier/bombardier")
-require("md3/units/air/bombardier/pelter")
-require("md3/units/air/bombardier/showerer")
-require("md3/units/air/bombardier/avalanche")
-require("md3/units/air/bombardier/tundra")
+require("md3/units/air/flocker/flocker")
+require("md3/units/air/flocker/bee")
+require("md3/units/air/flocker/hornet")
+require("md3/units/air/flocker/messenger")
+require("md3/units/air/flocker/tundra")
 
 // naval
 // lucifrons line

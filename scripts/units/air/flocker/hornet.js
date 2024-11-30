@@ -1,5 +1,5 @@
-const SwarmerT3 = extend(UnitType, "hornet-ship", {});
-SwarmerT3.constructor = () => extend(UnitEntity, {});
+const FlockT3 = extend(UnitType, "hornet-ship", {});
+FlockT3.constructor = () => extend(UnitEntity, {});
 
 Blocks.multiplicativeReconstructor.addUpgrade(
   Vars.content.getByName(ContentType.unit, "md3-bee-ship"),

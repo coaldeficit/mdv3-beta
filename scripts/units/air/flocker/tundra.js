@@ -3,8 +3,8 @@ const bulLib = require("md3/libs/bulletlib")
 const rng = require("md3/libs/rng")
 const blockcheck = require("md3/libs/blockcheck")
 const icewall = require("md3/blocks/frozen-wall")
-const BomberT5 = extend(UnitType, "tundra-ship", {});
-BomberT5.constructor = () => extend(UnitEntity, {});
+const FlockT5 = extend(UnitType, "tundra-ship", {});
+FlockT5.constructor = () => extend(UnitEntity, {});
 
 const tundraBombFrag = extend(ArtilleryBulletType, {
   speed: 2,
@@ -109,12 +109,12 @@ const railgun = extend(Weapon, {
   shootSound: Sounds.bigshot,
   bullet: bulLib.makeBullet({
     type: LaserBoltBulletType,
-    speed: 20,
+    speed: 7,
     hitSound: Sounds.explosionbig,
     width: 6,
     height: 50,
-    damage: 400,
-    splashDamage: 350,
+    damage: 200,
+    splashDamage: 100,
     splashDamageRadius: 8,
     status: StatusEffects.disarmed,
     statusDuration: 60,
@@ -123,12 +123,12 @@ const railgun = extend(Weapon, {
   }),
 });
 
-BomberT5.weapons.add(
+FlockT5.weapons.add(
   bombCannon,
   railgun,
 );
 
 Blocks.tetrativeReconstructor.addUpgrade(
-  Vars.content.getByName(ContentType.unit, "md3-avalanche-ship"),
+  Vars.content.getByName(ContentType.unit, "md3-messenger-ship"),
   Vars.content.getByName(ContentType.unit, "md3-tundra-ship")
 )

@@ -15,5 +15,4 @@ This is a list of people who have contributed to developing this mod.
 - [coal deficit](https://github.com/coaldeficit): Developer
 - [IvyX](https://github.com/TheRealIvyX): Former developer, made most of the content in the mod prior to handing over the project to [coal deficit](https://github.com/coaldeficit)
 - [7rodo](https://github.com/7rodo): Co-developer
-- [Awesomespore](https://github.com/Awesomespore): Made a pull request that nerfed instant's bullet range
 - [meowkitty](https://github.com/meowkitty9694e): Made and remade various environmental tile sprites
