@@ -12,9 +12,9 @@ legSpeed: 0.2
 stepShake: 1
 legCount: 6
 legLength: 30
-legExtension: -15
+legExtension: -100
 legBaseOffset: 10
-legLengthScl: .96
+legLengthScl: .56
 legPairOffset: 3
 rippleScale: 2
 legMoveSpace: 1
