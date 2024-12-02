@@ -1,7 +1,7 @@
 name: Rocketeer
 flying: false
 description: Slowly fires long-range homing missiles and lobs groups of Daggers past enemy defences.
-speed: 0.25
+speed: 0.5
 health: 6600
 armor: 7
 hitSize: 26
@@ -11,10 +11,10 @@ rotateSpeed: 2
 legSpeed: 0.1
 stepShake: 1
 legCount: 6
-legLength: 15
+legLength: 45
 legExtension: -10
 legBaseOffset: 10
-legLengthScl: .95
+legLengthScl: .9
 legPairOffset: 3
 rippleScale: 2
 legMoveSpace: 1
