@@ -49,8 +49,8 @@ require("md3/units/air/flocker/messenger")
 require("md3/units/air/flocker/tundra")
 
 // naval
-// lucifrons line
-// require("md3/units/naval/lucifrons/lucifrons")
+// mycena line
+require("md3/units/naval/mycena/mycena")
 
 // bosses
 require("md3/units/bosses/havoc")

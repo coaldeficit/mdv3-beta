@@ -12,7 +12,7 @@ let suppress = extend(SuppressionFieldAbility, {
     this.super$update(unit)
   },
   draw(unit) {},
-  localized() {return 'Repair Suppression'} // todo: switch to using bundles
+  getBundle() {return 'ability.suppressionfield'},
 })
 ShotT3.abilities.add(suppress)
 
