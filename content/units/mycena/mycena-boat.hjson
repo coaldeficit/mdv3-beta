@@ -9,6 +9,9 @@ health: 220
 hitSize: 10
 rotateSpeed: 8
 faceTarget: false
+waveTrailX: 3
+trailScl: 1.2
+trailLength: 22
 weapons: [{
   name: generic-bomber-weapon
   top: true
