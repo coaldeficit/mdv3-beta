@@ -11,7 +11,7 @@ rotateSpeed: 2
 legSpeed: 0.2
 stepShake: 1
 legCount: 6
-legLength: 30
+legLength: 10
 legExtension: -10
 legBaseOffset: 10
 legLengthScl: .56
