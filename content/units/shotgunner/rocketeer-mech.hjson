@@ -14,7 +14,7 @@ legCount: 6
 legLength: 15
 legExtension: -10
 legBaseOffset: 10
-legLengthScl: .56
+legLengthScl: .95
 legPairOffset: 3
 rippleScale: 2
 legMoveSpace: 1
