@@ -34,7 +34,7 @@ const launcher = extend(Weapon, {
   name: "md3-rocketeer-launcher",
   y: -3,
   x: 13,
-  top: true,
+  //top: true,
   inaccuracy: 0,
   reload: 90,
   shootSound: Sounds.missileLarge,
