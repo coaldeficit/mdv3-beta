@@ -12,6 +12,7 @@ rotatespeed: 3
 circleTarget: true
 targetFlags: [turret, battery, null]
 playerTargetFlags: [turret, battery, null]
+itemCapacity: 0
 weapons: [{
   name: artillery-mount-2
   top: true

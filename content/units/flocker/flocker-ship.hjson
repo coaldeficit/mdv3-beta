@@ -13,6 +13,7 @@ targetFlags: [turret, battery, null]
 playerTargetFlags: [turret, battery, null]
 faceTarget: false
 physics: false
+itemCapacity: 0
 weapons: [{
   name: flocker-weapon
   top: true

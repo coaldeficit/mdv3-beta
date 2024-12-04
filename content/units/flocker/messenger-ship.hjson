@@ -15,6 +15,7 @@ range: 250
 lowAltitude: true
 targetFlags: [turret, battery, null]
 playerTargetFlags: [turret, battery, null]
+itemCapacity: 30
 weapons: [
   {
   name: messenger-minigun

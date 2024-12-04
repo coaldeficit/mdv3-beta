@@ -16,4 +16,4 @@ targetAir: true
 faceTarget: false
 targetFlags: [reactor, generator, turret, null]
 range: 245
-itemCapacity: 230
+itemCapacity: 90

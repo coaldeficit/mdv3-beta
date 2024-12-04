@@ -13,6 +13,7 @@ rotatespeed: 1
 targetAir: false
 targetFlags: [turret, battery, null]
 playerTargetFlags: [turret, battery, null]
+itemCapacity: 0
 weapons: [{
   name: hornet-cannon
   mirror: false
