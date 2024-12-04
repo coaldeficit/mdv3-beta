@@ -1,7 +1,7 @@
 name: Shotgunner
 description: placeholder
 flying: false
-speed: 0.65
+speed: 0.8
 health: 145
 
 // legs
@@ -39,7 +39,7 @@ weapons: [{
     spread: 1.5
   }
   inaccuracy: 15
-  reload: 45
+  reload: 60
   shootSound: shotgun
   mirror: false
   rotateSpeed: 7
