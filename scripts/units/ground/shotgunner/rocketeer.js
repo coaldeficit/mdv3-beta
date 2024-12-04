@@ -1,3 +1,6 @@
+const bulLib = require("md3/libs/bulletlib")
+const ShotT4 = extend(UnitType, "rocketeer-mech", {});
+ShotT4.constructor = () => extend(LegsUnit, {});
 
 const missile = extend(MissileUnitType, "rocketeer-mech-missile", {
   targetAir: false,
@@ -58,3 +61,4 @@ Blocks.exponentialReconstructor.addUpgrade(
   Vars.content.getByName(ContentType.unit, "md3-slugger-mech"),
   Vars.content.getByName(ContentType.unit, "md3-rocketeer-mech")
 )
+
