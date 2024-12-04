@@ -17,12 +17,12 @@ Blocks.fuse.ammoTypes.put(
 );
 
 // ITS STRICTLY PERSONAL
-Units.flare.itemCapacity = 6
-Units.horizon.itemCapacity = 0 // already 0 in vanilla but just in case it gets increased
-Units.zenith.itemCapacity = 0
-Units.antumbra.itemCapacity = 30
-Units.eclipse.itemCapacity = 70
-Units.poly.itemCapacity = 20
-Units.mega.itemCapacity = 40
-Units.quad.itemCapacity = 80
-Units.oct.itemCapacity = 140
+UnitTypes.flare.itemCapacity = 6
+UnitTypes.horizon.itemCapacity = 0 // already 0 in vanilla but just in case it gets increased
+UnitTypes.zenith.itemCapacity = 0
+UnitTypes.antumbra.itemCapacity = 30
+UnitTypes.eclipse.itemCapacity = 70
+UnitTypes.poly.itemCapacity = 20
+UnitTypes.mega.itemCapacity = 40
+UnitTypes.quad.itemCapacity = 80
+UnitTypes.oct.itemCapacity = 140
