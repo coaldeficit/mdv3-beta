@@ -1,6 +1,3 @@
-const bulLib = require("md3/libs/bulletlib")
-const ShotT4 = extend(UnitType, "rocketeer-mech", {});
-ShotT4.constructor = () => extend(LegsUnit, {});
 
 const missile = extend(MissileUnitType, "rocketeer-mech-missile", {
   targetAir: false,
@@ -31,7 +28,7 @@ const missileExplosion = extend(Weapon, {
 missile.weapons.add(missileExplosion)
 
 const launcher = extend(Weapon, {
-  name: "md3-rocketeer-missile-launcher",
+  name: "md3-rocketeer-launcher",
   y: -3,
   x: 13,
   top: true,
