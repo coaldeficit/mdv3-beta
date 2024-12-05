@@ -4,7 +4,7 @@ ShotT4.constructor = () => extend(LegsUnit, {});
 
 const missile = extend(MissileUnitType, "rocketeer-mech-missile", {
   targetAir: false,
-  speed: 4.3,
+  speed: 7.3,
   maxRange: 6,
   lifetime: 60 * 1.4,
   outlineColor: Pal.darkOutline,
