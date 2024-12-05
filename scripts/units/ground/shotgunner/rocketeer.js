@@ -6,7 +6,7 @@ const missile = extend(MissileUnitType, "rocketeer-mech-missile", {
   targetAir: false,
   speed: 7.3,
   maxRange: 6,
-  lifetime: 60 * 1.4,
+  lifetime: 60 * 0.8,
   outlineColor: Pal.darkOutline,
   engineColor: Color.valueOf("#FFA665"),
   trailColor: Color.valueOf("#FFA665"),
