@@ -1,0 +1,9 @@
+name: Large Cobalt Wall
+description: A simple wall made of cobalt. Protects structures from enemy fire.
+type: Wall
+health: 1920
+size: 2
+requirements: [
+  cobalt/24
+]
+category: defense
