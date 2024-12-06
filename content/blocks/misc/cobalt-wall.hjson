@@ -1,0 +1,9 @@
+name: Cobalt Wall
+description: A simple wall made of cobalt. Protects structures from enemy fire.
+type: Wall
+health: 480
+size: 1
+requirements: [
+  cobalt/6
+]
+category: defense
