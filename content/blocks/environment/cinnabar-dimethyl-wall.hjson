@@ -1,4 +1,4 @@
 type: StaticWall
 name: Cinnabar Dimethyl Wall
 variants: 3
-
+itemDrop: cinnabar-item

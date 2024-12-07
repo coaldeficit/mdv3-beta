@@ -1,8 +1,6 @@
 name: Sulfuric Vent
-type: SteamVent
 variants: 2
 blendGroup: sulfuric-rock
 parent: sulfuric-rock
 effect: ventSteam
 effectColor: 231b00
-

@@ -18,6 +18,8 @@ hotMetacinnabar.attributes.set(Attribute.heat, 0.5);
 let dimethyl = extend(Floor, "dimethyl", {});
 let cinnabarDMM = extend(Floor, "cinnabar-dimethyl", {});
 let lithimentDMM = extend(Floor, "lithiment-dimethyl", {});
+let sulfuricVent = extend(SteamVent, "sulfuric-vent", {});
+sulfuricVent.attributes.set(Attribute.heat, 0.5);
 
 module.exports = {
   //vanadinite: vanadinite,
@@ -28,4 +30,5 @@ module.exports = {
   dimethyl: dimethyl,
   cinnabarDMM: cinnabarDMM,
   lithimentDMM: lithimentDMM,
+  sulfuricVent: sulfuricVent
 };
