@@ -1,0 +1,11 @@
+type: material
+name: Lithium
+description: tempdesc
+cost: 0.5
+hardness: 0
+color: 968895
+alwaysUnlocked: false
+research: {
+  parent: cinnabar
+  planet: md3-fieros
+}
