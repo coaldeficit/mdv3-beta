@@ -1,5 +1,5 @@
 name: Pounder
-description: placeholder
+description: Fires medium-range explosive shells at ground enemy targets.
 flying: false
 speed: 0.4
 health: 500
