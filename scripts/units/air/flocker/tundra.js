@@ -37,8 +37,8 @@ const tundraBomb = extend(BasicBulletType, {
   shrinkX: 0.45,
   shrinkY: 0.45,
   hitShake: 9,
-  splashDamageRadius: 150,
-  splashDamage: 400,
+  splashDamageRadius: 96,
+  splashDamage: 300,
   status: StatusEffects.freezing,
   statusDuration: 720,
   speed: 4,
@@ -59,7 +59,7 @@ const tundraBomb = extend(BasicBulletType, {
     vfx.freezeBomb.at(b.x, b.y);
     vfx.b135impactShockwave.at(b.x, b.y);
     rng.setIndex(4897)
-    blockcheck.iterateSquareCenter(Math.round(b.x/8),Math.round(b.y/8),38,38,(other => {
+    blockcheck.iterateSquareCenter(Math.round(b.x/8),Math.round(b.y/8),24,24,(other => {
       let rngValue = rng.randomUnsynced()
       if (other.build != null) {
         let o = other.block()

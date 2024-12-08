@@ -18,7 +18,7 @@ const unitLauncher = extend(Weapon, {
   reload: 180,
   shootSound: Sounds.artillery,
   shootCone: 180,
-  shoot: new ShootSpread(3, 4),
+  shoot: new ShootSpread(2, 6),
   velocityRnd: 0.2,
   bullet: bulLib.makeBullet({
     type: BasicBulletType,
