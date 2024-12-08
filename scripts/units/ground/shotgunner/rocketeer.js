@@ -1,6 +1,41 @@
 const bulLib = require("md3/libs/bulletlib")
-const ShotT4 = extend(UnitType, "rocketeer-mech", {});
+const ShotT4 = extend(UnitType, "rocketeer-mech", {
+  onUnlock() { // i have no way to test this
+    minion.unlock()
+  }
+});
 ShotT4.constructor = () => extend(LegsUnit, {});
+
+const minion = extend(UnitType, "cogwheel-mech", {});
+minion.constructor = () => extend(MechUnit, {});
+
+const unitLauncher = extend(Weapon, {
+  name: "md3-generic-bomber-weapon",
+  y: 0,
+  x: 0,
+  top: true,
+  inaccuracy: 2,
+  reload: 180,
+  shootSound: Sounds.artillery,
+  shootCone: 180,
+  shoot: new ShootSpread(3, 4),
+  velocityRnd: 0.2,
+  bullet: bulLib.makeBullet({
+    type: BasicBulletType,
+    speed: 4,
+    lifetime: 60,
+    damage: 190,
+    shootEffect: Fx.shootBig,
+    smokeEffect: Fx.shootBigSmoke2,
+    shake: 0.5,
+    keepVelocity: false,
+    collides: false,
+    collidesAir: false,
+    despawnUnit: minion,
+    width: 35,
+    height: 20
+  }),
+});
 
 const missile = extend(MissileUnitType, "rocketeer-mech-missile", {
   targetAir: false,
@@ -31,7 +66,7 @@ const missileExplosion = extend(Weapon, {
 })
 missile.weapons.add(missileExplosion)
 
-const launcher = extend(Weapon, {
+const missileLauncher = extend(Weapon, {
   name: "md3-rocketeer-launcher",
   y: -3,
   x: 13,
@@ -55,7 +90,8 @@ const launcher = extend(Weapon, {
 });
 
 ShotT4.weapons.add(
-  launcher
+  unitLauncher,
+  missileLauncher
 );
 
 Blocks.exponentialReconstructor.addUpgrade(

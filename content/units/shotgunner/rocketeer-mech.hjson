@@ -1,9 +1,9 @@
 name: Rocketeer
 flying: false
-description: Slowly fires long-range homing missiles and lobs groups of Daggers past enemy defences.
+description: Slowly fires long-range homing missiles and lobs groups of Cogwheels past enemy defences.
 speed: 0.3
-health: 6600
-armor: 7
+health: 5300
+armor: 5
 hitSize: 26
 rotateSpeed: 2
 
@@ -30,7 +30,3 @@ research: {
     exponential-reconstructor
   ]
 }
-
-
-
-
