@@ -1,11 +1,10 @@
 type: material
 name: Lithium
-description: tempdesc
+description: A soft, reactive metal used for ammunition and synthesis.
 cost: 0.5
 hardness: 0
-color: 968895
-alwaysUnlocked: false
+color: B87DD8
 research: {
-  parent: cinnabar
+  parent: cobalt
   planet: md3-fieros
 }
