@@ -3,7 +3,7 @@ name: Laser Bore
 description: temp
 size: 2
 range: 7
-drillTime: 450
+drillTime: 90
 tier: 1
 sparks: 15
 sparkSize: 5
@@ -16,6 +16,16 @@ envDisabled: 24
 requirements: [
   cobalt/40
 ]
+consumes: {
+  liquids: [
+    {
+      liquid: slag
+      amount: 0.25
+      optional: true
+      booster: true
+    }
+  ]
+}
 category: production
 research: {
   parent: core-monoquark
