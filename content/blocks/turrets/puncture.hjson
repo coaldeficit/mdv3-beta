@@ -15,6 +15,35 @@ shootSound: missile
 targetAir: false
 maxAmmo: 20
 unitSort: weakest
+drawer: {
+  type: DrawTurret
+  parts: [
+    {
+      type: RegionPart
+      suffix: -gun
+      progress: recoil
+      moveY: -1.75
+    }
+    {
+      type: RegionPart
+      suffix: -cover-left
+      progress: warmup
+      moveX: -2.25
+    }
+    {
+      type: RegionPart
+      suffix: -cover-right
+      progress: warmup
+      moveX: 2.25
+    }
+    {
+      type: RegionPart
+      suffix: -segment-top
+      progress: warmup
+      moveY: -1.25
+    }
+  ]
+}
 requirements: [
   titanium/80
   graphite/80
