@@ -33,7 +33,7 @@ weapons: [
   # please replace these with custom chaingun sounds later
   shoot: {
     firstShotDelay: 100
-    shotDelay: 3
+    shotDelay: 5
     shots: 51
   }
   bullet: {
