@@ -1,9 +1,9 @@
 name: Messenger
-description: Fires a stack of artillery and incendiary bullets at all nearby enemies.
+description: Unleashes a barrage of powerful bullets on enemy targets while peppering them with artillery.
 speed: 1
 accel: 0.04
 drag: 0.017
-rotateSpeed: 2
+rotateSpeed: 1
 hitSize: 55
 flying: true
 health: 8500
@@ -21,25 +21,44 @@ weapons: [
   name: messenger-minigun
   top: true
   rotate: true
-  rotateSpeed: 4
+  rotateSpeed: 1.3
   y: -7
   mirror: false
   x: 0
-  inaccuracy: 5
-  reload: 2
+  inaccuracy: 2
+  reload: 600
   recoil: 2
-  shootSound: pew
+  shootSound: bolt
+  chargeSound: lasercharge
+  # please replace these with custom chaingun sounds later
+  shoot: {
+    firstShotDelay: 100
+    shotDelay: 3
+    shots: 102
+  }
   bullet: {
-    speed: 7.5
+    speed: 14
+    lifetime: 22
     keepVelocity: false
-    damage: 10
-    pierceCap: 2
+    damage: 34
+    pierceCap: 3
+    pierceBuilding: true
     status: burning
     statusDuration: 200
-    width: 9
-    height: 5
-    frontColor: ffffff
-    backColor: ffaa00
+    frontColor: f6e096
+    backColor: f8ad42
+    trailColor: f8ad42
+    trailLength: 4
+    trailWidth: 3
+    incendAmount: 1
+    incendChance: 0.5
+    height: 60
+    width: 12
+    lightColor: f6e096
+    lightOpacity: 0.6
+    lightRadius: 27
+    trailEffect: burning
+    trailChance: 0.333
   }
  }
   {
@@ -61,10 +80,10 @@ weapons: [
     height: 17
     speed: 7
     damage: 6
-    splashDamage: 34
+    splashDamage: 63
     splashDamageRadius: 27
     ammoMultiplier: 1
-    lifetime: 60
+    lifetime: 50
     fragBullets: 8
     fragBullet: {
       type: ArtilleryBulletType
@@ -73,7 +92,7 @@ weapons: [
       speed: 2
       width: 12
       length: 13
-      splashDamage: 17
+      splashDamage: 24
       splashDamageRadius: 15
       lifetime: 30
 }}
