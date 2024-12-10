@@ -34,13 +34,13 @@ weapons: [
   shoot: {
     firstShotDelay: 100
     shotDelay: 3
-    shots: 102
+    shots: 51
   }
   bullet: {
     speed: 14
     lifetime: 22
     keepVelocity: false
-    damage: 34
+    damage: 50
     pierceCap: 3
     pierceBuilding: true
     status: burning
@@ -52,7 +52,7 @@ weapons: [
     trailWidth: 3
     incendAmount: 1
     incendChance: 0.5
-    height: 60
+    height: 50
     width: 12
     lightColor: f6e096
     lightOpacity: 0.6
