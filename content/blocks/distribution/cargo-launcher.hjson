@@ -3,7 +3,7 @@ name: Launcher
 description: Fires small amounts of items at another Launcher in range.
 health: 25
 size: 1
-itemCapacity: 15
+itemCapacity: 25
 squareSprite: false
 reload: 120
 range: 44
