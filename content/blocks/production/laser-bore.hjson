@@ -1,6 +1,7 @@
 type: BeamDrill
 name: Laser Bore
 description: temp
+health: 70
 size: 2
 range: 7
 drillTime: 180
