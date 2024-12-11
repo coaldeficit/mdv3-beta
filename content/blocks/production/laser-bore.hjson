@@ -3,7 +3,7 @@ name: Laser Bore
 description: temp
 size: 2
 range: 7
-drillTime: 90
+drillTime: 180
 tier: 1
 sparks: 15
 sparkSize: 5
@@ -26,6 +26,8 @@ requirements: [
 #    }
 #  ]
 #}
+optionalBoostIntensity: 1
+# optionalBoostIntensity: 2
 category: production
 research: {
   parent: core-monoquark
