@@ -16,16 +16,16 @@ envDisabled: 24
 requirements: [
   cobalt/40
 ]
-consumes: {
-  liquids: [
-    {
-      liquid: slag
-      amount: 0.25
-      optional: true
-      booster: true
-    }
-  ]
-}
+#consumes: {
+#  liquids: [
+#    {
+#      liquid: slag
+#      amount: 0.25
+#      optional: true
+#      booster: true
+#    }
+#  ]
+#}
 category: production
 research: {
   parent: core-monoquark
