@@ -29,6 +29,7 @@ require('md3/blocks/frozen-wall');
 require('md3/blocks/instant');
 require('md3/blocks/delay');
 require('md3/blocks/puncture');
+require('md3/blocks/fieros-production');
 
 require('md3/vanilla-changes');
 
