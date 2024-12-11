@@ -1,6 +1,7 @@
 type: MassDriver
 name: Launcher
 description: Fires small amounts of items at another Launcher in range.
+health: 25
 size: 1
 itemCapacity: 15
 squareSprite: false
