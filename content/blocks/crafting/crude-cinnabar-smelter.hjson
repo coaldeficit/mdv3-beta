@@ -1,5 +1,5 @@
 name: Crude Cinnabar Smelter
-description: A crude machine for smelting Cinnabar into Mercury. Inefficient and lacks a heat input, requiring placement on thermal vents.
+description: A crude machine for smelting Cinnabar into Mercury. Inefficient and lacks a heat input, requiring placement on exposed heat sources.
 health: 600
 craftTime: 23
 size: 2
