@@ -1,6 +1,6 @@
 type: MassDriver
 name: Launcher
-description: Fires small amounts of items at another Launcher in range.
+description: "Fires small amounts of items at another Launcher in range.\n\n[red]Capable of passing items from the output launcher back into the input launcher if placed incorrectly.[]"
 health: 25
 size: 1
 itemCapacity: 25
