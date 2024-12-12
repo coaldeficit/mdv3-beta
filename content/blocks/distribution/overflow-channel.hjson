@@ -6,7 +6,8 @@ speed: 8
 bridgeReplacement: cargo-launcher
 squareSprite: false
 requirements: [
-  cobalt/1
+  cobalt/10
+  cinnabar-item/10
 ]
 category: distribution
 envDisabled: 24
