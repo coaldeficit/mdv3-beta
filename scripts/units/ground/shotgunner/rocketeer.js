@@ -9,6 +9,25 @@ ShotT4.constructor = () => extend(LegsUnit, {});
 const minion = extend(UnitType, "cogwheel-mech", {});
 minion.constructor = () => extend(MechUnit, {});
 
+const unitBullet = extend(BasicBulletType, {
+  speed: 4,
+  lifetime: 60,
+  damage: 190,
+  shootEffect: Fx.shootBig,
+  smokeEffect: Fx.shootBigSmoke2,
+  shake: 0.5,
+  keepVelocity: false,
+  collides: false,
+  collidesAir: false,
+  width: 35,
+  height: 20,
+  despawnUnit: minion,
+  createUnits(b,x,y) {
+    if (!Vars.headless) {
+      this.super$createUnits(b,x,y);
+    }
+  }
+})
 const unitLauncher = extend(Weapon, {
   name: "md3-generic-bomber-weapon",
   y: 0,
@@ -20,21 +39,7 @@ const unitLauncher = extend(Weapon, {
   shootCone: 180,
   shoot: new ShootSpread(2, 6),
   velocityRnd: 0.2,
-  bullet: bulLib.makeBullet({
-    type: BasicBulletType,
-    speed: 4,
-    lifetime: 60,
-    damage: 190,
-    shootEffect: Fx.shootBig,
-    smokeEffect: Fx.shootBigSmoke2,
-    shake: 0.5,
-    keepVelocity: false,
-    collides: false,
-    collidesAir: false,
-    despawnUnit: minion,
-    width: 35,
-    height: 20
-  }),
+  bullet: unitBullet,
 });
 
 const missile = extend(MissileUnitType, "rocketeer-mech-missile", {
