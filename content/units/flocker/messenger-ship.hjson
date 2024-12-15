@@ -28,7 +28,7 @@ weapons: [
   inaccuracy: 2
   reload: 600
   recoil: 2
-  shootSound: bolt
+  shootSound: minigun-hit
   chargeSound: lasercharge
   # please replace these with custom chaingun sounds later
   shoot: {
