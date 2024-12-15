@@ -65,7 +65,7 @@ weapons: [{
   x: 0
   baseRotation: 180
   inaccuracy: 2
-  reload: 360
+  reload: 1
   rotateSpeed: 0
   rotationLimit: 0
   predictTarget: false
