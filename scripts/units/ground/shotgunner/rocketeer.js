@@ -23,7 +23,7 @@ const unitBullet = extend(BasicBulletType, {
   height: 20,
   despawnUnit: minion,
   createUnits(b,x,y) {
-    if (!Vars.headless) {
+    if (!Vars.net.client()) {
       this.super$createUnits(b,x,y);
     }
   }
