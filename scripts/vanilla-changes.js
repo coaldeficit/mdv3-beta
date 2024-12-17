@@ -43,7 +43,7 @@ Events.on(ClientLoadEvent, e => {
   
   // WE LOVE NPC AND IMPACT
   const convertToSurv = [
-    24,129,224,225,226, // north pole
+    24,129,224,225,226,227, // north pole
   ]
   for (let i=0;i<convertToSurv.length;i++) {
     Planets.serpulo.sectors.get(convertToSurv[i]).generateEnemyBase = false
@@ -55,6 +55,10 @@ Events.on(ClientLoadEvent, e => {
   Planets.serpulo.sectors.get(45).threat = 0.1 // meme
   // medium
   Planets.serpulo.sectors.get(182).threat = 0.26
+  // high
+  Planets.serpulo.sectors.get(24).threat = 0.746
+  Planets.serpulo.sectors.get(65).threat = 0.746
+  Planets.serpulo.sectors.get(226).threat = 0.746
   // extreme
   Planets.serpulo.sectors.get(7).threat = 0.9 // its strictly personal
   Planets.serpulo.sectors.get(117).threat = 0.85
