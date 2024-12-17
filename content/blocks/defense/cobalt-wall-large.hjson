@@ -7,3 +7,10 @@ requirements: [
   cobalt/24
 ]
 category: defense
+research: {
+  parent: cobalt-wall
+  planet: md3-fieros
+}
+researchCost: [
+  cobalt/70
+]

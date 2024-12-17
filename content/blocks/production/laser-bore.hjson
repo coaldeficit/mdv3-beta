@@ -34,3 +34,4 @@ research: {
   parent: core-monoquark
   planet: md3-fieros
 }
+alwaysUnlocked: true

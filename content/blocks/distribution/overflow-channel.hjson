@@ -12,7 +12,7 @@ requirements: [
 category: distribution
 envDisabled: 24
 research: {
-  parent: core-monoquark
+  parent: cobalt-channel
   planet: md3-fieros
 }
 alwaysUnlocked: true

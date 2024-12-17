@@ -5,6 +5,6 @@ cost: 0.5
 hardness: 0
 color: cb4a9b
 research: {
-  parent: cobalt
+  parent: lithium
   planet: md3-fieros
 }

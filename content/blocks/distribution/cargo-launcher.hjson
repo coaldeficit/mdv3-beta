@@ -21,3 +21,4 @@ requirements: [
   cobalt/5
   cinnabar-item/5
 ]
+alwaysUnlocked: true
