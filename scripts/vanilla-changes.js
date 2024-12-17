@@ -56,7 +56,7 @@ Events.on(ClientLoadEvent, e => {
   // medium
   Planets.serpulo.sectors.get(182).threat = 0.26
   // extreme
-  Planets.serpulo.sectors.get(7).threat = 0.9 // fuck off no early thorium allowed
+  Planets.serpulo.sectors.get(7).threat = 0.9 // its strictly personal
   Planets.serpulo.sectors.get(117).threat = 0.85
   Planets.serpulo.sectors.get(127).threat = 0.85 // on the way to sector 7
   Planets.serpulo.sectors.get(144).threat = 0.85
