@@ -32,15 +32,45 @@ Events.on(ClientLoadEvent, e => {
   // NUMBERED ENEMY BASES
   const convertToBase = [
     85,223, // its strictly personal
-    92,93,94,96,155, // plt area
-    53,54,79,80,120,253,263,264, // south pole
-    72,132,266,270,271, // hard drive area
-    26,66,67,128,235, // north pole
-    2,9,17,41,78,197 // misc sectors
+    95,178, // plt area
+    79,263, // south pole
+    66,128,232,235, // north pole
+    41,45, // misc sectors
   ]
   for (let i=0;i<convertToBase.length;i++) {
     Planets.serpulo.sectors.get(convertToBase[i]).generateEnemyBase = true
   }
-  Planets.serpulo.sectors.get(182).generateEnemyBase = false // enemy base moved to sector 17
+  
+  // WE LOVE NPC AND IMPACT
+  const convertToSurv = [
+    24,129,224,225,226, // north pole
+  ]
+  for (let i=0;i<convertToSurv.length;i++) {
+    Planets.serpulo.sectors.get(convertToSurv[i]).generateEnemyBase = false
+  }
   Planets.serpulo.updateBaseCoverage()
+  
+  // FORCE SECTOR DIFFICULY
+  // low
+  Planets.serpulo.sectors.get(45).threat = 0.1 // meme
+  // medium
+  Planets.serpulo.sectors.get(182).threat = 0.26
+  // extreme
+  Planets.serpulo.sectors.get(7).threat = 0.9 // fuck off no early thorium allowed
+  Planets.serpulo.sectors.get(117).threat = 0.85
+  Planets.serpulo.sectors.get(127).threat = 0.85 // on the way to sector 7
+  Planets.serpulo.sectors.get(144).threat = 0.85
+  Planets.serpulo.sectors.get(145).threat = 0.85
+  Planets.serpulo.sectors.get(194).threat = 0.85
+  Planets.serpulo.sectors.get(229).threat = 0.85
+  Planets.serpulo.sectors.get(235).threat = 0.85
+  Planets.serpulo.sectors.get(258).threat = 0.85
+  // erad
+  Planets.serpulo.sectors.get(5).threat = 1
+  Planets.serpulo.sectors.get(57).threat = 1
+  Planets.serpulo.sectors.get(61).threat = 1.15
+  Planets.serpulo.sectors.get(84).threat = 1.2
+  Planets.serpulo.sectors.get(228).threat = 1.1
+  Planets.serpulo.sectors.get(255).threat = 1.22
+  Planets.serpulo.sectors.get(262).threat = 1.1
 })
