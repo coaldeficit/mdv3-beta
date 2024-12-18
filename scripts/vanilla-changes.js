@@ -1,4 +1,5 @@
 const vfx = require("md3/libs/vfx")
+const rng = require("md3/libs/rng")
 
 // AMMO
 let blastFuse = extend(ShrapnelBulletType, {
