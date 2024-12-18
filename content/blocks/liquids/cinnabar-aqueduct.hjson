@@ -1,0 +1,14 @@
+type: Conduit
+name: Cinnabar Aqueduct
+description: Transports liquids forward.
+category: liquid
+research: core-monoquark
+requirements: [
+  cinnabar-item/2
+]
+health: 35
+leaks: true
+junctionReplacement: cobalt-channel
+bridgeReplacement: cobalt-channel
+underBullets: true
+researchCostMultiplier: 0.5
