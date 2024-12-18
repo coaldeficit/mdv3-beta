@@ -27,6 +27,89 @@ UnitTypes.mega.itemCapacity = 40
 UnitTypes.quad.itemCapacity = 80
 UnitTypes.oct.itemCapacity = 140
 
+// i dont get this
+UnitTypes.mega.isEnemy = true
+
+// NUMBERED WAVEGEN
+function numberedWaves(sector,enemyBase,airOnly) {
+  rng.setIndex(sector.id)
+  let groundenemies = [
+    [UnitTypes.dagger,UnitTypes.mace,UnitTypes.fortress,UnitTypes.scepter,UnitTypes.reign],
+    [UnitTypes.crawler,UnitTypes.atrax,UnitTypes.spiroct,UnitTypes.arkyid,UnitTypes.toxopid],
+    [UnitTypes.nova,UnitTypes.pulsar,UnitTypes.quasar,UnitTypes.vela,UnitTypes.corvus]
+  ]
+  let airenemies = [
+    [UnitTypes.flare,UnitTypes.horizon,UnitTypes.zenith,UnitTypes.antumbra,UnitTypes.eclipse],
+    [UnitTypes.flare,UnitTypes.poly,UnitTypes.mega,UnitTypes.quad,UnitTypes.oct]
+  ]
+  if (enemyBase) {
+    airenemies = [
+      [UnitTypes.flare,UnitTypes.horizon,UnitTypes.zenith,rng.randomUnsynced()<500?UnitTypes.antumbra:UnitTypes.quad,rng.randomUnsynced()<500?UnitTypes.eclipse:UnitTypes.oct],
+    ]
+  }
+  let navalenemies = [
+    [UnitTypes.risso,UnitTypes.minke,UnitTypes.bryde,UnitTypes.sei,UnitTypes.omura],
+    [UnitTypes.retusa,UnitTypes.oxynoe,UnitTypes.cyerce,UnitTypes.aegires,UnitTypes.navanax]
+  ]
+  
+  let picks = []
+  picks = picks.concat(airenemies)
+  if (!airOnly && Vars.spawner.firstSpawn != null) {
+    picks = picks.concat(Vars.spawner.firstSpawn.floor().liquidDrop!=Liquids.water?groundenemies:navalenemies)
+  }
+  rng.setIndex(sector.id*(22+picks.length))
+  let mainLines = []
+  for (let i=0;i<Math.min(picks.length,4);i++) {
+    let line = -1
+    while (mainLines.includes(line) && !airOnly) {
+      line = Math.floor(picks.length*(rng.randomUnsynced()/1000))
+    }
+    mainLines.push(Math.floor(picks.length*(rng.randomUnsynced()/1000)))
+  }
+  function createSpawnGroup(pickunit) {
+    let o = new SpawnGroup(pickunit.type)
+    Object.keys(pickunit).forEach(function(prop){
+      if (prop != 'type') o[prop] = pickunit[prop]
+    })
+    return o
+  }
+  let waves = new Seq()
+  for (let i=0;i<mainLines.length;i++) {
+    waves.add(createSpawnGroup({
+      type: picks[mainLines[i]][0],
+      shieldScaling: (sector.threat*30)/(picks[mainLines[i]][0]==UnitTypes.crawler?2:1),
+      begin: 1+(Math.floor(Math.pow(i,1.05))*13)+Math.floor(i*3*(rng.randomUnsynced()/1000)),
+      end: 3+(Math.floor(Math.pow((1+i),1.05))*13)+Math.floor(i*6*(rng.randomUnsynced()/1000)),
+      unitScaling: (2-sector.threat)/(picks[mainLines[i]][0]==UnitTypes.crawler?2:1)
+    }))
+    waves.add(createSpawnGroup({
+      type: picks[mainLines[i]][1],
+      shieldScaling: (sector.threat*25),
+      begin: 1+(Math.floor(Math.pow(i,1.05))*13)+Math.floor(i*3*(rng.randomUnsynced()/1000))+(Math.floor(Math.pow(i+1,0.9))*8),
+      end: 3+(Math.floor(Math.pow((1+i),1.05))*13)+Math.floor(i*6*(rng.randomUnsynced()/1000))+(Math.floor(Math.pow(i+1,1.07))*9),
+      spacing: Math.floor(3.27-sector.threat),
+      unitScaling: 3-sector.threat,
+      unitAmount: 1+Math.floor(sector.threat*1.3)
+    }))
+  }
+  return waves
+}
+
+// SERPULO GENERATOR
+let basegen = new BaseGenerator()
+Planets.serpulo.generator = extend(SerpuloPlanetGenerator, {
+  basegen: basegen,
+  postGenerate(tiles) {
+    Vars.state.rules.spawns = numberedWaves(Vars.state.rules.sector,Vars.state.rules.sector.hasEnemyBase(),false)
+    if (Vars.state.rules.sector.hasEnemyBase()) {
+      basegen.postGenerate()
+      if (!Vars.spawner.countGroundSpawns()) {
+        Vars.state.rules.spawns = numberedWaves(Vars.state.rules.sector,true,true)
+      }
+    }
+  }
+})
+
 // ON CLIENT LOAD
 Events.on(ClientLoadEvent, e => {
   // NUMBERED ENEMY BASES
