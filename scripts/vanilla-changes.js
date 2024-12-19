@@ -65,7 +65,7 @@ function numberedWaves(sector,enemyBase,airOnly) {
     while (mainLines.includes(line) && !airOnly) {
       line = Math.floor(picks.length*(rng.randomUnsynced()/1000))
     }
-    mainLines.push(Math.floor(picks.length*(rng.randomUnsynced()/1000)))
+    mainLines.push([Math.floor(picks.length*(rng.randomUnsynced()/1000)),0,0])
   }
   function createSpawnGroup(pickunit) {
     let o = new SpawnGroup(pickunit.type)
@@ -75,22 +75,74 @@ function numberedWaves(sector,enemyBase,airOnly) {
     return o
   }
   let waves = new Seq()
-  for (let i=0;i<mainLines.length;i++) {
+  let settings = {
+    evolveSpacing: (1.8-sector.threat)*5,
+    evolveOffsetMax: 10-(sector.threat*5),
+    evolveOffsetPerTier: 4-sector.threat,
+    evolveNewTypeChance: 125*(mainLines.length-1)*sector.threat*5.56,
+    tierOffset: sector.threat > 0.6 ? 1 : 0,
+    maxTier: Math.min(Math.max(1,Math.ceil((sector.threat-0.33)*5)),4),
+  }
+  let mainLineIndex = 0
+  function generateUnitLine(index,startWave) {
+    if (mainLines[index] != null) {
+      mainLines[index][1] += settings.tierOffset
+      mainLines[index][2] += startWave
+      do {
+        let endWave = Math.ceil(mainLines[index][2] + settings.evolveSpacing + (settings.evolveOffsetMax*(rng.randomUnsynced()/1000)) + (settings.evolveOffsetPerTier*(mainLines[index][1]-settings.tierOffset)))
+        if (rng.randomUnsynced() < settings.evolveNewTypeChance && mainLineIndex < mainLines.length) {
+          settings.evolveNewTypeChance -= 125
+          mainLineIndex++
+          generateUnitLine(mainLineIndex,endWave)
+          endWave = Math.ceil(endWave + settings.evolveSpacing + (settings.evolveOffsetMax*(rng.randomUnsynced()/1000)) + (settings.evolveOffsetPerTier*(mainLines[index][1]-settings.tierOffset)))
+          waves.add(createSpawnGroup({
+            type: picks[mainLines[index][0]][mainLines[index][1]],
+            shieldScaling: 0,
+            begin: mainLines[index][2],
+            end: endWave+1,
+            unitScaling: (mainLines[index][1]+2)-settings.tierOffset,
+            spacing: (1+mainLines[index][1])-settings.tierOffset
+          }))
+          waves.add(createSpawnGroup({
+            type: picks[mainLines[index][0]][mainLines[index][1]],
+            shieldScaling: 0,
+            begin: endWave+2,
+            unitScaling: (mainLines[index][1]+2)*3.6,
+            unitAmount: Math.ceil(((1/((mainLines[index][1]+2)-settings.tierOffset))*((endWave-mainLines[index][2])/((1+mainLines[index][1])-settings.tierOffset)))/2)
+          }))
+          mainLines[index][1] += 1
+          mainLines[index][2] = endWave
+        } else {
+          waves.add(createSpawnGroup({
+            type: picks[mainLines[index][0]][mainLines[index][1]],
+            shieldScaling: 0,
+            begin: mainLines[index][2],
+            end: endWave+1,
+            unitScaling: (mainLines[index][1]+2)-settings.tierOffset,
+            spacing: (1+mainLines[index][1])-settings.tierOffset
+          }))
+          waves.add(createSpawnGroup({
+            type: picks[mainLines[index][0]][mainLines[index][1]],
+            shieldScaling: 0,
+            begin: endWave+2,
+            unitScaling: (mainLines[index][1]+2)*3.6,
+            unitAmount: Math.ceil(((1/((mainLines[index][1]+2)-settings.tierOffset))*((endWave-mainLines[index][2])/((1+mainLines[index][1])-settings.tierOffset)))/2)
+          }))
+          mainLines[index][1] += 1
+          mainLines[index][2] = endWave
+        }
+      } while (mainLines[index][1] <= settings.maxTier)
+    }
+  }
+  generateUnitLine(0,0)
+  if (sector.threat > 0.25 && !enemyBase) {
     waves.add(createSpawnGroup({
-      type: picks[mainLines[i]][0],
-      shieldScaling: (sector.threat*30)/(picks[mainLines[i]][0]==UnitTypes.crawler?2:1),
-      begin: 1+(Math.floor(Math.pow(i,1.05))*13)+Math.floor(i*3*(rng.randomUnsynced()/1000)),
-      end: 3+(Math.floor(Math.pow((1+i),1.05))*13)+Math.floor(i*6*(rng.randomUnsynced()/1000)),
-      unitScaling: (2-sector.threat)/(picks[mainLines[i]][0]==UnitTypes.crawler?2:1)
-    }))
-    waves.add(createSpawnGroup({
-      type: picks[mainLines[i]][1],
-      shieldScaling: (sector.threat*25),
-      begin: 1+(Math.floor(Math.pow(i,1.05))*13)+Math.floor(i*3*(rng.randomUnsynced()/1000))+(Math.floor(Math.pow(i+1,0.9))*8),
-      end: 3+(Math.floor(Math.pow((1+i),1.05))*13)+Math.floor(i*6*(rng.randomUnsynced()/1000))+(Math.floor(Math.pow(i+1,1.07))*9),
-      spacing: Math.floor(3.27-sector.threat),
-      unitScaling: 3-sector.threat,
-      unitAmount: 1+Math.floor(sector.threat*1.3)
+      type: picks[mainLines[0][0]][Math.min(mainLines[0][1],4)],
+      begin: Vars.state.rules.winWave-2,
+      unitScaling: 1,
+      unitAmount: 1,
+      spacing: Math.max(Vars.state.rules.winWave/2,18),
+      effect: StatusEffects.boss
     }))
   }
   return waves
