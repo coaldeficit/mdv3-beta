@@ -1,0 +1,11 @@
+type: LiquidRouter
+name: Cinnabar Aqueduct Router
+description: Distributes liquids to the sides of itself when liquid is inputted equally.
+category: liquid
+research: cinnabar-aqueduct
+requirements: [
+  cinnabar-item/4
+]
+health: 35
+underBullets: true
+researchCostMultiplier: 0.5
