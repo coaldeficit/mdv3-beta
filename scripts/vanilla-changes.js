@@ -31,22 +31,23 @@ UnitTypes.oct.itemCapacity = 140
 // i dont get this
 UnitTypes.mega.isEnemy = true
 
+function getMDUnit(unit) {return Vars.content.getByName(ContentType.unit, "md3-" + unit)}
+
 // NUMBERED WAVEGEN
-function numberedWaves(sector,enemyBase,airOnly) {
+function numberedWaves(sector,enemyBase,airOnly,navalWaves) {
   rng.setIndex(sector.id)
   let groundenemies = [
     [UnitTypes.dagger,UnitTypes.mace,UnitTypes.fortress,UnitTypes.scepter,UnitTypes.reign],
     [UnitTypes.crawler,UnitTypes.atrax,UnitTypes.spiroct,UnitTypes.arkyid,UnitTypes.toxopid],
     [UnitTypes.nova,UnitTypes.pulsar,UnitTypes.quasar,UnitTypes.vela,UnitTypes.corvus]
   ]
+  if (Planets.serpulo.sectors.get(212).info.wasCaptured) groundenemies.push([getMDUnit("shotgunner-mech"),getMDUnit("pounder-mech"),getMDUnit("slugger-mech"),getMDUnit("rocketeer-mech"),getMDUnit("howitzer-mech")])
   let airenemies = [
     [UnitTypes.flare,UnitTypes.horizon,UnitTypes.zenith,UnitTypes.antumbra,UnitTypes.eclipse],
     [UnitTypes.flare,UnitTypes.poly,UnitTypes.mega,UnitTypes.quad,UnitTypes.oct]
   ]
   if (enemyBase) {
-    airenemies = [
-      [UnitTypes.flare,UnitTypes.horizon,UnitTypes.zenith,rng.randomUnsynced()<500?UnitTypes.antumbra:UnitTypes.quad,rng.randomUnsynced()<500?UnitTypes.eclipse:UnitTypes.oct],
-    ]
+    airenemies[1][4] = UnitTypes.eclipse
   }
   let navalenemies = [
     [UnitTypes.risso,UnitTypes.minke,UnitTypes.bryde,UnitTypes.sei,UnitTypes.omura],
@@ -56,16 +57,18 @@ function numberedWaves(sector,enemyBase,airOnly) {
   let picks = []
   picks = picks.concat(airenemies)
   if (!airOnly && Vars.spawner.firstSpawn != null) {
-    picks = picks.concat(Vars.spawner.firstSpawn.floor().liquidDrop!=Liquids.water?groundenemies:navalenemies)
+    picks = picks.concat(navalWaves?navalenemies:groundenemies)
   }
   rng.setIndex(sector.id*(22+picks.length))
   let mainLines = []
+  let mainLineComp = []
   for (let i=0;i<Math.min(picks.length,4);i++) {
     let line = -1
-    while (mainLines.includes(line) && !airOnly) {
+    do {
       line = Math.floor(picks.length*(rng.randomUnsynced()/1000))
-    }
-    mainLines.push([Math.floor(picks.length*(rng.randomUnsynced()/1000)),0,0])
+    } while (mainLineComp.includes(line))
+    mainLines.push([line,0,0])
+    mainLineComp.push(mainLines[mainLines.length-1][0])
   }
   function createSpawnGroup(pickunit) {
     let o = new SpawnGroup(pickunit.type)
@@ -82,6 +85,7 @@ function numberedWaves(sector,enemyBase,airOnly) {
     evolveNewTypeChance: 125*(mainLines.length-1)*sector.threat*5.56,
     tierOffset: sector.threat > 0.6 ? 1 : 0,
     maxTier: Math.min(Math.max(1,Math.ceil((sector.threat-0.33)*5)),4),
+    unitScaling: 2.18 - sector.threat
   }
   let mainLineIndex = 0
   function generateUnitLine(index,startWave) {
@@ -90,7 +94,7 @@ function numberedWaves(sector,enemyBase,airOnly) {
       mainLines[index][2] += startWave
       do {
         let endWave = Math.ceil(mainLines[index][2] + settings.evolveSpacing + (settings.evolveOffsetMax*(rng.randomUnsynced()/1000)) + (settings.evolveOffsetPerTier*(mainLines[index][1]-settings.tierOffset)))
-        if (rng.randomUnsynced() < settings.evolveNewTypeChance && mainLineIndex < mainLines.length) {
+        if ((rng.randomUnsynced() < settings.evolveNewTypeChance || (mainLines[index][1] > 1 && mainLines[index][2] <= (Vars.state.rules.winWave/2)-2)) && mainLineIndex < mainLines.length) {
           settings.evolveNewTypeChance -= 125
           mainLineIndex++
           generateUnitLine(mainLineIndex,endWave)
@@ -100,15 +104,15 @@ function numberedWaves(sector,enemyBase,airOnly) {
             shieldScaling: 0,
             begin: mainLines[index][2],
             end: endWave+1,
-            unitScaling: (mainLines[index][1]+2)-settings.tierOffset,
-            spacing: (1+mainLines[index][1])-settings.tierOffset
+            unitScaling: settings.unitScaling/(mainLines[index][1]<3?0.82+sector.threat:1),
+            spacing: Math.max(Math.ceil(((1+mainLines[index][1])-settings.tierOffset)-Math.floor(sector.threat*1.2)),1)+(mainLines[index][1]>2?1:0)
           }))
           waves.add(createSpawnGroup({
             type: picks[mainLines[index][0]][mainLines[index][1]],
             shieldScaling: 0,
             begin: endWave+2,
-            unitScaling: (mainLines[index][1]+2)*3.6,
-            unitAmount: Math.ceil(((1/((mainLines[index][1]+2)-settings.tierOffset))*((endWave-mainLines[index][2])/((1+mainLines[index][1])-settings.tierOffset)))/2)
+            unitScaling: (settings.unitScaling*3.4)/(mainLines[index][1]<3?0.82+sector.threat:1),
+            unitAmount: Math.ceil(((1/(Math.max(Math.ceil(((1+mainLines[index][1])-settings.tierOffset)-Math.floor(sector.threat*1.2)),1)+(mainLines[index][1]>2?1:0)))*((endWave-mainLines[index][2])/(settings.unitScaling/(mainLines[index][1]<3?0.82+sector.threat:1))))/2)
           }))
           mainLines[index][1] += 1
           mainLines[index][2] = endWave
@@ -118,15 +122,15 @@ function numberedWaves(sector,enemyBase,airOnly) {
             shieldScaling: 0,
             begin: mainLines[index][2],
             end: endWave+1,
-            unitScaling: (mainLines[index][1]+2)-settings.tierOffset,
-            spacing: (1+mainLines[index][1])-settings.tierOffset
+            unitScaling: settings.unitScaling/(mainLines[index][1]<3?0.82+sector.threat:1),
+            spacing: Math.max(Math.ceil(((1+mainLines[index][1])-settings.tierOffset)-Math.floor(sector.threat*1.2)),1)+(mainLines[index][1]>2?1:0)
           }))
           waves.add(createSpawnGroup({
             type: picks[mainLines[index][0]][mainLines[index][1]],
             shieldScaling: 0,
             begin: endWave+2,
-            unitScaling: (mainLines[index][1]+2)*3.6,
-            unitAmount: Math.ceil(((1/((mainLines[index][1]+2)-settings.tierOffset))*((endWave-mainLines[index][2])/((1+mainLines[index][1])-settings.tierOffset)))/2)
+            unitScaling: (settings.unitScaling*3.4)/(mainLines[index][1]<3?0.82+sector.threat:1),
+            unitAmount: Math.ceil(((1/(Math.max(Math.ceil(((1+mainLines[index][1])-settings.tierOffset)-Math.floor(sector.threat*1.2)),1)+(mainLines[index][1]>2?1:0)))*((endWave-mainLines[index][2])/(settings.unitScaling/(mainLines[index][1]<3?0.82+sector.threat:1))))/2)
           }))
           mainLines[index][1] += 1
           mainLines[index][2] = endWave
@@ -136,14 +140,64 @@ function numberedWaves(sector,enemyBase,airOnly) {
   }
   generateUnitLine(0,0)
   if (sector.threat > 0.25 && !enemyBase) {
-    waves.add(createSpawnGroup({
-      type: picks[mainLines[0][0]][Math.min(mainLines[0][1],4)],
-      begin: Vars.state.rules.winWave-2,
-      unitScaling: 1,
-      unitAmount: 1,
-      spacing: Math.max(Vars.state.rules.winWave/2,18),
-      effect: StatusEffects.boss
-    }))
+    if (mainLines[0][1] < 4) {
+      waves.add(createSpawnGroup({
+        type: picks[mainLines[0][0]][Math.min(mainLines[0][1],4)],
+        begin: Vars.state.rules.winWave-2,
+        unitScaling: 1,
+        unitAmount: 1,
+        spacing: Math.max(Vars.state.rules.winWave/2,18),
+        effect: StatusEffects.boss
+      }))
+    } else {
+      waves.add(createSpawnGroup({
+        type: picks[mainLines[0][0]][Math.min(mainLines[0][1]-1,4)],
+        begin: (Vars.state.rules.winWave/2)-2,
+        unitScaling: 1,
+        unitAmount: 1,
+        spacing: Vars.state.rules.winWave,
+        effect: StatusEffects.boss
+      }))
+      if (mainLines[0][1] != 5) {
+        waves.add(createSpawnGroup({
+          type: picks[mainLines[0][0]][Math.min(mainLines[0][1],4)],
+          begin: Vars.state.rules.winWave-2,
+          unitScaling: 1,
+          unitAmount: 1,
+          spacing: Vars.state.rules.winWave,
+          effect: StatusEffects.boss
+        }))
+      } else {
+        let spawnOct = mainLineComp.includes(1) ? rng.randomUnsynced() < 500 : false
+        spawnOct = true
+        waves.add(createSpawnGroup({
+          type: picks[mainLines[0][0]][Math.min(mainLines[0][1],4)],
+          begin: Vars.state.rules.winWave-2,
+          unitScaling: 0.5,
+          unitAmount: 2,
+          spacing: Vars.state.rules.winWave,
+          effect: StatusEffects.boss
+        }))
+        waves.add(createSpawnGroup({
+          type: picks[mainLines[1][0]][Math.min(mainLines[0][1],4-spawnOct)],
+          begin: Vars.state.rules.winWave-2,
+          unitScaling: 1-(spawnOct/2),
+          unitAmount: 1+spawnOct,
+          spacing: Vars.state.rules.winWave,
+          effect: StatusEffects.boss
+        }))
+        if (spawnOct) {
+          waves.add(createSpawnGroup({
+            type: UnitTypes.oct,
+            begin: Vars.state.rules.winWave-2,
+            unitScaling: 1,
+            unitAmount: 1,
+            spacing: Vars.state.rules.winWave,
+            effect: StatusEffects.boss
+          }))
+        }
+      }
+    }
   }
   return waves
 }
@@ -153,11 +207,27 @@ let basegen = new BaseGenerator()
 Planets.serpulo.generator = extend(SerpuloPlanetGenerator, {
   basegen: basegen,
   postGenerate(tiles) {
-    Vars.state.rules.spawns = numberedWaves(Vars.state.rules.sector,Vars.state.rules.sector.hasEnemyBase(),false)
+    let tlen = tiles.width * tiles.height
+    let waters = 0
+    let total = 0
+    for (let i=0;i<tlen;i++) {
+      let tile = tiles.geti(i)
+      if (tile.block() == Blocks.air) {
+        total++
+        if (tile.floor().liquidDrop == Liquids.water) waters++
+      }
+    }
+    print(waters)
+    print(total)
+    if (waters/total < 0.2) {
+      Vars.state.rules.spawns = numberedWaves(Vars.state.rules.sector,Vars.state.rules.sector.hasEnemyBase(),false,false)
+    } else {
+      Vars.state.rules.spawns = numberedWaves(Vars.state.rules.sector,Vars.state.rules.sector.hasEnemyBase(),false,true)
+    }
     if (Vars.state.rules.sector.hasEnemyBase()) {
       basegen.postGenerate()
       if (!Vars.spawner.countGroundSpawns()) {
-        Vars.state.rules.spawns = numberedWaves(Vars.state.rules.sector,true,true)
+        Vars.state.rules.spawns = numberedWaves(Vars.state.rules.sector,true,true,false)
       }
     }
   }
@@ -196,18 +266,18 @@ Events.on(ClientLoadEvent, e => {
   Planets.serpulo.sectors.get(65).threat = 0.746
   Planets.serpulo.sectors.get(226).threat = 0.746
   // extreme
-  Planets.serpulo.sectors.get(7).threat = 0.9 // its strictly personal
-  Planets.serpulo.sectors.get(117).threat = 0.85
-  Planets.serpulo.sectors.get(127).threat = 0.85 // on the way to sector 7
-  Planets.serpulo.sectors.get(144).threat = 0.85
-  Planets.serpulo.sectors.get(145).threat = 0.85
-  Planets.serpulo.sectors.get(194).threat = 0.85
-  Planets.serpulo.sectors.get(229).threat = 0.85
-  Planets.serpulo.sectors.get(235).threat = 0.85
-  Planets.serpulo.sectors.get(258).threat = 0.85
+  Planets.serpulo.sectors.get(7).threat = 0.95 // its strictly personal
+  Planets.serpulo.sectors.get(117).threat = 0.9
+  Planets.serpulo.sectors.get(127).threat = 0.9 // on the way to sector 7
+  Planets.serpulo.sectors.get(144).threat = 0.9
+  Planets.serpulo.sectors.get(145).threat = 0.9
+  Planets.serpulo.sectors.get(194).threat = 0.9
+  Planets.serpulo.sectors.get(229).threat = 0.9
+  Planets.serpulo.sectors.get(235).threat = 0.9
+  Planets.serpulo.sectors.get(258).threat = 0.9
   // erad
-  Planets.serpulo.sectors.get(5).threat = 1
-  Planets.serpulo.sectors.get(57).threat = 1
+  Planets.serpulo.sectors.get(5).threat = 1.08
+  Planets.serpulo.sectors.get(57).threat = 1.08
   Planets.serpulo.sectors.get(61).threat = 1.15
   Planets.serpulo.sectors.get(84).threat = 1.2
   Planets.serpulo.sectors.get(228).threat = 1.1
