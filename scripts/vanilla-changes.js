@@ -169,7 +169,6 @@ function numberedWaves(sector,enemyBase,airOnly,navalWaves) {
         }))
       } else {
         let spawnOct = mainLineComp.includes(1) ? rng.randomUnsynced() < 500 : false
-        spawnOct = true
         waves.add(createSpawnGroup({
           type: picks[mainLines[0][0]][Math.min(mainLines[0][1],4)],
           begin: Vars.state.rules.winWave-2,
