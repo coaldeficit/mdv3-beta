@@ -1,0 +1,13 @@
+type: LiquidBridge
+name: Cinnabar Aqueduct Bridge
+description: liquid bridge temp description
+category: liquid
+research: cinnabar-aqueduct
+moveArrows: true
+arrowSpacing: 6
+range: 4
+requirements: [
+  cinnabar-item/6
+]
+health: 50
+researchCostMultiplier: 0.5
