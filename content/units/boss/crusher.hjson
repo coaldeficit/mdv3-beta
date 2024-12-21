@@ -9,7 +9,6 @@ range: 420
 rotateSpeed: 1
 targetAir: true
 speed: 0.2
-details: A crux war machine that has been sent to protect Plt-2 from sharded forces. The second boss of MoreDefences.
 weapons: [{
   name: crusher-salvo
   top: true

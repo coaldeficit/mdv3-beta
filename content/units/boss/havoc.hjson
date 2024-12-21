@@ -1,15 +1,16 @@
 name: Havoc
-description: Fires powerful clusters of artillery shells at enemy structures and powerful laser bolts at nearby enemy units and structures. 
+description: "A mobile bunker. Stationary and strong against buildings above 25% health, slowly moving and strong against units below 25% health."
 flying: false
 health: 13000
 armor: 30
-hitSize: 40
+hitSize: 87
 engineOffset: 13.5
 range: 380
 rotatespeed: 1
 targetAir: true
-speed: 1
-details: A high ranking crux general sent to defend Plt-1 from sharded forces. The first boss of MoreDefences.
+speed: 0.1
+details: "Created as a desperate last resort by SPOILERS after you had destroyed their main base in Hard Drive.\nInside it were the last remaining Serpulean SPOILERS, and its destruction marks their complete eradication from Serpulo.\n\nMany ancient Crux bases remain, however none of them can adapt to your tactics as well as the SPOILERS did.\nWipe them out, or move on to another planet."
+hidden: true
 weapons: [{
   name: havoc-cluster
   top: false
