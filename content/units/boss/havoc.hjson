@@ -8,7 +8,7 @@ engineOffset: 13.5
 range: 380
 rotatespeed: 1
 targetAir: true
-speed: 0.1
+speed: 0.6
 details: "Created as a desperate last resort by SPOILERS after you had destroyed their main base in Hard Drive.\nInside it were the last remaining Serpulean SPOILERS, and its destruction marks their complete eradication from Serpulo.\n\nMany ancient Crux bases remain, however none of them can adapt to your tactics as well as the SPOILERS did.\nWipe them out, or move on to another planet."
 hidden: true
 weapons: [{
