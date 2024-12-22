@@ -60,6 +60,7 @@ require("md3/units/bosses/crusher")
 
 // misc
 require("md3/units/air/drones")
+require("md3/units/air/core-units")
 
 // experimental
 // require("md3/experimental/experimental")
