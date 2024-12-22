@@ -1,6 +1,6 @@
+type: Wall
 name: Huge Cobalt Wall
 description: A simple wall made of cobalt. Protects structures from enemy fire.
-type: Wall
 health: 4320
 size: 3
 requirements: [

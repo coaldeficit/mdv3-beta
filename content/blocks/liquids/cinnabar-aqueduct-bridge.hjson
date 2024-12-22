@@ -1,13 +1,19 @@
 type: LiquidBridge
-name: Cinnabar Aqueduct Bridge
+name: Aqueduct Bridge
 description: liquid bridge temp description
-category: liquid
-research: cinnabar-aqueduct
+health: 25
+size: 1
 moveArrows: true
 arrowSpacing: 6
 range: 4
+category: liquid
 requirements: [
   cinnabar-item/6
 ]
-health: 50
-researchCostMultiplier: 0.5
+research: {
+  parent: cinnabar-aqueduct
+  planet: md3-fieros
+}
+researchCost: [
+  cinnabar-item/25
+]

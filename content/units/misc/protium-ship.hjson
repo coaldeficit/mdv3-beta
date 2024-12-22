@@ -1,0 +1,61 @@
+name: Protium
+description: Builds structures to defend the Monoquark core. Shields nearby ally units. Capable of carrying 2x2 structures.
+type: payload
+speed: 7
+flying: true
+health: 10
+engineOffset: 6
+engineSize: 1.75
+drag: 0.1
+accel: 0.1
+hitSize: 9
+useUnitCap: false
+mineFloor: false
+mineWalls: true
+isEnemy: false
+mineSpeed: 4
+mineTier: 1
+buildSpeed: 0.5
+vulnerableWithPayloads: true
+coreUnitDock: true
+targetable: false
+hittable: false
+payloadCapacity: 256
+abilities: [
+  {
+    type: ShieldRegenFieldAbility
+    reload: 120
+    amount: 10
+    max: 30
+    range: 80
+  }
+  {
+    display: false
+    type: MoveEffectAbility
+    minVelocity: 0
+    x: 0
+    y: -7
+    rotateEffect: true
+    teamColor: true
+    effect: [
+      {
+        particles: 2
+        lifetime: 20
+        length: 0
+        baseLength: 3
+        interp: pow10Out
+        sizeInterp: linear
+        sizeFrom: 3
+        sizeTo: 0
+        layer: 80
+      }
+    ]
+  }
+]
+itemCapacity: 5
+range: 80
+research: {
+  parent: core-monoquark
+  planet: md3-fieros
+}
+alwaysUnlocked: true
