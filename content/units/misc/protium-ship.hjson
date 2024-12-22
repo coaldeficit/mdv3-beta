@@ -21,6 +21,7 @@ coreUnitDock: true
 targetable: false
 hittable: false
 payloadCapacity: 256
+rotateSpeed: 20
 abilities: [
   {
     type: ShieldRegenFieldAbility
