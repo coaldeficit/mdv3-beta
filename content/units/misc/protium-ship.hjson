@@ -31,26 +31,13 @@ abilities: [
     range: 80
   }
   {
-    display: false
     type: MoveEffectAbility
+    display: false
     minVelocity: 0
     x: 0
     y: -7
     rotateEffect: true
     teamColor: true
-    effect: [
-      {
-        particles: 2
-        lifetime: 20
-        length: 0
-        baseLength: 3
-        interp: pow10Out
-        sizeInterp: linear
-        sizeFrom: 3
-        sizeTo: 0
-        layer: 80
-      }
-    ]
   }
 ]
 itemCapacity: 5
