@@ -134,7 +134,7 @@ function numberedWaves(sector,enemyBase,airOnly,navalWaves) {
   if (sector.threat > 0.25 && !enemyBase) {
     if (settings.maxTier < 4) {
       waves.add(createSpawnGroup({
-        type: picks[mainLines[0]][settings.maxTier],
+        type: picks[mainLines[0]][settings.maxTier+1],
         begin: Vars.state.rules.winWave-2,
         unitScaling: 1,
         unitAmount: 1,
