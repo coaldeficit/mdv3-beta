@@ -131,10 +131,10 @@ function numberedWaves(sector,enemyBase,airOnly,navalWaves) {
   for (let i=0;i<mainLines.length;i++) {
     generateUnitLine(i, i * (settings.evolveInterval + (settings.evolveInterval*(rng.randomUnsynced()/1000))))
   }
-  if (sector.threat > 0.25 && !enemyBase && false) {
-    if (mainLines[0][1] < 4) {
+  if (sector.threat > 0.25 && !enemyBase) {
+    if (settings.maxTier < 4) {
       waves.add(createSpawnGroup({
-        type: picks[mainLines[0]][4],
+        type: picks[mainLines[0]][settings.maxTier],
         begin: Vars.state.rules.winWave-2,
         unitScaling: 1,
         unitAmount: 1,
@@ -143,18 +143,18 @@ function numberedWaves(sector,enemyBase,airOnly,navalWaves) {
       }))
     } else {
       waves.add(createSpawnGroup({
-        type: picks[mainLines[0][0]][Math.min(mainLines[0][1]-1,4)],
+        type: picks[mainLines[0]][settings.maxTier-1],
         begin: (Vars.state.rules.winWave/2)-2,
-        unitScaling: 1,
+        unitScaling: 0.4,
         unitAmount: 1,
         spacing: Vars.state.rules.winWave,
         effect: StatusEffects.boss
       }))
-      if (mainLines[0][1] != 5) {
+      if (true) {
         waves.add(createSpawnGroup({
-          type: picks[mainLines[0][0]][Math.min(mainLines[0][1],4)],
+          type: picks[mainLines[0]][settings.maxTier],
           begin: Vars.state.rules.winWave-2,
-          unitScaling: 1,
+          unitScaling: 0.7,
           unitAmount: 1,
           spacing: Vars.state.rules.winWave,
           effect: StatusEffects.boss
