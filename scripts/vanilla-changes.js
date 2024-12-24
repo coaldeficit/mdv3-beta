@@ -117,7 +117,7 @@ function numberedWaves(sector,enemyBase,airOnly,navalWaves) {
       wave += settings.evolveInterval + (settings.evolveInterval*(rng.randomUnsynced()/1000))
     }
     if (settings.maxTier > 3) {
-      endWave += 29 + (settings.evolveInterval*(rng.randomUnsynced()/1000))
+      wave += 11 + (settings.evolveInterval*(rng.randomUnsynced()/1000))
       waves.add(createSpawnGroup({ // non-guardian t5s
         type: picks[mainLines[index]][4],
         begin: wave,
