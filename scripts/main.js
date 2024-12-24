@@ -31,8 +31,6 @@ require('md3/blocks/delay');
 require('md3/blocks/puncture');
 require('md3/blocks/fieros-production');
 
-require('md3/vanilla-changes');
-
 // unit stuff
 // ground
 // shotgunner line
@@ -61,6 +59,9 @@ require("md3/units/bosses/crusher")
 // misc
 require("md3/units/air/drones")
 require("md3/units/air/core-units")
+
+// this needs to load after everything else
+require('md3/vanilla-changes');
 
 // experimental
 // require("md3/experimental/experimental")

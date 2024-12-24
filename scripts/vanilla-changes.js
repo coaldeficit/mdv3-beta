@@ -61,14 +61,12 @@ function numberedWaves(sector,enemyBase,airOnly,navalWaves) {
   }
   rng.setIndex(sector.id*(22+picks.length))
   let mainLines = []
-  let mainLineComp = []
   for (let i=0;i<Math.min(picks.length,4);i++) {
     let line = -1
     do {
       line = Math.floor(picks.length*(rng.randomUnsynced()/1000))
-    } while (mainLineComp.includes(line))
-    mainLines.push([line,0,0])
-    mainLineComp.push(mainLines[mainLines.length-1][0])
+    } while (mainLines.includes(line))
+    mainLines.push(line)
   }
   function createSpawnGroup(pickunit) {
     let o = new SpawnGroup(pickunit.type)
@@ -79,70 +77,64 @@ function numberedWaves(sector,enemyBase,airOnly,navalWaves) {
   }
   let waves = new Seq()
   let settings = {
-    evolveSpacing: (1.8-sector.threat)*5,
-    evolveOffsetMax: 10-(sector.threat*5),
-    evolveOffsetPerTier: 4-sector.threat,
-    evolveNewTypeChance: 125*(mainLines.length-1)*sector.threat*5.56,
+    evolveInterval: (2.18-sector.threat)*4,
     tierOffset: sector.threat > 0.6 ? 1 : 0,
     maxTier: Math.min(Math.max(1,Math.ceil((sector.threat-0.33)*5)),4),
     unitScaling: 2.18 - sector.threat
   }
   let mainLineIndex = 0
   function generateUnitLine(index,startWave) {
-    if (mainLines[index] != null) {
-      mainLines[index][1] += settings.tierOffset
-      mainLines[index][2] += startWave
-      do {
-        let endWave = Math.ceil(mainLines[index][2] + settings.evolveSpacing + (settings.evolveOffsetMax*(rng.randomUnsynced()/1000)) + (settings.evolveOffsetPerTier*(mainLines[index][1]-settings.tierOffset)))
-        if ((rng.randomUnsynced() < settings.evolveNewTypeChance || (mainLines[index][1] > 1 && mainLines[index][2] <= (Vars.state.rules.winWave/2)-2)) && mainLineIndex < mainLines.length) {
-          settings.evolveNewTypeChance -= 125
-          mainLineIndex++
-          generateUnitLine(mainLineIndex,endWave)
-          endWave = Math.ceil(endWave + settings.evolveSpacing + (settings.evolveOffsetMax*(rng.randomUnsynced()/1000)) + (settings.evolveOffsetPerTier*(mainLines[index][1]-settings.tierOffset)))
-          waves.add(createSpawnGroup({
-            type: picks[mainLines[index][0]][mainLines[index][1]],
-            shieldScaling: 0,
-            begin: mainLines[index][2],
-            end: endWave+1,
-            unitScaling: settings.unitScaling/(mainLines[index][1]<3?0.82+sector.threat:1),
-            spacing: Math.max(Math.ceil(((1+mainLines[index][1])-settings.tierOffset)-Math.floor(sector.threat*1.2)),1)+(mainLines[index][1]>2?1:0)
-          }))
-          waves.add(createSpawnGroup({
-            type: picks[mainLines[index][0]][mainLines[index][1]],
-            shieldScaling: 0,
-            begin: endWave+2,
-            unitScaling: (settings.unitScaling*3.4)/(mainLines[index][1]<3?0.82+sector.threat:1),
-            unitAmount: Math.ceil(((1/(Math.max(Math.ceil(((1+mainLines[index][1])-settings.tierOffset)-Math.floor(sector.threat*1.2)),1)+(mainLines[index][1]>2?1:0)))*((endWave-mainLines[index][2])/(settings.unitScaling/(mainLines[index][1]<3?0.82+sector.threat:1))))/2)
-          }))
-          mainLines[index][1] += 1
-          mainLines[index][2] = endWave
-        } else {
-          waves.add(createSpawnGroup({
-            type: picks[mainLines[index][0]][mainLines[index][1]],
-            shieldScaling: 0,
-            begin: mainLines[index][2],
-            end: endWave+1,
-            unitScaling: settings.unitScaling/(mainLines[index][1]<3?0.82+sector.threat:1),
-            spacing: Math.max(Math.ceil(((1+mainLines[index][1])-settings.tierOffset)-Math.floor(sector.threat*1.2)),1)+(mainLines[index][1]>2?1:0)
-          }))
-          waves.add(createSpawnGroup({
-            type: picks[mainLines[index][0]][mainLines[index][1]],
-            shieldScaling: 0,
-            begin: endWave+2,
-            unitScaling: (settings.unitScaling*3.4)/(mainLines[index][1]<3?0.82+sector.threat:1),
-            unitAmount: Math.ceil(((1/(Math.max(Math.ceil(((1+mainLines[index][1])-settings.tierOffset)-Math.floor(sector.threat*1.2)),1)+(mainLines[index][1]>2?1:0)))*((endWave-mainLines[index][2])/(settings.unitScaling/(mainLines[index][1]<3?0.82+sector.threat:1))))/2)
-          }))
-          mainLines[index][1] += 1
-          mainLines[index][2] = endWave
-        }
-      } while (mainLines[index][1] <= settings.maxTier)
+    let wave = startWave
+    let endWave = startWave + settings.evolveInterval + (settings.evolveInterval*(rng.randomUnsynced()/1000))
+    for (let i=settings.tierOffset;i<Math.min(settings.maxTier+1,3);i++) {
+      waves.add(createSpawnGroup({
+        type: picks[mainLines[index]][i],
+        begin: wave,
+        end: endWave,
+        unitScaling: settings.unitScaling,
+        unitAmount: 1,
+        spacing: i-settings.tierOffset ? 2 : 1,
+      }))
+      waves.add(createSpawnGroup({
+        type: picks[mainLines[index]][i],
+        begin: endWave+1,
+        unitScaling: settings.unitScaling*4,
+        unitAmount: Math.ceil((((endWave-wave)/settings.unitScaling)/(i-settings.tierOffset ? 2 : 1))/2),
+        spacing: 1,
+      }))
+      wave = endWave - 1
+      endWave += settings.evolveInterval + (settings.evolveInterval*(rng.randomUnsynced()/1000))
+    }
+    if (settings.maxTier > 2) {
+      wave = endWave + 6 + (settings.evolveInterval*(rng.randomUnsynced()/1000))
+      waves.add(createSpawnGroup({ // non-guardian t4s
+        type: picks[mainLines[index]][3],
+        begin: wave,
+        unitScaling: 1.5,
+        unitAmount: 1,
+        spacing: 3,
+      }))
+      wave += settings.evolveInterval + (settings.evolveInterval*(rng.randomUnsynced()/1000))
+    }
+    if (settings.maxTier > 3) {
+      endWave += 29 + (settings.evolveInterval*(rng.randomUnsynced()/1000))
+      waves.add(createSpawnGroup({ // non-guardian t5s
+        type: picks[mainLines[index]][4],
+        begin: wave,
+        unitScaling: 1.5,
+        unitAmount: 1,
+        spacing: 4,
+      }))
+      wave += settings.evolveInterval + (settings.evolveInterval*(rng.randomUnsynced()/1000))
     }
   }
-  generateUnitLine(0,0)
-  if (sector.threat > 0.25 && !enemyBase) {
+  for (let i=0;i<mainLines.length;i++) {
+    generateUnitLine(i, i * (settings.evolveInterval + (settings.evolveInterval*(rng.randomUnsynced()/1000))))
+  }
+  if (sector.threat > 0.25 && !enemyBase && false) {
     if (mainLines[0][1] < 4) {
       waves.add(createSpawnGroup({
-        type: picks[mainLines[0][0]][Math.min(mainLines[0][1],4)],
+        type: picks[mainLines[0]][4],
         begin: Vars.state.rules.winWave-2,
         unitScaling: 1,
         unitAmount: 1,
