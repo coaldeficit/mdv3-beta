@@ -132,7 +132,7 @@ function numberedWaves(sector,enemyBase,airOnly,navalWaves) {
     generateUnitLine(i, i * (settings.evolveInterval + (settings.evolveInterval*(rng.randomUnsynced()/1000))))
   }
   if (sector.threat > 0.25 && !enemyBase) {
-    if (settings.maxTier < 4) {
+    if (settings.maxTier < 3) {
       waves.add(createSpawnGroup({
         type: picks[mainLines[0]][settings.maxTier+1],
         begin: Vars.state.rules.winWave-2,
@@ -143,16 +143,16 @@ function numberedWaves(sector,enemyBase,airOnly,navalWaves) {
       }))
     } else {
       waves.add(createSpawnGroup({
-        type: picks[mainLines[0]][settings.maxTier-1],
+        type: picks[mainLines[0]][settings.maxTier],
         begin: (Vars.state.rules.winWave/2)-2,
         unitScaling: 0.4,
         unitAmount: 1,
         spacing: Vars.state.rules.winWave,
         effect: StatusEffects.boss
       }))
-      if (true) {
+      if (settings.maxTier != 4) {
         waves.add(createSpawnGroup({
-          type: picks[mainLines[0]][settings.maxTier],
+          type: picks[mainLines[0]][Math.min(settings.maxTier+1,4)],
           begin: Vars.state.rules.winWave-2,
           unitScaling: 0.7,
           unitAmount: 1,
@@ -160,20 +160,21 @@ function numberedWaves(sector,enemyBase,airOnly,navalWaves) {
           effect: StatusEffects.boss
         }))
       } else {
-        let spawnOct = mainLineComp.includes(1) ? rng.randomUnsynced() < 500 : false
+        let spawnOct = mainLines.includes(1)
+        let offset = (mainLines[1] == 1)+1
         waves.add(createSpawnGroup({
-          type: picks[mainLines[0][0]][Math.min(mainLines[0][1],4)],
+          type: picks[mainLines[Math.min(offset,mainLines.length-1)]][settings.maxTier],
           begin: Vars.state.rules.winWave-2,
-          unitScaling: 0.5,
-          unitAmount: 2,
+          unitScaling: 0.4/(1+spawnOct),
+          unitAmount: 3-spawnOct,
           spacing: Vars.state.rules.winWave,
           effect: StatusEffects.boss
         }))
         waves.add(createSpawnGroup({
-          type: picks[mainLines[1][0]][Math.min(mainLines[0][1],4-spawnOct)],
+          type: picks[mainLines[Math.min(1+offset,mainLines.length-1)]][settings.maxTier],
           begin: Vars.state.rules.winWave-2,
-          unitScaling: 1-(spawnOct/2),
-          unitAmount: 1+spawnOct,
+          unitScaling: 0.4,
+          unitAmount: 2,
           spacing: Vars.state.rules.winWave,
           effect: StatusEffects.boss
         }))
@@ -181,13 +182,34 @@ function numberedWaves(sector,enemyBase,airOnly,navalWaves) {
           waves.add(createSpawnGroup({
             type: UnitTypes.oct,
             begin: Vars.state.rules.winWave-2,
-            unitScaling: 1,
+            unitScaling: 0.6,
             unitAmount: 1,
             spacing: Vars.state.rules.winWave,
             effect: StatusEffects.boss
           }))
         }
       }
+    }
+  } else if (enemyBase) {
+    let spacing = Math.min(Math.floor(50-(sector.threat*31)),30)
+    let type = mainLines[0] == 1 && settings.maxTier >= 3 ? picks[mainLines[1]] : picks[mainLines[0]]
+    waves.add(createSpawnGroup({
+      type: type[Math.min(settings.maxTier+1,4)],
+      begin: spacing-2,
+      unitScaling: 1,
+      unitAmount: 1,
+      spacing: spacing,
+      effect: StatusEffects.boss
+    }))
+    if (settings.maxTier == 4) {
+      waves.add(createSpawnGroup({
+        type: UnitTypes.oct,
+        begin: spacing-2,
+        unitScaling: 1,
+        unitAmount: 1,
+        spacing: spacing,
+        effect: StatusEffects.boss
+      }))
     }
   }
   return waves
@@ -208,8 +230,6 @@ Planets.serpulo.generator = extend(SerpuloPlanetGenerator, {
         if (tile.floor().liquidDrop == Liquids.water) waters++
       }
     }
-    print(waters)
-    print(total)
     if (waters/total < 0.2) {
       Vars.state.rules.spawns = numberedWaves(Vars.state.rules.sector,Vars.state.rules.sector.hasEnemyBase(),false,false)
     } else {
@@ -269,9 +289,9 @@ Events.on(ClientLoadEvent, e => {
   // erad
   Planets.serpulo.sectors.get(5).threat = 1.08
   Planets.serpulo.sectors.get(57).threat = 1.08
-  Planets.serpulo.sectors.get(61).threat = 1.15
+  Planets.serpulo.sectors.get(61).threat = 1.2
   Planets.serpulo.sectors.get(84).threat = 1.2
-  Planets.serpulo.sectors.get(228).threat = 1.1
-  Planets.serpulo.sectors.get(255).threat = 1.22
-  Planets.serpulo.sectors.get(262).threat = 1.1
+  Planets.serpulo.sectors.get(228).threat = 1.08
+  Planets.serpulo.sectors.get(255).threat = 1.2
+  Planets.serpulo.sectors.get(262).threat = 1.08
 })
