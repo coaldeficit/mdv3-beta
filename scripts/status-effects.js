@@ -84,14 +84,17 @@ let insulatedEffect = extend(StatusEffect, "insulated-status", {
       return false
     },
     speedMultiplier: 0.92,
+    healthMultiplier: 1.5,
+    damageMultiplier: 1.25,
+    reloadMultiplier: 0.8,
     localizedName: 'Insulated',
     effect: vfx.insulatedstatus,
     color: Pal.gray, // #454545
     permanent: true,
-    description: 'Protects units affected by it from electricity-based status effects.',
+    description: 'Protects units affected by it from electricity and low temperature embrittlement.',
     update(unit,time){
       this.super$update(unit,time);
-      let electricEffects = [StatusEffects.shocked, StatusEffects.electrified]
+      let electricEffects = [StatusEffects.shocked, StatusEffects.electrified, StatusEffects.blasted]
       electricEffects.forEach(function(effect){
         if (statusFunc.checkstatus(unit, effect) != false) unit.unapply(effect)
       })
@@ -100,6 +103,7 @@ let insulatedEffect = extend(StatusEffect, "insulated-status", {
 });
 insulatedEffect.opposite(StatusEffects.shocked);
 insulatedEffect.opposite(StatusEffects.electrified);
+insulatedEffect.opposite(StatusEffects.blasted);
 
 function getBaseLog(x, y) {
   return Math.log(y) / Math.log(x);
