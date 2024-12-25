@@ -291,7 +291,9 @@ Events.on(ClientLoadEvent, e => {
   Planets.serpulo.sectors.get(57).threat = 1.08
   Planets.serpulo.sectors.get(61).threat = 1.2
   Planets.serpulo.sectors.get(84).threat = 1.2
+  Planets.serpulo.sectors.get(199).threat = 1.08
+  Planets.serpulo.sectors.get(225).threat = 1.08
   Planets.serpulo.sectors.get(228).threat = 1.08
   Planets.serpulo.sectors.get(255).threat = 1.2
-  Planets.serpulo.sectors.get(262).threat = 1.08
+  Planets.serpulo.sectors.get(262).threat = 1.2
 })
