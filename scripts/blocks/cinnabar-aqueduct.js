@@ -8,12 +8,9 @@ const aqueduct = extend(Conduit, "cinnabar-aqueduct", {
     return [
       this.iconRegion
     ];
+  },
+  drawPlanRegion(plan, list){
+    Draw.rect(this.iconRegion, plan.drawx(), plan.drawy(), plan.rotation*90);
+	Draw.scl();
   }
 });
-/*coba.buildType = () => extend(GenericCrafter.GenericCrafterBuild, coba, {
-  draw(){
-    Draw.rect(coba.region, this.x, this.y);
-    Draw.rect(coba.rotateRegion, this.x, this.y, this.totalProgress * 6);
-    Draw.rect(coba.topRegion, this.x, this.y);
-  }
-});*/
