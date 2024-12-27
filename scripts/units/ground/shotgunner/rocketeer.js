@@ -1,6 +1,6 @@
 const bulLib = require("md3/libs/bulletlib")
 const ShotT4 = extend(UnitType, "rocketeer-mech", {
-  onUnlock() { // i have no way to test this
+  onUnlock() {
     minion.unlock()
   }
 });

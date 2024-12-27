@@ -1,4 +1,3 @@
-type: Conduit
 name: Aqueduct
 description: Transports liquids forward.
 health: 25
@@ -7,6 +6,7 @@ leaks: true
 junctionReplacement: cobalt-channel
 bridgeReplacement: cobalt-channel
 underBullets: true
+botColor: ffffff
 category: liquid
 requirements: [
   cinnabar-item/2
