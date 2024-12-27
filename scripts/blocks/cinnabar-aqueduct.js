@@ -11,6 +11,5 @@ const aqueduct = extend(Conduit, "cinnabar-aqueduct", {
   },
   drawPlanRegion(plan, list){
     Draw.rect(this.iconRegion, plan.drawx(), plan.drawy(), plan.rotation*90);
-	Draw.scl();
   }
 });
