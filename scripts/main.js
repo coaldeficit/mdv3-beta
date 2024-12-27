@@ -32,6 +32,7 @@ require('md3/blocks/puncture');
 require('md3/blocks/fieros-production');
 
 // unit stuff
+// serpulo
 // ground
 // shotgunner line
 require("md3/units/ground/shotgunner/shotgunner")
@@ -55,6 +56,11 @@ require("md3/units/naval/mycena/mycena")
 // bosses
 require("md3/units/bosses/havoc")
 require("md3/units/bosses/crusher")
+
+// fieros
+// ground
+// jeri line
+require("md3/units/ground/jeri/jeri")
 
 // misc
 require("md3/units/air/drones")
