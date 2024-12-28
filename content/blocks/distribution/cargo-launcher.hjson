@@ -11,7 +11,7 @@ minDistribute: 5
 shake: 0
 bulletSpeed: 4
 bulletLifetime: 12
-envDisabled: 24
+knockback: 2
 category: distribution
 research: {
   parent: cobalt-channel
