@@ -5,6 +5,7 @@ require("md3/autoupdate")
 require("md3/libs/shaders")
 
 require("md3/items")
+require("md3/units/damagegroups")
 require("md3/status-effects")
 // require("md3/liquids")
 require("md3/blocks/environment")
