@@ -16,7 +16,7 @@ orbitRadius: 132
 landCloudColor: e6c25730
 
 defaultEnv: 129
-updateLighting: true
+updateLighting: false
 allowLaunchToNumbered: false
 allowLaunchSchematics: false
 allowLaunchLoadout: false
