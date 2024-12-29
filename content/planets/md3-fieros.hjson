@@ -3,7 +3,7 @@ sectorSize: 4
 radius: 1
 generator: AsteroidGenerator
 accessible: true
-alwaysUnlocked: false
+alwaysUnlocked: true
 bloom: false
 startSector: 27
 iconColor: 292A55

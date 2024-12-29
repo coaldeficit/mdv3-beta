@@ -23,7 +23,6 @@ weapons: [{
   name: jeri-weapon
   top: true
   rotate: true
-  rotationLimit: 100
   y: 0
   x: 4.5
   shoot: {

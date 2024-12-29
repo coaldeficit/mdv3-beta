@@ -30,6 +30,7 @@ require('md3/blocks/frozen-wall');
 require('md3/blocks/instant');
 require('md3/blocks/delay');
 require('md3/blocks/puncture');
+require('md3/blocks/pelt');
 require('md3/blocks/cinnabar-aqueduct');
 require('md3/blocks/fieros-production');
 
