@@ -15,6 +15,4 @@ research: {
   parent: cobalt-channel
   planet: md3-fieros
 }
-researchCost: [
-  cinnabar-item/10
-]
+alwaysUnlocked: true
