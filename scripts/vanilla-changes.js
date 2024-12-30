@@ -297,3 +297,10 @@ Events.on(ClientLoadEvent, e => {
   Planets.serpulo.sectors.get(255).threat = 1.2
   Planets.serpulo.sectors.get(262).threat = 1.2
 })
+
+// CAPTURE TOAST
+Events.on(SectorCaptureEvent, e => {
+  if (Core.settings.getBool("md3-forcecapturetoast", true) && e.sector.isBeingPlayed()) {
+    Vars.ui.hudfrag.showToast(Core.bundle.format("sector.capture", ""))
+  }
+})
