@@ -21,8 +21,8 @@ consumes: {
   }
 }
 requirements: [
-  cobalt/45
-  cinnabar-item/90
+  cobalt/125
+  cinnabar-item/125
 ]
 outputItem: bulletum/2
 category: crafting
@@ -31,6 +31,6 @@ research: {
   planet: md3-fieros
 }
 researchCost: [
-  cobalt/160
-  cinnabar-item/160
+  cobalt/225
+  cinnabar-item/225
 ]
