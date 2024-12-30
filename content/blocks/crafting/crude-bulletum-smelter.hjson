@@ -1,7 +1,7 @@
 name: Crude Bulletum Smelter
 description: A crude machine for smelting Cinnabar and Lithium. Inefficient and lacks a heat input, requiring placement on exposed heat sources.
-health: 85
-craftTime: 65
+health: 70
+craftTime: 60
 size: 2
 itemCapacity: 10
 drawer: {
