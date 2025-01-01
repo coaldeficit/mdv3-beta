@@ -32,6 +32,7 @@ maxAmmo: 9
 ammoPerShot: 3
 drawer: {
   type: DrawTurret
+  basePrefix: md3-fieros-
   parts: [
     {
       type: RegionPart
