@@ -4,7 +4,7 @@ description: temp
 health: 70
 size: 2
 range: 7
-drillTime: 480
+drillTime: 360
 tier: 1
 sparks: 15
 sparkSize: 5
@@ -15,7 +15,7 @@ sparkRange: -4
 squareSprite: false
 envDisabled: 24
 requirements: [
-  cobalt/40
+  cobalt/25
 ]
 #consumes: {
 #  liquids: [
