@@ -1,10 +1,10 @@
 type: BeamDrill
 name: Laser Bore
 description: temp
-health: 70
+health: 50
 size: 2
 range: 7
-drillTime: 360
+drillTime: 480
 tier: 1
 sparks: 15
 sparkSize: 5
