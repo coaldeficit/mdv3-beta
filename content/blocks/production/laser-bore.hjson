@@ -1,6 +1,6 @@
 type: BeamDrill
 name: Laser Bore
-description: temp
+description: Mines ore walls.
 health: 50
 size: 2
 range: 7

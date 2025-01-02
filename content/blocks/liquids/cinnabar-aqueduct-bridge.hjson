@@ -1,6 +1,6 @@
 type: LiquidBridge
 name: Aqueduct Bridge
-description: liquid bridge temp description
+description: "Transports liquids over terrain or buildings.\nOutputs to 3 sides at the end."
 health: 25
 size: 1
 moveArrows: true

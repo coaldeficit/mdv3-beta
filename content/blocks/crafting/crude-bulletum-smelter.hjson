@@ -15,14 +15,14 @@ maxBoost: 2
 consumes: {
   items: {
     items: [
-      cinnabar-item/1
+      cobalt/1
       lithium/1
     ]
   }
 }
 requirements: [
-  cobalt/125
-  cinnabar-item/125
+  cobalt/150
+  cinnabar-item/100
 ]
 outputItem: bulletum/2
 category: crafting
@@ -31,6 +31,6 @@ research: {
   planet: md3-fieros
 }
 researchCost: [
-  cobalt/225
-  cinnabar-item/225
+  cobalt/275
+  cinnabar-item/175
 ]

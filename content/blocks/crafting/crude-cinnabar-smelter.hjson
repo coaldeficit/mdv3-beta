@@ -24,8 +24,8 @@ outputLiquids: [
   mercury/0.4
 ]
 requirements: [
-  cobalt/90
-  cinnabar-item/90
+  cobalt/70
+  cinnabar-item/110
 ]
 category: crafting
 research: {
@@ -33,6 +33,6 @@ research: {
   planet: md3-fieros
 }
 researchCost: [
-  cobalt/160
-  cinnabar-item/160
+  cobalt/120
+  cinnabar-item/200
 ]

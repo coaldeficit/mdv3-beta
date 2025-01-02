@@ -42,7 +42,7 @@ abilities: {
     }
   ]
 }
-itemCapacity: 5
+itemCapacity: 25
 range: 80
 research: {
   parent: core-monoquark
