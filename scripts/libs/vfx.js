@@ -1,3 +1,5 @@
+const rand = new Rand()
+const v = new Vec2()
 const lh2status = new Effect(30, e => {
   Draw.z(110)
   Draw.color(Color.valueOf("#7a9a9B"))
@@ -103,6 +105,26 @@ const blastFuseShoot = Effect(12, e => {
     Lines.lineAngle(e.x + x, e.y + y, Mathf.angle(x, y), e.fin() * 5 + 2)
   });
 });
+const boltTrailLithium = Effect(40, e => {
+  Draw.color(Color.white, Color.valueOf("B87DD8"), e.fin())
+  Lines.stroke(e.fout() * 1.7 + 0.6)
+  rand.setSeed(e.id)
+  for (let i=0;i<3;i++) {
+    let rot = e.rotation + rand.range(15)
+    v.trns(rot, rand.random(e.fin()*27))
+    Lines.lineAngle(e.x+v.x,e.y+v.y,rot,e.fout()*rand.random(2,7)+1.5)
+  }
+});
+const boltTrailBulletum = Effect(40, e => {
+  Draw.color(Color.white, Color.valueOf("cb4a9b"), e.fin())
+  Lines.stroke(e.fout() * 1.7 + 0.6)
+  rand.setSeed(e.id)
+  for (let i=0;i<3;i++) {
+    let rot = e.rotation + rand.range(15)
+    v.trns(rot, rand.random(e.fin()*27))
+    Lines.lineAngle(e.x+v.x,e.y+v.y,rot,e.fout()*rand.random(2,7)+1.5)
+  }
+});
 
 module.exports = {
     lh2status: lh2status,
@@ -117,4 +139,6 @@ module.exports = {
     delayedstatus: delayedstatus,
     sluggerSuppress: sluggerSuppress,
     blastFuseShoot: blastFuseShoot,
+    boltTrailLithium: boltTrailLithium,
+    boltTrailBulletum: boltTrailBulletum,
 };
