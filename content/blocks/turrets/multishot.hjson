@@ -16,7 +16,7 @@ shoot: {
 hasLiquids: true
 consumes: {
   coolant: {
-    amount: 0.2
+    amount: 0.1
   }
 }
 coolantMultiplier: 5

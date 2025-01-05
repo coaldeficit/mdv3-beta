@@ -21,7 +21,7 @@ consumes: {
     amount: 0.5
   }
 }
-coolantMultiplier: 5
+coolantMultiplier: 2
 drawer: {
   type: DrawTurret
   parts: [
