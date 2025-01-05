@@ -10,6 +10,7 @@ inaccuracy: 0.5
 rotateSpeed: 2.5
 maxAmmo: 42
 ammoPerShot: 2
+predictTarget: false
 targetAir: false
 shootSound: artillery
 hasLiquids: true
