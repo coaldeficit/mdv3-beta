@@ -21,12 +21,13 @@ consumes: {
     ]
   }
 }
-requirements: [
-  metaglass/120
-  graphite/80
-  silicon/60
-  plastanium/40
-]
-category: crafting
-research: silicon-crucible
+#requirements: [
+#  metaglass/120
+#  graphite/80
+#  silicon/60
+#  plastanium/40
+#]
+#category: crafting
+#research: silicon-crucible
 outputItem: metaglass/8
+buildVisibility: hidden

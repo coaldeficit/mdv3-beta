@@ -7,10 +7,9 @@ armor: 5
 engineOffset: 6
 drag: 0.01
 accel: 0.09
-rotatespeed: 5.0
+#rotatespeed: 5.0
 circleTarget: true
 targetFlags: [turret, battery, null]
-playerTargetFlags: [turret, battery, null]
 faceTarget: false
 physics: false
 itemCapacity: 0
@@ -36,7 +35,7 @@ weapons: [{
     trailLength: 5
     shrinkY: 0
     shrinkX: 0
-    collideAir: false
+    collidesAir: false
     keepVelocity: false
     trailColor: ffe873
     backColor: ffe873

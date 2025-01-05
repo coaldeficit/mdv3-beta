@@ -15,11 +15,17 @@ shoot: {
 }
 reload: 120
 recoil: 6
-cooldown: 0.03
+#cooldown: 0.03
 shake: 2
 shootSound: artillery
 targetAir: false
-
+hasLiquids: true
+consumes: {
+  coolant: {
+    amount: 0.2
+  }
+}
+coolantMultiplier: 4
 ammoTypes: {
   pyratite: {
     type: ArtilleryBulletType

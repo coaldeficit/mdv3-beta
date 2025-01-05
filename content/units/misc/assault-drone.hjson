@@ -10,13 +10,11 @@ accel: 0.03
 rotateSpeed: 3
 circleTarget: true
 faceTarget: false
-commandLimit: 0
 targetAir: true
 itemCapacity: 0
 useUnitCap: false
 hitSize: 6
 targetFlags: [null]
-playerTargetFlags: [null]
 lifetime: 600
 allowChangeCommands: false
 stances: [pursuetarget]

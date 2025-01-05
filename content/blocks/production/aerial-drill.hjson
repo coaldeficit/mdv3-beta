@@ -16,11 +16,12 @@ consumes: {
     amount: 0.15
   }
 }
-requirements: [
-   titanium/140
-   thorium/175
-   surge-alloy/300
-   vanadium/125
-]
-category: production
-research: surge-drill
+#requirements: [
+#   titanium/140
+#   thorium/175
+#   surge-alloy/300
+#   vanadium/125
+#]
+#category: production
+#research: surge-drill
+buildVisibility: hidden

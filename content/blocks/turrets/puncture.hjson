@@ -15,6 +15,13 @@ shootSound: missile
 targetAir: false
 maxAmmo: 20
 unitSort: weakest
+hasLiquids: true
+consumes: {
+  coolant: {
+    amount: 0.5
+  }
+}
+coolantMultiplier: 5
 drawer: {
   type: DrawTurret
   parts: [

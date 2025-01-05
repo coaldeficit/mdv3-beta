@@ -10,13 +10,13 @@ allowLegStep: true
 rotateSpeed: 3
 legCount: 7
 legLength: 75
-legTrns: 0.8
+#legTrns: 0.8
 legMoveSpace: 0.7
 legPairOffset: 3
 legExtension: -20
-landShake: 1
+#landShake: 1
 legSpeed: 0.06
-visualEvelation: 0.5
+#visualEvelation: 0.5
 legBaseOffset: 8
 weapons: [{
   name: howitzer-cannon
@@ -75,7 +75,7 @@ weapons: [{
     top: true
     rotate: true
     y: 7
-    shots: 1
+    #shots: 1
     x: 12
     reload: 20
     alternate: true
@@ -100,7 +100,7 @@ weapons: [{
     top: true
     rotate: true
     y: -5
-    shots: 1
+    #shots: 1
     x: 18
     reload: 20
     alternate: true

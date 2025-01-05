@@ -17,7 +17,7 @@ shootSound: splash
 shootEffect: shootLiquid
 liquidCapacity: 45
 ammoPerShot: 9
-activeSound: splash
+#activeSound: splash
 
 ammoTypes: {
 	slag: {
@@ -32,11 +32,12 @@ ammoTypes: {
 		puddleSize: 8
 	}
 }
-requirements: [
-	lead/85
-	metaglass/60
-	titanium/80
-]
+#requirements: [
+#	lead/85
+#	metaglass/60
+#	titanium/80
+#]
 
-category: turret
-research: wave
+#category: turret
+#research: wave
+buildVisibility: hidden

@@ -6,7 +6,7 @@ size: 1
 reload: 2
 range: 170
 inaccuracy: 3
-rotatespeed: 15
+rotateSpeed: 15
 shoot: {
   type: ShootAlternate
   shots: 2

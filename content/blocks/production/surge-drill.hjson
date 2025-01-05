@@ -15,11 +15,12 @@ consumes: {
   }
 }
 drawMineItem: false
-requirements: [
-   graphite/60
-   titanium/75
-   thorium/80
-   surge-alloy/55
-]
-category: production
-research: blast-drill
+#requirements: [
+#   graphite/60
+#   titanium/75
+#   thorium/80
+#   surge-alloy/55
+#]
+#category: production
+#research: blast-drill
+buildVisibility: hidden

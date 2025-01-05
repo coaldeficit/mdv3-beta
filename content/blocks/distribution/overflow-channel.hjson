@@ -3,7 +3,6 @@ name: Overflow Channel
 description: Outputs items to the left and right of itself when the front is full.
 health: 25
 speed: 8
-bridgeReplacement: cargo-launcher
 squareSprite: false
 requirements: [
   cobalt/10

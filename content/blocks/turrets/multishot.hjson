@@ -13,6 +13,13 @@ shoot: {
   spread: 6
   shots: 13
 }
+hasLiquids: true
+consumes: {
+  coolant: {
+    amount: 0.2
+  }
+}
+coolantMultiplier: 5
 ammoTypes: {
   lead: {
     speed: 3

@@ -50,10 +50,11 @@ ammoTypes: {
     drag: 0.025
   }
 }
-requirements: [
-  lead/125
-  titanium/25
-  metaglass/75
-]
-category: turret
-research: wave
+#requirements: [
+#  lead/125
+#  titanium/25
+#  metaglass/75
+#]
+#category: turret
+#research: tsunami
+buildVisibility: hidden

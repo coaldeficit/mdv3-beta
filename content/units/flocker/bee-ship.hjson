@@ -8,10 +8,9 @@ engineOffset: 7.5
 drag: 0.1
 accel: 0.07
 range: 120
-rotatespeed: 3
+#rotatespeed: 3
 circleTarget: true
 targetFlags: [turret, battery, null]
-playerTargetFlags: [turret, battery, null]
 itemCapacity: 0
 weapons: [{
   name: artillery-mount-2

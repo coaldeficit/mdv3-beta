@@ -42,7 +42,8 @@ weapons: [{
   mirror: false
   rotateSpeed: 5
   bullet: {	
-    type: ExplosionBuletType	
+    #type: ExplosionBuletType # 7rodo.jpeg
+    type: BasicBulletType
     speed: 7
     damage: 50
     lifetime: 23

@@ -61,12 +61,13 @@ ammoTypes: {
       }
   }
 }
-requirements: [
-  metaglass/1500
-  plastanium/920
-  thorium/2000
-  phase-fabric/500
-  surge-alloy/750
-]
-research: firenado
-category: turret
+#requirements: [
+#  metaglass/1500
+#  plastanium/920
+#  thorium/2000
+#  phase-fabric/500
+#  surge-alloy/750
+#]
+#research: firenado
+#category: turret
+buildVisibility: hidden

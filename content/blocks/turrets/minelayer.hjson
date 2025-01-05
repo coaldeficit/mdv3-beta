@@ -11,14 +11,21 @@ shoot: {
   shots: 6
 }
 targetAir: false
-velocityInaccuracy: 0.3
+velocityRnd: 0.3
+hasLiquids: true
+consumes: {
+  coolant: {
+    amount: 0.2
+  }
+}
+coolantMultiplier: 5
 ammoTypes: {
   copper: {
     speed: 7
     damage: 20
     lifetime: 1800
-    bulletWidth: 20
-    bulletHeight: 20
+    #bulletWidth: 20
+    #bulletHeight: 20
     collidesAir: false
     drag: 0.05
     status: blasted
@@ -30,8 +37,8 @@ ammoTypes: {
     damage: 40
     lifetime: 2400
     reloadMultiplier: 0.6
-    bulletWidth: 20
-    bulletHeight: 20
+    #bulletWidth: 20
+    #bulletHeight: 20
     collidesAir: false
     drag: 0.05
     status: blasted
@@ -42,8 +49,8 @@ ammoTypes: {
     speed: 5
     damage: 15
     lifetime: 1200
-    bulletWidth: 20
-    bulletHeight: 20
+    #bulletWidth: 20
+    #bulletHeight: 20
     collidesAir: false
     drag: 0.05
     splashDamage: 20
@@ -56,8 +63,8 @@ ammoTypes: {
     speed: 4
     damage: 10
     lifetime: 600
-    bulletWidth: 20
-    bulletHeight: 20
+    #bulletWidth: 20
+    #bulletHeight: 20
     collidesAir: false
     drag: 0.05
     splashDamage: 20
@@ -70,8 +77,8 @@ ammoTypes: {
     speed: 6
     damage: 25
     lifetime: 1200
-    bulletWidth: 20
-    bulletHeight: 20
+    #bulletWidth: 20
+    #bulletHeight: 20
     collidesAir: false
     drag: 0.065
     splashDamage: 45

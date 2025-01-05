@@ -9,10 +9,9 @@ engineOffset: 13.5
 drag: 0.01
 accel: 0.2
 range: 240
-rotatespeed: 1
+#rotatespeed: 1
 targetAir: false
 targetFlags: [turret, battery, null]
-playerTargetFlags: [turret, battery, null]
 itemCapacity: 0
 weapons: [{
   name: hornet-cannon
@@ -44,7 +43,7 @@ weapons: [{
       backColor: 6d56bf
       speed: 6
       width: 14
-      length: 15
+      height: 15
       splashDamage: 20
       splashDamageRadius: 15
       lifetime: 50
