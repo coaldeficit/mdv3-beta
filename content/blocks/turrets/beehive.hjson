@@ -79,7 +79,7 @@ ammoTypes: {
     intervalBullet: {
       type: BasicBulletType
       sprite: md3-striped-bullet
-      damage: 9
+      damage: 10
       speed: 4.5
       pierce: true
       lifetime: 34
