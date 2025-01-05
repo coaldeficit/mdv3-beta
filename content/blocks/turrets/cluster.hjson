@@ -22,10 +22,10 @@ targetAir: false
 hasLiquids: true
 consumes: {
   coolant: {
-    amount: 0.2
+    amount: 1
   }
 }
-coolantMultiplier: 4
+coolantMultiplier: 0.5
 ammoTypes: {
   pyratite: {
     type: ArtilleryBulletType
