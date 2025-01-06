@@ -66,6 +66,9 @@ require("md3/units/bosses/crusher")
 // jeri line
 require("md3/units/ground/jeri/jeri")
 
+// donjon line
+require("md3/units/ground/donjon/donjon")
+
 // misc
 require("md3/units/air/drones")
 require("md3/units/air/core-units")

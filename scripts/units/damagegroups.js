@@ -8,7 +8,7 @@ let groups = {
   complex: [], // units with several special abilities or functions
   // arbitrary shit starts here, none of these have a concrete definition put whatever the fuck you want in them based on how you feel i dont care
   blaster: [],
-  battleship: [], // probably high damage units?
+  battleship: [], // probably highly armed units?
   ironclad: [], // probably tankier units?
   detonator: [], // probably splash damage heavy units?
   walker: [],

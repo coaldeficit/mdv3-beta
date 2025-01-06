@@ -11,7 +11,7 @@ let bolt = extend(ItemTurret, "bolt", {
   }
 });
 let lithiumBullet = extend(PointBulletType, {
-  damage: 111,
+  damage: 130,
   lifetime: 50,
   ammoMultiplier: 1,
   trailEffect: vfx.boltTrailLithium,
@@ -34,7 +34,7 @@ let lithiumBullet = extend(PointBulletType, {
   }
 })
 let bulletumBullet = extend(PointBulletType, {
-  damage: 250,
+  damage: 288,
   lifetime: 50,
   ammoMultiplier: 1,
   trailEffect: vfx.boltTrailBulletum,
