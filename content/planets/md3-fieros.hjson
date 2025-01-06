@@ -81,7 +81,7 @@ mesh: [
     octaves: 4
     persistence: 0.4
     scale: 0.6
-    mag: 1.6
+    mag: 1.66
     colorScale: 8
     colorThreshold: 0.55
   },
@@ -91,11 +91,11 @@ mesh: [
     # Mesh "quality". More divisions = more hexagons.
     divisions: 6
     color: f2c66d
-    radius: 0.745
+    radius: 0.765
     octaves: 4
     persistence: 0.5
     scale: 0.6
-    mag: 3.2
+    mag: 3.04
   },
 ]
 cloudMesh: [

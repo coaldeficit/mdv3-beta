@@ -27,8 +27,8 @@ Events.on(ClientLoadEvent, () => {
             Log.info("Error: " + error.toString());
           }
         }
-        print(Vars.mods.getMod("md3").meta.version)
-        print(jsonnery.get('version'))
+        //print(Vars.mods.getMod("md3").meta.version)
+        //print(jsonnery.get('version'))
       },(error) => {print("Failed to check MoreDefences update")}
     );
   };

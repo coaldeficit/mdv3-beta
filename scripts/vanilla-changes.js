@@ -244,30 +244,8 @@ Planets.serpulo.generator = extend(SerpuloPlanetGenerator, {
   }
 })
 
-// ON CLIENT LOAD
-Events.on(ClientLoadEvent, e => {
-  // NUMBERED ENEMY BASES
-  const convertToBase = [
-    85,223, // its strictly personal
-    95,178, // plt area
-    79,263, // south pole
-    66,128,232,235, // north pole
-    41,45, // misc sectors
-  ]
-  for (let i=0;i<convertToBase.length;i++) {
-    Planets.serpulo.sectors.get(convertToBase[i]).generateEnemyBase = true
-  }
-  
-  // WE LOVE NPC AND IMPACT
-  const convertToSurv = [
-    24,129,224,225,226,227, // north pole
-  ]
-  for (let i=0;i<convertToSurv.length;i++) {
-    Planets.serpulo.sectors.get(convertToSurv[i]).generateEnemyBase = false
-  }
-  Planets.serpulo.updateBaseCoverage()
-  
-  // FORCE SECTOR DIFFICULY
+// FORCE SECTOR DIFFICULY
+function forceSectorDifficulty() {
   // low
   Planets.serpulo.sectors.get(45).threat = 0.1 // meme
   // medium
@@ -296,11 +274,42 @@ Events.on(ClientLoadEvent, e => {
   Planets.serpulo.sectors.get(228).threat = 1.08
   Planets.serpulo.sectors.get(255).threat = 1.2
   Planets.serpulo.sectors.get(262).threat = 1.2
+}
+
+// ON CLIENT LOAD
+Events.on(ClientLoadEvent, e => {
+  // NUMBERED ENEMY BASES
+  const convertToBase = [
+    85,223, // its strictly personal
+    95,178, // plt area
+    79,263, // south pole
+    66,128,232,235, // north pole
+    41,45, // misc sectors
+  ]
+  for (let i=0;i<convertToBase.length;i++) {
+    Planets.serpulo.sectors.get(convertToBase[i]).generateEnemyBase = true
+  }
+  
+  // WE LOVE NPC AND IMPACT
+  const convertToSurv = [
+    24,129,224,225,226,227, // north pole
+  ]
+  for (let i=0;i<convertToSurv.length;i++) {
+    Planets.serpulo.sectors.get(convertToSurv[i]).generateEnemyBase = false
+  }
+  Planets.serpulo.updateBaseCoverage()
+  
+  // FORCE SECTOR DIFFICULY
+  forceSectorDifficulty()
 })
 
 // CAPTURE TOAST
 Events.on(SectorCaptureEvent, e => {
   if (Core.settings.getBool("md3-forcecapturetoast", true) && e.sector.isBeingPlayed()) {
     Vars.ui.hudfrag.showToast(Core.bundle.format("sector.capture", ""))
+  }
+  if (!Vars.net.client() && Vars.state.isCampaign()) {
+    Vars.state.getSector().planet.updateBaseCoverage()
+    Time.runTask(7, () => forceSectorDifficulty())
   }
 })

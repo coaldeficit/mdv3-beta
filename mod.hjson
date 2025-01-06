@@ -3,7 +3,7 @@ displayName: "[cyan]More[blue]Defences[]"
 subtitle: "now in version 3"
 author: "[grey]coal deficit[], [blue]7rodo[] and [magenta]meowkitty[]"
 description: "A mod made by coal deficit, 7rodo and meowkitty that adds a new planet, overhauls the serpulo and erekir campaigns, adds new turrets and walls to defend your core, and adds new units to attack enemy cores with.\n\nDoes not work on iOS.\nCompletely functional in multiplayer (assuming server has the mod).\n\nDiscord server invite: https://discord.gg/eEtw5GF2dk.[]"
-version: "V3beta1.0"
+version: "V3beta1.1"
 minGameVersion: "147"
 contentOrder: [
   md3-fieros
