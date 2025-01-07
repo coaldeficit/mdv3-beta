@@ -249,29 +249,34 @@ function forceSectorDifficulty() {
   // low
   Planets.serpulo.sectors.get(45).threat = 0.1 // meme
   // medium
-  Planets.serpulo.sectors.get(182).threat = 0.26
+  Planets.serpulo.sectors.get(182).threat = 0.25
+  Planets.serpulo.sectors.get(180).threat = 0.38
   // high
-  Planets.serpulo.sectors.get(24).threat = 0.746
-  Planets.serpulo.sectors.get(65).threat = 0.746
-  Planets.serpulo.sectors.get(226).threat = 0.746
+  Planets.serpulo.sectors.get(36).threat = 0.54
+  Planets.serpulo.sectors.get(65).threat = 0.74
+  Planets.serpulo.sectors.get(141).threat = 0.7499
+  Planets.serpulo.sectors.get(156).threat = 0.54
+  Planets.serpulo.sectors.get(162).threat = 0.7499
+  Planets.serpulo.sectors.get(178).threat = 0.54
+  Planets.serpulo.sectors.get(226).threat = 0.74
   // extreme
-  Planets.serpulo.sectors.get(7).threat = 0.95 // its strictly personal
-  Planets.serpulo.sectors.get(117).threat = 0.9
-  Planets.serpulo.sectors.get(127).threat = 0.9 // on the way to sector 7
-  Planets.serpulo.sectors.get(144).threat = 0.9
-  Planets.serpulo.sectors.get(145).threat = 0.9
-  Planets.serpulo.sectors.get(194).threat = 0.9
-  Planets.serpulo.sectors.get(229).threat = 0.9
-  Planets.serpulo.sectors.get(235).threat = 0.9
-  Planets.serpulo.sectors.get(258).threat = 0.9
+  Planets.serpulo.sectors.get(7).threat = 0.97 // its strictly personal
+  Planets.serpulo.sectors.get(24).threat = 0.92
+  Planets.serpulo.sectors.get(84).threat = 0.92
+  Planets.serpulo.sectors.get(117).threat = 0.92
+  Planets.serpulo.sectors.get(127).threat = 0.92 // on the way to sector 7
+  Planets.serpulo.sectors.get(140).threat = 0.97 // its strictly personal
+  Planets.serpulo.sectors.get(163).threat = 0.97 // its strictly personal
+  Planets.serpulo.sectors.get(235).threat = 0.92
+  Planets.serpulo.sectors.get(258).threat = 0.92
   // erad
-  Planets.serpulo.sectors.get(5).threat = 1.08
-  Planets.serpulo.sectors.get(57).threat = 1.08
+  Planets.serpulo.sectors.get(5).threat = 1.1
+  Planets.serpulo.sectors.get(57).threat = 1.1
   Planets.serpulo.sectors.get(61).threat = 1.2
-  Planets.serpulo.sectors.get(84).threat = 1.2
-  Planets.serpulo.sectors.get(199).threat = 1.08
-  Planets.serpulo.sectors.get(225).threat = 1.08
-  Planets.serpulo.sectors.get(228).threat = 1.08
+  Planets.serpulo.sectors.get(199).threat = 1.1
+  Planets.serpulo.sectors.get(225).threat = 1.1
+  Planets.serpulo.sectors.get(228).threat = 1.1
+  Planets.serpulo.sectors.get(229).threat = 1.2
   Planets.serpulo.sectors.get(255).threat = 1.2
   Planets.serpulo.sectors.get(262).threat = 1.2
 }
@@ -282,9 +287,9 @@ Events.on(ClientLoadEvent, e => {
   const convertToBase = [
     85,223, // its strictly personal
     95,178, // plt area
-    79,263, // south pole
+    79,140,263, // south pole
     66,128,232,235, // north pole
-    41,45, // misc sectors
+    41,45,156,179, // misc sectors
   ]
   for (let i=0;i<convertToBase.length;i++) {
     Planets.serpulo.sectors.get(convertToBase[i]).generateEnemyBase = true
