@@ -30,7 +30,7 @@ weapons: [{
     type: ArtilleryBulletType
     speed: 5
     damage: 0
-    lifetime: 54
+    lifetime: 42
     width: 5
     height: 5
     splashDamageRadius: 8
