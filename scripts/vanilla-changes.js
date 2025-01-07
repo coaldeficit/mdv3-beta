@@ -46,6 +46,7 @@ function numberedWaves(sector,enemyBase,airOnly,navalWaves) {
     [UnitTypes.flare,UnitTypes.horizon,UnitTypes.zenith,UnitTypes.antumbra,UnitTypes.eclipse],
     [UnitTypes.flare,UnitTypes.poly,UnitTypes.mega,UnitTypes.quad,UnitTypes.oct]
   ]
+  if (Planets.serpulo.sectors.get(268).info.wasCaptured) airenemies.push([getMDUnit("flocker-ship"),getMDUnit("bee-ship"),getMDUnit("hornet-ship"),getMDUnit("messenger-ship"),getMDUnit("tundra-ship")])
   if (enemyBase) {
     airenemies[1][4] = UnitTypes.eclipse
   }
@@ -53,6 +54,7 @@ function numberedWaves(sector,enemyBase,airOnly,navalWaves) {
     [UnitTypes.risso,UnitTypes.minke,UnitTypes.bryde,UnitTypes.sei,UnitTypes.omura],
     [UnitTypes.retusa,UnitTypes.oxynoe,UnitTypes.cyerce,UnitTypes.aegires,UnitTypes.navanax]
   ]
+  if (Planets.serpulo.sectors.get(268).info.wasCaptured) navalenemies.push([getMDUnit("mycena-boat"),getMDUnit("bee-ship"),getMDUnit("hornet-ship"),getMDUnit("messenger-ship"),getMDUnit("tundra-ship")])
   
   let picks = []
   picks = picks.concat(airenemies)
@@ -219,6 +221,31 @@ function numberedWaves(sector,enemyBase,airOnly,navalWaves) {
 let basegen = new BaseGenerator()
 Planets.serpulo.generator = extend(SerpuloPlanetGenerator, {
   basegen: basegen,
+  /*generate(tiles,sec,seed) { // yeah this aint happening
+    this.super.super$generate(tiles,sec,seed)
+    const removeTit = [
+      63,170,171,175,180,218,219, // g0 area
+      222,146, // ff area
+      71,188,189,193,241, // craters area
+      141,162, // bsf area
+      176, // misc
+    ]
+    const removeThor = [
+      124,125,180,218, // g0 area
+      71,131,241,127, // craters area
+      162, // bsf area
+    ]
+    let tlen = tiles.width * tiles.height
+    for (let i=0;i<tlen;i++) {
+      let tile = tiles.geti(i)
+      if (removeTit.includes(Vars.state.rules.sector.id) && tile.overlay() == Blocks.oreTitanium) {
+        tile.clearOverlay()
+      }
+      if (removeThor.includes(Vars.state.rules.sector.id) && tile.overlay() == Blocks.oreThorium) {
+        tile.clearOverlay()
+      }
+    }
+  },*/
   postGenerate(tiles) {
     let tlen = tiles.width * tiles.height
     let waters = 0
@@ -230,7 +257,7 @@ Planets.serpulo.generator = extend(SerpuloPlanetGenerator, {
         if (tile.floor().liquidDrop == Liquids.water) waters++
       }
     }
-    if (waters/total < 0.2) {
+    if (waters/total < 0.4) {
       Vars.state.rules.spawns = numberedWaves(Vars.state.rules.sector,Vars.state.rules.sector.hasEnemyBase(),false,false)
     } else {
       Vars.state.rules.spawns = numberedWaves(Vars.state.rules.sector,Vars.state.rules.sector.hasEnemyBase(),false,true)
@@ -249,8 +276,8 @@ function forceSectorDifficulty() {
   // low
   Planets.serpulo.sectors.get(45).threat = 0.1 // meme
   // medium
-  Planets.serpulo.sectors.get(182).threat = 0.25
   Planets.serpulo.sectors.get(180).threat = 0.38
+  Planets.serpulo.sectors.get(182).threat = 0.25
   // high
   Planets.serpulo.sectors.get(36).threat = 0.54
   Planets.serpulo.sectors.get(65).threat = 0.74
@@ -260,13 +287,13 @@ function forceSectorDifficulty() {
   Planets.serpulo.sectors.get(178).threat = 0.54
   Planets.serpulo.sectors.get(226).threat = 0.74
   // extreme
-  Planets.serpulo.sectors.get(7).threat = 0.97 // its strictly personal
+  Planets.serpulo.sectors.get(7).threat = 0.97
   Planets.serpulo.sectors.get(24).threat = 0.92
   Planets.serpulo.sectors.get(84).threat = 0.92
   Planets.serpulo.sectors.get(117).threat = 0.92
-  Planets.serpulo.sectors.get(127).threat = 0.92 // on the way to sector 7
-  Planets.serpulo.sectors.get(140).threat = 0.97 // its strictly personal
-  Planets.serpulo.sectors.get(163).threat = 0.97 // its strictly personal
+  Planets.serpulo.sectors.get(127).threat = 0.97
+  Planets.serpulo.sectors.get(140).threat = 0.97
+  Planets.serpulo.sectors.get(163).threat = 0.97
   Planets.serpulo.sectors.get(235).threat = 0.92
   Planets.serpulo.sectors.get(258).threat = 0.92
   // erad
@@ -283,6 +310,9 @@ function forceSectorDifficulty() {
 
 // ON CLIENT LOAD
 Events.on(ClientLoadEvent, e => {
+  // LOCK NUMBERED SECTORS EARLY
+  //if (!Items.titanium.unlocked()) Planets.serpulo.allowLaunchToNumbered = false
+  
   // NUMBERED ENEMY BASES
   const convertToBase = [
     85,223, // its strictly personal
@@ -318,3 +348,9 @@ Events.on(SectorCaptureEvent, e => {
     Time.runTask(7, () => forceSectorDifficulty())
   }
 })
+
+// UNLOCK NUMBERED SECTORS POST-TITANIUM
+//Events.on(ResearchEvent, e => {
+  // LOCK NUMBERED SECTORS EARLY
+  //if (e.content == Items.titanium) Planets.serpulo.allowLaunchToNumbered = true
+//})
