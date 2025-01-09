@@ -336,6 +336,41 @@ Events.on(ClientLoadEvent, e => {
   
   // FORCE SECTOR DIFFICULY
   forceSectorDifficulty()
+  
+  // RESEARCH
+  // allow hail in craters
+  TechTree.all.find(t => t.content == Blocks.hail).objectives.remove(2) // todo: find way to do this without hardcoded index
+  TechTree.all.find(t => t.content == Blocks.hail).objectives.add(new Objectives.OnSector(SectorPresets.craters))
+  // restrict early titanium
+  let stainORwind = extend(Objectives.Objective,{
+    complete() {
+      return SectorPresets.stainedMountains.sector.hasBase() || SectorPresets.windsweptIslands.sector.hasBase()
+    },
+    display() {
+      return Core.bundle.format("requirement.md3-stain-or-wind");
+    }
+  })
+  TechTree.all.find(t => t.content == Blocks.lancer).objectives.add(stainORwind)
+  TechTree.all.find(t => t.content == Blocks.parallax).objectives.add(stainORwind)
+  TechTree.all.find(t => t.content == Blocks.salvo).objectives.add(stainORwind)
+  TechTree.all.find(t => t.content == Vars.content.getByName(ContentType.block, "md3-tearer")).objectives.add(stainORwind)
+  // restrict early thorium
+  let tarORover = extend(Objectives.Objective,{
+    complete() {
+      return SectorPresets.tarFields.sector.hasBase() || SectorPresets.overgrowth.sector.hasBase()
+    },
+    display() {
+      return Core.bundle.format("requirement.md3-tar-or-over");
+    }
+  })
+  TechTree.all.find(t => t.content == Blocks.fuse).objectives.add(tarORover)
+  TechTree.all.find(t => t.content == Blocks.tsunami).objectives.add(tarORover)
+  TechTree.all.find(t => t.content == Blocks.meltdown).objectives.add(tarORover)
+  TechTree.all.find(t => t.content == Blocks.surgeSmelter).objectives.add(tarORover)
+  TechTree.all.find(t => t.content == Blocks.thoriumReactor).objectives.add(tarORover)
+  // linearize post-thorium
+  TechTree.all.find(t => t.content == SectorPresets.impact0078).objectives.add(new Objectives.Research(Blocks.spectre))
+  TechTree.all.find(t => t.content == SectorPresets.impact0078).objectives.add(new Objectives.Research(Vars.content.getByName(ContentType.block, "md3-firenado")))
 })
 
 // CAPTURE TOAST
