@@ -25,7 +25,7 @@ weapons: [{
   inaccuracy: 13
   bullet: {
     speed: 4
-    damage: 2
+    damage: 5
     ammoMultiplier: 1
     lifetime: 30
     sprite: circle-bullet
