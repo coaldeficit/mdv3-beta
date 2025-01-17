@@ -17,3 +17,4 @@ faceTarget: false
 targetFlags: [reactor, generator, turret, null]
 range: 245
 itemCapacity: 90
+research: messenger-ship

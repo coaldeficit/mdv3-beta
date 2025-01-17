@@ -32,3 +32,4 @@ weapons: [{
     height: 4
   }
 }]
+research: flocker-ship

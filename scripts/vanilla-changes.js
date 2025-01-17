@@ -371,6 +371,7 @@ Events.on(ClientLoadEvent, e => {
   // linearize post-thorium
   TechTree.all.find(t => t.content == SectorPresets.impact0078).objectives.add(new Objectives.Research(Blocks.spectre))
   TechTree.all.find(t => t.content == SectorPresets.impact0078).objectives.add(new Objectives.Research(Vars.content.getByName(ContentType.block, "md3-firenado")))
+  TechTree.all.find(t => t.content == SectorPresets.impact0078).objectives.add(new Objectives.Research(Vars.content.getByName(ContentType.sector, "md3-reentry")))
 })
 
 // CAPTURE TOAST
