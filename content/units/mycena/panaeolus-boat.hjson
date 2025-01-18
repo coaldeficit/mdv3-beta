@@ -11,42 +11,5 @@ faceTarget: false
 waveTrailX: 7
 trailScl: 1.2
 trailLength: 33
-weapons: [{
-  name: flocker-weapon
-  top: true
-  rotate: true
-  y: -2
-  x: 0
-  mirror: false
-  reload: 10
-  shootSound: pew
-  inaccuracy: 7
-  bullet: {
-    speed: 4
-    damage: 8
-    ammoMultiplier: 1
-    lifetime: 30
-    sprite: circle-bullet
-    height: 2
-    width: 2
-    trailWidth: 1
-    trailLength: 5
-    shrinkY: 0
-    shrinkX: 0
-    collidesAir: false
-    keepVelocity: false
-    trailColor: ffe873
-    backColor: ffe873
-  }
-}]
-targetAir: false
-research: {
-  parent: mycena-boat
-  objectives: [
-    {
-      type: SectorComplete
-      # \/ temporary, todo: replace with some sort of fungal naval sector replacing 268. maybe branching from windswept islands?
-      preset: fungalPass
-    },
-  ]
-}
+targetAir: true
+research: mycena-boat
