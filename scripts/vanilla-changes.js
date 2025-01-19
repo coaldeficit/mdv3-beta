@@ -385,8 +385,136 @@ Events.on(SectorCaptureEvent, e => {
   }
 })
 
-// UNLOCK NUMBERED SECTORS POST-TITANIUM
-//Events.on(ResearchEvent, e => {
-  // LOCK NUMBERED SECTORS EARLY
-  //if (e.content == Items.titanium) Planets.serpulo.allowLaunchToNumbered = true
-//})
+// GUARDIAN WARNINGS
+const shittyalarm = Vars.tree.loadSound("weak-boss-warning")
+const mediumalarm = Vars.tree.loadSound("medium-boss-warning")
+const shittingyourselfalarm = Vars.tree.loadSound("strong-boss-warning")
+function playAlarm(sound,loop,time) {
+  for (let i=0;i<loop;i++) Time.run(time*i, () => sound.play(Core.settings.getInt("sfxvol")/100,1,0,false,true))
+}
+Events.on(WaveEvent, e => {
+  if (Core.settings.getBool("md3-guardianwarn", true)) {
+    let bosses = []
+    let diff = 69420
+    let health = 0
+    let healthDiv = 70 // serpulo and mixtech default
+    let alarmCubedHPDivs = [231798,11941690]
+    switch (Vars.state.planet) {
+      case Planets.erekir:
+        healthDiv = 600
+        alarmCubedHPDivs = [1000,8000]
+        break
+      // TODO: no data for fieros rn
+      // mod compat, listed by order of addition to this list
+      case Vars.content.getByName(ContentType.planet, "asthosus-asthosus"): // asthosus
+        healthDiv = 170
+        alarmCubedHPDivs = [62598,963397]
+        break
+      case Vars.content.getByName(ContentType.planet, "meld-ikaru"): // meld
+        healthDiv = 60
+        alarmCubedHPDivs = [27000,2744000]
+        break
+      case Vars.content.getByName(ContentType.planet, "moon-mod-Zilo"): // frozen farlands
+        healthDiv = 120
+        alarmCubedHPDivs = [72337,1953125]
+        break
+      // PLANNED MOD COMPAT: biotech (once thats done lmao)
+      // if you're a mod dev and want compat with this, ping me on discord and i'll try to see what i can do
+      // do note to atleast provide me a reference of what units can be considered what tier if your mod doesnt follow typical unit line conventions
+      // alternatively make a PR if you dont want to bother me. healthDiv should be the lowest health value any unit that can show up as an enemy has
+      // and the 2 alarmCubedHPDivs values should be the lowest health of any enemy-usable t4 unit on your planet
+      // and lowest health of any enemy-usable t5 unit on your planet both divided by healthDiv, raised to the 3rd power, and rounded down
+    }
+    let winWave = Vars.state.rules.winWave > 0 ? Vars.state.rules.winWave-2 : Vars.state.wave+11
+    let stop = false
+    for (let i=Math.max(0,Vars.state.wave-2);i<=Math.min(Vars.state.wave+5,winWave);i++) {
+      if (!stop) {
+        let bruh = []
+        for (let j=0;j<Vars.state.rules.spawns.size;j++) {
+          bruh.push(Vars.state.rules.spawns.get(j))
+        }
+        for (let group of bruh) {
+          if (group.effect == StatusEffects.boss && group.getSpawned(i) > 0) {
+            diff = (i+2)-Vars.state.wave
+            if (diff <= 5) {
+              if (group.spawn > -0.5) {
+                for (let j=0;j<group.getSpawned(i);j++) {
+                  bosses.push(group.type.localizedName)
+                }
+                health += Math.pow(group.type.health/healthDiv,3)
+              } else {
+                health += Math.pow(group.type.health/healthDiv,3) * Vars.spawner.spawns.size
+                for (let j=0;j<Vars.spawner.spawns.size*group.getSpawned(i);j++) {
+                  bosses.push(group.type.localizedName)
+                }
+              }
+              stop = true
+            }
+          }
+        }
+      }
+    }
+    if (diff <= 5) {
+      bosses.sort()
+      let format = ""
+      let a = []
+      let b = []
+      for (let i=0;i<bosses.length;i++) {
+        if (!a.includes(bosses[i])) {
+          a.push(bosses[i])
+          b.push(1)
+        } else {
+          b[b.length-1]++
+        }
+      }
+      for (let i=0;i<a.length;i++) {
+        if (i != 0) format += "\n"
+        format += a[i]
+        if (b[i] > 1) format += " " + b[i] + "x"
+      }
+      switch (diff) {
+        case 5:
+          if (health < alarmCubedHPDivs[0]) {
+            Vars.ui.announce(Core.bundle.format("wave.md3-weakguardianwarn5", format), 5)
+            playAlarm(shittyalarm,3,60)
+          } else if (health < alarmCubedHPDivs[1]) {
+            Vars.ui.announce(Core.bundle.format("wave.md3-mediumguardianwarn5", format), 5)
+            playAlarm(mediumalarm,3,90)
+          } else if (alarmCubedHPDivs[2] == null || health < alarmCubedHPDivs[2]) {
+            Vars.ui.announce(Core.bundle.format("wave.md3-strongguardianwarn5" + (bosses.length > 1 ? "b" : "a"), format), 5)
+            playAlarm(shittingyourselfalarm,3,90)
+          } else {
+            Vars.ui.announce(Core.bundle.format("wave.md3-strongguardianwarn5" + (bosses.length > 1 ? "b" : "a"), format), 5)
+            playAlarm(shittingyourselfalarm,3,90)
+          }
+          break
+        case 1:
+          if (health < alarmCubedHPDivs[0]) {
+            Vars.ui.announce(Core.bundle.format("wave.md3-weakguardianwarn1", format), 5)
+            playAlarm(shittyalarm,3,60)
+          } else if (health < alarmCubedHPDivs[1]) {
+            Vars.ui.announce(Core.bundle.format("wave.md3-mediumguardianwarn1", format), 5)
+            playAlarm(mediumalarm,3,90)
+          } else if (alarmCubedHPDivs[2] == null || health < alarmCubedHPDivs[2]) {
+            Vars.ui.announce(Core.bundle.format("wave.md3-strongguardianwarn1" + (bosses.length > 1 ? "b" : "a"), format), 5)
+            playAlarm(shittingyourselfalarm,3,90)
+          } else {
+            Vars.ui.announce(Core.bundle.format("wave.md3-strongguardianwarn1" + (bosses.length > 1 ? "b" : "a"), format), 5)
+            playAlarm(shittingyourselfalarm,3,90)
+          }
+          break
+        case 0:
+          if (health < alarmCubedHPDivs[0]) {
+            Vars.ui.announce(Core.bundle.format("wave.md3-weakguardianwarn0" + (bosses.length > 1 ? "b" : "a"), format), 5)
+          } else if (health < alarmCubedHPDivs[1]) {
+            Vars.ui.announce(Core.bundle.format("wave.md3-mediumguardianwarn0", format), 5)
+          } else if (alarmCubedHPDivs[2] == null || health < alarmCubedHPDivs[2]) {
+            Vars.ui.announce(Core.bundle.format("wave.md3-strongguardianwarn0", format), 5)
+          } else {
+            Vars.ui.announce(Core.bundle.format("wave.md3-strongguardianwarn0", format), 5)
+          }
+          break
+      }
+    }
+  }
+})

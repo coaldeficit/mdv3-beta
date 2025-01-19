@@ -11,6 +11,7 @@ Events.on(ClientLoadEvent, () => {
         Core.settings.put("md3-autoupdate", true)
         Core.settings.put("md3-loadshaders", !Vars.mobile)
         Core.settings.put("md3-forcecapturetoast", true)
+        Core.settings.put("md3-guardianwarn", true)
         break
     }
     Core.settings.put("md3-internal-settingsver", "1")
@@ -20,6 +21,7 @@ Events.on(ClientLoadEvent, () => {
     t.checkPref("md3-autoupdate", true);
     t.checkPref("md3-loadshaders", !Vars.mobile);
     t.checkPref("md3-forcecapturetoast", true);
+    t.checkPref("md3-guardianwarn", true);
     // V2
     // N/A (add new settings here after public release)
   }));
