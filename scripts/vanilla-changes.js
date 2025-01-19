@@ -54,7 +54,7 @@ function numberedWaves(sector,enemyBase,airOnly,navalWaves) {
     [UnitTypes.risso,UnitTypes.minke,UnitTypes.bryde,UnitTypes.sei,UnitTypes.omura],
     [UnitTypes.retusa,UnitTypes.oxynoe,UnitTypes.cyerce,UnitTypes.aegires,UnitTypes.navanax]
   ]
-  if (Planets.serpulo.sectors.get(268).info.wasCaptured) navalenemies.push([getMDUnit("mycena-boat"),getMDUnit("bee-ship"),getMDUnit("hornet-ship"),getMDUnit("messenger-ship"),getMDUnit("tundra-ship")])
+  if (Planets.serpulo.sectors.get(268).info.wasCaptured) navalenemies.push([getMDUnit("mycena-boat"),getMDUnit("panaeolus-boat"),getMDUnit("hornet-ship"),getMDUnit("messenger-ship"),getMDUnit("tundra-ship")])
   
   let picks = []
   picks = picks.concat(airenemies)
@@ -88,25 +88,29 @@ function numberedWaves(sector,enemyBase,airOnly,navalWaves) {
   function generateUnitLine(index,startWave) {
     let wave = startWave
     let endWave = startWave + settings.evolveInterval + (settings.evolveInterval*(rng.randomUnsynced()/1000))
+    let spawnPick = -1
     for (let i=settings.tierOffset;i<Math.min(settings.maxTier+1,3);i++) {
+      if (!enemyBase && Vars.spawner.spawns.size > 1) spawnPick = Vars.spawner.spawns.get(Math.floor(Vars.spawner.spawns.size*(rng.randomUnsynced()/1000))).pos()
       waves.add(createSpawnGroup({
         type: picks[mainLines[index]][i],
         begin: wave,
         end: endWave,
-        unitScaling: settings.unitScaling,
+        unitScaling: settings.unitScaling*(enemyBase?(picks[mainLines[index]][i].flying?Vars.spawner.countFlyerSpawns():Vars.spawner.countGroundSpawns()):1),
         unitAmount: 1,
         spacing: i-settings.tierOffset ? 2 : 1,
+        spawn: spawnPick,
       }))
       waves.add(createSpawnGroup({
         type: picks[mainLines[index]][i],
         begin: endWave+1,
-        unitScaling: settings.unitScaling*4,
-        unitAmount: Math.ceil((((endWave-wave)/settings.unitScaling)/(i-settings.tierOffset ? 2 : 1))/2),
+        unitScaling: settings.unitScaling*4*(picks[mainLines[index]][i].flying?Vars.spawner.countFlyerSpawns():Vars.spawner.countGroundSpawns()),
+        unitAmount: Math.ceil(((((endWave-wave)/settings.unitScaling)/(i-settings.tierOffset ? 2 : 1))/2)/(enemyBase?(picks[mainLines[index]][i].flying?Vars.spawner.countFlyerSpawns():Vars.spawner.countGroundSpawns()):1)),
         spacing: 1,
       }))
       wave = endWave - 1
       endWave += settings.evolveInterval + (settings.evolveInterval*(rng.randomUnsynced()/1000))
     }
+    if (!enemyBase && Vars.spawner.spawns.size > 1) spawnPick = Vars.spawner.spawns.get(Math.floor(Vars.spawner.spawns.size*(rng.randomUnsynced()/1000))).pos()
     if (settings.maxTier > 2) {
       wave = endWave + 6 + (settings.evolveInterval*(rng.randomUnsynced()/1000))
       waves.add(createSpawnGroup({ // non-guardian t4s
@@ -115,9 +119,11 @@ function numberedWaves(sector,enemyBase,airOnly,navalWaves) {
         unitScaling: 1.5,
         unitAmount: 1,
         spacing: 3,
+        spawn: spawnPick,
       }))
       wave += settings.evolveInterval + (settings.evolveInterval*(rng.randomUnsynced()/1000))
     }
+    if (!enemyBase && Vars.spawner.spawns.size > 1) spawnPick = Vars.spawner.spawns.get(Math.floor(Vars.spawner.spawns.size*(rng.randomUnsynced()/1000))).pos()
     if (settings.maxTier > 3) {
       wave += 11 + (settings.evolveInterval*(rng.randomUnsynced()/1000))
       waves.add(createSpawnGroup({ // non-guardian t5s
@@ -126,6 +132,7 @@ function numberedWaves(sector,enemyBase,airOnly,navalWaves) {
         unitScaling: 1.5,
         unitAmount: 1,
         spacing: 4,
+        spawn: spawnPick,
       }))
       wave += settings.evolveInterval + (settings.evolveInterval*(rng.randomUnsynced()/1000))
     }
@@ -134,24 +141,30 @@ function numberedWaves(sector,enemyBase,airOnly,navalWaves) {
     generateUnitLine(i, i * (settings.evolveInterval + (settings.evolveInterval*(rng.randomUnsynced()/1000))))
   }
   if (sector.threat > 0.25 && !enemyBase) {
+    let spawnPick = -1
     if (settings.maxTier < 3) {
+      if (!enemyBase && Vars.spawner.spawns.size > 1) spawnPick = Vars.spawner.spawns.get(Math.floor(Vars.spawner.spawns.size*(rng.randomUnsynced()/1000))).pos()
       waves.add(createSpawnGroup({
         type: picks[mainLines[0]][settings.maxTier+1],
         begin: Vars.state.rules.winWave-2,
         unitScaling: 1,
         unitAmount: 1,
         spacing: Math.max(Vars.state.rules.winWave/2,18),
-        effect: StatusEffects.boss
+        effect: StatusEffects.boss,
+        spawn: spawnPick,
       }))
     } else {
+      if (!enemyBase && Vars.spawner.spawns.size > 1) spawnPick = Vars.spawner.spawns.get(Math.floor(Vars.spawner.spawns.size*(rng.randomUnsynced()/1000))).pos()
       waves.add(createSpawnGroup({
         type: picks[mainLines[0]][settings.maxTier],
         begin: (Vars.state.rules.winWave/2)-2,
         unitScaling: 0.4,
         unitAmount: 1,
         spacing: Vars.state.rules.winWave,
-        effect: StatusEffects.boss
+        effect: StatusEffects.boss,
+        spawn: spawnPick,
       }))
+      if (!enemyBase && Vars.spawner.spawns.size > 1) spawnPick = Vars.spawner.spawns.get(Math.floor(Vars.spawner.spawns.size*(rng.randomUnsynced()/1000))).pos()
       if (settings.maxTier != 4) {
         waves.add(createSpawnGroup({
           type: picks[mainLines[0]][Math.min(settings.maxTier+1,4)],
@@ -159,35 +172,40 @@ function numberedWaves(sector,enemyBase,airOnly,navalWaves) {
           unitScaling: 0.7,
           unitAmount: 1,
           spacing: Vars.state.rules.winWave,
-          effect: StatusEffects.boss
+          effect: StatusEffects.boss,
+          spawn: spawnPick,
         }))
       } else {
         let spawnOct = mainLines.includes(1)
         let offset = (mainLines[1] == 1)+1
+        if (!enemyBase && Vars.spawner.spawns.size > 1) spawnPick = Vars.spawner.spawns.get(Math.floor(Vars.spawner.spawns.size*(rng.randomUnsynced()/1000))).pos()
         waves.add(createSpawnGroup({
           type: picks[mainLines[Math.min(offset,mainLines.length-1)]][settings.maxTier],
           begin: Vars.state.rules.winWave-2,
           unitScaling: 0.4/(1+spawnOct),
           unitAmount: 3-spawnOct,
           spacing: Vars.state.rules.winWave,
-          effect: StatusEffects.boss
+          effect: StatusEffects.boss,
+          spawn: spawnPick,
         }))
+        if (!enemyBase && Vars.spawner.spawns.size > 1) spawnPick = Vars.spawner.spawns.get(Math.floor(Vars.spawner.spawns.size*(rng.randomUnsynced()/1000))).pos()
         waves.add(createSpawnGroup({
           type: picks[mainLines[Math.min(1+offset,mainLines.length-1)]][settings.maxTier],
           begin: Vars.state.rules.winWave-2,
           unitScaling: 0.4,
           unitAmount: 2,
           spacing: Vars.state.rules.winWave,
-          effect: StatusEffects.boss
+          effect: StatusEffects.boss,
+          spawn: spawnPick,
         }))
         if (spawnOct) {
           waves.add(createSpawnGroup({
             type: UnitTypes.oct,
             begin: Vars.state.rules.winWave-2,
-            unitScaling: 0.6,
+            unitScaling: 0.6*Vars.spawner.countFlyerSpawns(),
             unitAmount: 1,
             spacing: Vars.state.rules.winWave,
-            effect: StatusEffects.boss
+            effect: StatusEffects.boss,
           }))
         }
       }
@@ -268,6 +286,7 @@ Planets.serpulo.generator = extend(SerpuloPlanetGenerator, {
         Vars.state.rules.spawns = numberedWaves(Vars.state.rules.sector,true,true,false)
       }
     }
+    if (Vars.state.rules.sector.threat >= 0.5) Vars.state.rules.airUseSpawns = true
   }
 })
 
