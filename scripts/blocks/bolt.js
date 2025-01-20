@@ -25,11 +25,13 @@ let lithiumBullet = extend(PointBulletType, {
       if (dmgroups.isInGroup('attractor',entity.type)) mult = 0.25
       if (mult != 1) {
         b.damage *= mult
+        if (mult > 1) b.data = "crit"
       }
     }
     this.super$hitEntity(b, entity, health);
     if (mult != 1) {
       b.damage /= mult
+      b.data = null
     }
   }
 })
@@ -49,11 +51,13 @@ let bulletumBullet = extend(PointBulletType, {
       if (dmgroups.isInGroup('attractor',entity.type)) mult = 0.25
       if (mult != 1) {
         b.damage *= mult
+        if (mult > 1) b.data = "crit"
       }
     }
     this.super$hitEntity(b, entity, health);
     if (mult != 1) {
       b.damage /= mult
+      b.data = null
     }
   }
 })

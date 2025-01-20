@@ -36,9 +36,11 @@ let bullet = extend(MissileBulletType, {
   hitEntity(b, entity, health) {
     if (entity instanceof Unit) {
       b.damage *= Math.max(0.1,Math.min(1.5,1.5-((entity.maxHealth-1100)/2400)))
+      if (Math.min(1.5,1.5-((entity.maxHealth-1100)/2400)) >= 1.25) b.data = "crit"
     }
     this.super$hitEntity(b, entity, health);
     if (entity instanceof Unit) {
+      b.data = null
       b.damage /= Math.max(0.1,Math.min(1.5,1.5-((entity.maxHealth-1100)/2400)))
     }
   }
