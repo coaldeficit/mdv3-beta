@@ -4,6 +4,7 @@ require("md3/settings")
 require("md3/autoupdate")
 require("md3/libs/shaders")
 
+require("md3/planets")
 require("md3/items")
 require("md3/units/damagegroups")
 require("md3/status-effects")
