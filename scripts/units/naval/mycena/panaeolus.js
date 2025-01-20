@@ -1,3 +1,6 @@
+const blockcheck = require("md3/libs/blockcheck")
+const bulLib = require("md3/libs/bulletlib")
+const sporangia = require("md3/blocks/sporangia")
 const SporeT2 = extend(UnitType, "panaeolus-boat", {});
 SporeT2.constructor = () => extend(UnitWaterMove, {});
 SporeT2.immunities.add(StatusEffects.sporeSlowed);
@@ -44,8 +47,81 @@ const mainGun = extend(Weapon, {
 });
 mainGun.shoot.shots = 12
 mainGun.shoot.shotDelay = 2
+
+const clump = extend(MissileUnitType, "panaeolus-boat-clump", {
+  targetAir: false,
+  speed: 1.5,
+  maxRange: 6,
+  lifetime: 60 * 2.2,
+  outlineColor: Pal.darkOutline,
+  engineColor: Color.valueOf("#FFA665"),
+  trailColor: Color.valueOf("#FFA665"),
+  trailLength: 0,
+  engineSize: 0,
+  engineLayer: Layer.effect,
+  health: 100,
+  loopSoundVolume: 0,
+  rotateSpeed: 0,
+  drawCell: false,
+  deathSound: Sounds.plantBreak
+});
+clump.constructor = () => extend(TimedKillUnit, {});
+const clumpExplosion = extend(Weapon, {
+  shootCone: 361,
+  mirror: false,
+  reload: 1,
+  alwaysShooting: true,
+  shootSound: Sounds.none,
+  bullet: extend(ExplosionBulletType, {
+    splashDamage: -1,
+    splashDamageRadius: -1,
+    rangeOverride: 6,
+    killShooter: false,
+    shootEffect: Fx.none,
+    smokeEffect: Fx.none,
+    hitEffect: Fx.none,
+    despawnEffect: Fx.none,
+    despawned(b) {
+      let develop = false
+      blockcheck.iterateSquare(Math.round(b.owner.x/8)-1,Math.round(b.owner.y/8)-1,3,3,(other => {
+        if (other.floor().liquidDrop == null || other.block() != Blocks.air) {
+          develop = true
+        }
+      }));
+      if (develop) {
+        if (Vars.world.tile(Math.round(b.owner.x/8), Math.round(b.owner.y/8)).block() == Blocks.air && !Vars.net.client()) Vars.world.tile(Math.round(b.owner.x/8), Math.round(b.owner.y/8)).setNet(sporangia.sporangia, b.owner.team, 0)
+        b.owner.kill()
+      }
+    }
+  })
+})
+clump.weapons.add(clumpExplosion)
+
+const clumpLauncher = extend(Weapon, {
+  y: -3,
+  x: 0,
+  mirror: false,
+  inaccuracy: 0,
+  reload: 120,
+  shootSound: Sounds.none,
+  baseRotation: 180,
+  shootCone: 361,
+  shoot: new ShootSpread(4,60),
+  bullet: bulLib.makeBullet({
+    type: BulletType,
+    shootEffect: Fx.none,
+    smokeEffect: Fx.none,
+    shake: 0,
+    speed: 0,
+    keepVelocity: false,
+    collidesAir: false,
+    spawnUnit: clump
+  }),
+});
+
 SporeT2.weapons.add(
   mainGun,
+  clumpLauncher
 );
 
 Blocks.additiveReconstructor.addUpgrade(
