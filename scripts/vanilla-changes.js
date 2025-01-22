@@ -17,6 +17,48 @@ let blastFuse = extend(ShrapnelBulletType, {
 Blocks.fuse.ammoTypes.put(
   Items.blastCompound, blastFuse
 );
+let surgeSpectre = extend(BasicBulletType, {
+  speed: 9,
+  lifetime: 30,
+  damage: 116,
+  hitSize: 5,
+  width: 17,
+  height: 25,
+  shootEffect: Fx.shootBig,
+  knockback: 1.6,
+  ammoMultiplier: 6,
+  lightning: 3,
+  lightningLength: 9,
+  lightningDamage: 12,
+  status: StatusEffects.shocked,
+  frontColor: Pal.surge,
+  backColor: Color.valueOf("#c7b55d")
+})
+Blocks.spectre.ammoTypes.put(
+  Items.surgeAlloy, surgeSpectre
+);
+let phaseForeshadow = extend(RailBulletType, {
+  shootEffect: Fx.instShoot,
+  hitEffect: Fx.instHit,
+  pierceEffect: Fx.railHit,
+  smokeEffect: Fx.smokeCloud,
+  pointEffect: vfx.phaseForeshadowTrail,
+  despawnEffect: Fx.instBomb,
+  pointEffectSpace: 20,
+  damage: 2650,
+  buildingDamageMultiplier: 0.1,
+  maxDamageFraction: 0.4,
+  pierceDamageFactor: 1,
+  length: Blocks.foreshadow.range-80,
+  hitShake: 8,
+  ammoMultiplier: 1,
+  status: StatusEffects.overclock,
+  statusDuration: 600,
+  rangeChange: -80,
+})
+Blocks.foreshadow.ammoTypes.put(
+  Items.phaseFabric, phaseForeshadow
+);
 
 // ITS STRICTLY PERSONAL
 UnitTypes.flare.itemCapacity = 6
@@ -32,7 +74,7 @@ UnitTypes.oct.itemCapacity = 140
 // UNIT BLOCK HEALING REBALANCE
 UnitTypes.vela.weapons.get(0).bullet.healPercent = 3.5 // vela is a sad and worthless healer in vanilla. 5.40845070423% heal per second per block bruh...
 UnitTypes.corvus.weapons.get(0).bullet.healPercent = 33.3334 // corvus is a burst healer for when you desperately need health and lots of it Right Fucking Now, this should make it more viable as such
-UnitTypes.quad.weapons.get(0).bullet.healPercent = 6 // on the opposite end of the spectrum of vela quad is just fucking overpowered for this
+UnitTypes.quad.weapons.get(0).bullet.healPercent = 6 // on the opposite end of the spectrum quad is just fucking overpowered for this
 for (let i=0;i<4;i++) { 
   UnitTypes.navanax.weapons.get(i).bullet.healPercent = 1.6 // navanax is a weird case since the lasers are just as pathetic as vela (and also like never actually attempt to heal at all)...
 }

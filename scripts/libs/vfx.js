@@ -82,7 +82,7 @@ const insulatedstatus = new Effect(30, e => {
     Fill.square(e.x + x, e.y + y, (e.fout() * 2.3 + 0.5)*0.5);
   });
 });
-const b135impactShockwave = Effect(13, 300, e => {
+const b135impactShockwave = new Effect(13, 300, e => {
   Draw.color(Pal.lighterOrange, Color.lightGray, e.fin())
   Lines.stroke(e.fout() * 4 + 0.2)
   Lines.circle(e.x, e.y, e.fin() * 200)
@@ -92,12 +92,12 @@ const delayedstatus = new Effect(30, e => {
   Draw.color(Color.valueOf("#00ffff"))
   Fill.circle(e.x, e.y, e.fout() * 1.5);
 });
-const sluggerSuppress = Effect(22, e => {
+const sluggerSuppress = new Effect(22, e => {
   Draw.color(Pal.suppress)
   Lines.stroke(e.fout() * 2)
   Lines.circle(e.x, e.y, 4 + e.finpow() * 96)
 });
-const blastFuseShoot = Effect(12, e => {
+const blastFuseShoot = new Effect(12, e => {
   Draw.color(Color.white, Color.valueOf("FF795E"), e.fin())
   Lines.stroke(e.fout() * 1.2 + 0.5)
   
@@ -105,7 +105,7 @@ const blastFuseShoot = Effect(12, e => {
     Lines.lineAngle(e.x + x, e.y + y, Mathf.angle(x, y), e.fin() * 5 + 2)
   });
 });
-const boltTrailLithium = Effect(40, e => {
+const boltTrailLithium = new Effect(40, e => {
   Draw.color(Color.white, Color.valueOf("B87DD8"), e.fin())
   Lines.stroke(e.fout() * 1.7 + 0.6)
   rand.setSeed(e.id)
@@ -115,7 +115,7 @@ const boltTrailLithium = Effect(40, e => {
     Lines.lineAngle(e.x+v.x,e.y+v.y,rot,e.fout()*rand.random(2,7)+1.5)
   }
 });
-const boltTrailBulletum = Effect(40, e => {
+const boltTrailBulletum = new Effect(40, e => {
   Draw.color(Color.white, Color.valueOf("cb4a9b"), e.fin())
   Lines.stroke(e.fout() * 1.7 + 0.6)
   rand.setSeed(e.id)
@@ -124,6 +124,21 @@ const boltTrailBulletum = Effect(40, e => {
     v.trns(rot, rand.random(e.fin()*27))
     Lines.lineAngle(e.x+v.x,e.y+v.y,rot,e.fout()*rand.random(2,7)+1.5)
   }
+});
+const phaseForeshadowTrail = new Effect(30, e => {
+  for(let i = 0; i < 2; i++){
+    Draw.color(i == 0 ? Pal.bulletYellowBack : Pal.bulletYellow);
+    let m = i == 0 ? 1 : 0.5;
+    let rot = e.rotation + 180;
+    let w = 25 * e.fout() * m;
+    Drawf.tri(e.x, e.y, w, (30 + Mathf.randomSeedRange(e.id, 15)) * m, rot);
+    Drawf.tri(e.x, e.y, w, 10 * m, rot + 180);
+  }
+  Draw.color(Pal.bulletYellowBack)
+  Angles.randLenVectors(e.id, 8, 10 + e.fin() * 40, (x, y) => {
+    Fill.square(e.x + x, e.y + y, e.fout() * 3 + 0.5, 45);
+  });
+  Drawf.light(e.x, e.y, 60, Pal.bulletYellowBack, 0.6 * e.fout());
 });
 
 module.exports = {
@@ -141,4 +156,5 @@ module.exports = {
     blastFuseShoot: blastFuseShoot,
     boltTrailLithium: boltTrailLithium,
     boltTrailBulletum: boltTrailBulletum,
+    phaseForeshadowTrail: phaseForeshadowTrail,
 };
