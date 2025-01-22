@@ -12,6 +12,7 @@ let blastFuse = extend(ShrapnelBulletType, {
   rangeChange: 38,
   shootEffect: vfx.blastFuseShoot,
   smokeEffect: vfx.blastFuseShoot,
+  status: StatusEffects.blasted,
 })
 Blocks.fuse.ammoTypes.put(
   Items.blastCompound, blastFuse
