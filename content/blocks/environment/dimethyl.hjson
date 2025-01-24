@@ -3,3 +3,4 @@ drownTime: 100
 speedMultiplier: 0.3
 variants: 0
 isLiquid: true
+liquidDrop: liquid-dimethyl

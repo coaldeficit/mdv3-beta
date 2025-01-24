@@ -6,3 +6,4 @@ useColor: true
 wall: dimercuric-rock-wall
 speedMultiplier: 0.7
 isLiquid: true
+liquidDrop: liquid-dimethyl

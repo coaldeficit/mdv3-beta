@@ -5,3 +5,4 @@ useColor: true
 wall: lithiment-dimethyl-wall
 speedMultiplier: 0.7
 isLiquid: true
+liquidDrop: liquid-dimethyl
