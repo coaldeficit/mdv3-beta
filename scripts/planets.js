@@ -1,6 +1,6 @@
 Events.on(ClientLoadEvent, e => {
   let fieros = Vars.content.getByName(ContentType.planet, "md3-md3-fieros")
-  let offset = fieros.id-7 // hardcode this to 0 once pull request #10374 gets merged
+  let offset = 0//fieros.id-7 // hardcode this to 0 once pull request #10374 gets merged
   let props = {
 	seed: 0,
 	radius: 1,
