@@ -84,6 +84,7 @@ UnitTypes.navanax.weapons.get(4).bullet.healPercent = 8 // ...whereas the main g
 UnitTypes.mega.isEnemy = true
 
 function getMDUnit(unit) {return Vars.content.getByName(ContentType.unit, "md3-" + unit)}
+function getModUnit(mod, unit) {return Vars.content.getByName(ContentType.unit, mod + "-" + unit)}
 
 // NUMBERED WAVEGEN
 function numberedWaves(sector,enemyBase,airOnly,navalWaves) {
@@ -107,6 +108,29 @@ function numberedWaves(sector,enemyBase,airOnly,navalWaves) {
     [UnitTypes.retusa,UnitTypes.oxynoe,UnitTypes.cyerce,UnitTypes.aegires,UnitTypes.navanax]
   ]
   if (Planets.serpulo.sectors.get(268).info.wasCaptured) navalenemies.push([getMDUnit("mycena-boat"),getMDUnit("panaeolus-boat"),getMDUnit("hornet-ship"),getMDUnit("messenger-ship"),getMDUnit("tundra-ship")])
+      
+  // mod compat shenanigans, listed by order of addition to this
+    // if you're a mod dev and want compat with this, ping me on discord and i'll try to see what i can do
+  // uaw
+  if (Vars.mods.getMod("uaw") != null) {
+    groundenemies.push([UnitTypes.dagger,UnitTypes.mace,getModUnit("uaw","cavalier"),getModUnit("uaw","centurion"),getModUnit("uaw","caernarvon")])
+    airenemies = airenemies.concat([
+      [UnitTypes.flare,UnitTypes.horizon,getModUnit("uaw","aglovale"),getModUnit("uaw","bedivere"),getModUnit("uaw","calogrenant")],
+      [UnitTypes.flare,UnitTypes.horizon,getModUnit("uaw","crotchety"),getModUnit("uaw","cantankerous"),getModUnit("uaw","calogrenant")],
+    ])
+    navalenemies = navalenemies.concat([
+      [UnitTypes.risso,UnitTypes.minke,getModUnit("uaw","arquebus"),getModUnit("uaw","carronade"),getModUnit("uaw","falconet")],
+      [UnitTypes.risso,UnitTypes.minke,getModUnit("uaw","megaera"),getModUnit("uaw","alecto"),UnitTypes.omura],
+    ])
+  }
+  // project restoration
+  if (Vars.mods.getMod("restored-mind") != null) {
+    groundenemies = groundenemies.concat([
+      [getModUnit("restored-mind","dagger"),getModUnit("restored-mind","titan"),getModUnit("restored-mind","fortress"),getModUnit("restored-mind","chaos-array"),getModUnit("restored-mind","eradicator")],
+      [getModUnit("restored-mind","crawler"),getModUnit("restored-mind","eruptor"),getModUnit("restored-mind","fortress"),getModUnit("restored-mind","chaos-array"),getModUnit("restored-mind","eradicator")],
+    ])
+    airenemies.push([getModUnit("restored-mind","wraith"),getModUnit("restored-mind","ghoul"),getModUnit("restored-mind","revenant"),getModUnit("restored-mind","lich"),getModUnit("restored-mind","reaper")])
+  }
   
   let picks = []
   picks = picks.concat(airenemies)
@@ -317,20 +341,26 @@ Planets.serpulo.generator = extend(SerpuloPlanetGenerator, {
     }
   },*/
   postGenerate(tiles) {
-    let tlen = tiles.width * tiles.height
-    let waters = 0
-    let total = 0
-    for (let i=0;i<tlen;i++) {
-      let tile = tiles.geti(i)
-      if (tile.block() == Blocks.air) {
-        total++
-        if (tile.floor().liquidDrop == Liquids.water) waters++
+    let curTile = Vars.spawner.getFirstSpawn()
+    let tiles = []
+    let core = Vars.indexer.getEnemy(Team.crux,BlockFlag.core).get(0).tile
+    let distance = Infinity
+    if (curTile != null) {
+      do {
+        tiles.push(curTile)
+        curTile = Vars.pathfinder.getTargetTile(curTile,Vars.pathfinder.getField(Team.crux,Vars.pathfinder.costNaval,Vars.pathfinder.fieldCore))
+      } while (!tiles.includes(curTile) && tiles.length < 1000)
+      if (tiles.length >= 10) {
+        let endTile = tiles[tiles.length-1]
+        distance = Math.max(Math.abs(endTile.x-core.x),Math.abs(endTile.y-core.y))
       }
     }
-    if (waters/total < 0.4) {
+    if (distance > 20) {
       Vars.state.rules.spawns = numberedWaves(Vars.state.rules.sector,Vars.state.rules.sector.hasEnemyBase(),false,false)
+      //print(Vars.state.rules.sector.id + ' not naval, distance: ' + distance) // debug
     } else {
       Vars.state.rules.spawns = numberedWaves(Vars.state.rules.sector,Vars.state.rules.sector.hasEnemyBase(),false,true)
+      //print(Vars.state.rules.sector.id + ' NAVAL, distance: ' + distance) // debug
     }
     if (Vars.state.rules.sector.hasEnemyBase()) {
       basegen.postGenerate()
