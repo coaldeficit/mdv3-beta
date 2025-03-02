@@ -23,5 +23,5 @@ research: pelt
 researchCost: [
   cobalt/600
   cinnabar-item/600
-  bulletum/160
+  bulletum/100
 ]
