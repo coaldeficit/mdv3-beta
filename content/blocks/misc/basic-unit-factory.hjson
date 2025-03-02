@@ -22,6 +22,14 @@ plans: [
       cobalt/10
       cinnabar-item/10
     ]
+  },
+  {
+    unit: donjon-mech
+    time: 1200
+    requirements: [
+      cobalt/10
+      bulletum/10
+    ]
   }
 ]
 requirements: [
