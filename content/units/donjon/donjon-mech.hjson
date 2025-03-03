@@ -2,7 +2,7 @@ name: Donjon
 description: Generates damaging shockwaves.
 hitSize: 14
 flying: false
-speed: 0.9
+speed: 0.6
 rotateSpeed: 9
 health: 350
 armor: 10

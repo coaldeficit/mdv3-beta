@@ -38,7 +38,7 @@ let lithiumBullet = extend(PointBulletType, {
 let bulletumBullet = extend(PointBulletType, {
   damage: 288,
   lifetime: 50,
-  ammoMultiplier: 1,
+  ammoMultiplier: 3,
   trailEffect: vfx.boltTrailBulletum,
   trailSpacing: 5,
   reloadMultiplier: 0.75,

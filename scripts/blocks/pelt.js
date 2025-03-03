@@ -41,7 +41,7 @@ let bulletumBullet = extend(BasicBulletType, {
   damage: 25,
   lifetime: 26,
   collidesAir: false,
-  ammoMultiplier: 1,
+  ammoMultiplier: 3,
   width: 8,
   height: 12,
   reloadMultiplier: 0.666,

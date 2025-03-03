@@ -7,5 +7,9 @@ let cobaltChannel = extend(Duct, "cobalt-channel", {
     return [
       this.fullIconRegion
     ];
+  },
+  init(){
+    this.super$init()
+    this.bridgeReplacement = null
   }
 });

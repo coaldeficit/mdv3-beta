@@ -8,7 +8,8 @@ rotateSpeed: 3
 shootSound: bolt
 predictTarget: false
 maxAmmo: 36
-ammoPerShot: 12
+ammoPerShot: 6
+shootCone: 0.2
 drawer: {
   type: DrawTurret
   basePrefix: md3-fieros-
