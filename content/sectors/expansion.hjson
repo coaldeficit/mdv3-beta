@@ -6,6 +6,7 @@ research: {
   parent: inception
   objectives: [
     cinnabar-aqueduct-bridge
+    cobalt-wall-huge
     {
       type: SectorComplete
       preset: inception
