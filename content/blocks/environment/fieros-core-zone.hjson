@@ -1,0 +1,4 @@
+type: Floor
+name: Fieros Core Zone
+variants: 0
+allowCorePlacement: true
