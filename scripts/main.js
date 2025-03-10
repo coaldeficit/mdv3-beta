@@ -59,6 +59,7 @@ require("md3/units/air/flocker/tundra")
 // mycena line
 require("md3/units/naval/mycena/mycena")
 require("md3/units/naval/mycena/panaeolus")
+require("md3/units/naval/mycena/agaricus")
 
 // bosses
 require("md3/units/bosses/havoc")
