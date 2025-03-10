@@ -1,4 +1,3 @@
-type: StaticWall
 name: Cinnabar Wall
 variants: 3
 itemDrop: cinnabar-item
