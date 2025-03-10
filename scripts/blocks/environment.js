@@ -1,34 +1,128 @@
-// Primary Color Minerals
-/*let vanadinite = extend(OverlayFloor, "vanadinite", {
-  mapColor: Color.valueOf("#ED3F00"),
-  useColor: true
-});
-let adamite = extend(OverlayFloor, "adamite", {
-  mapColor: Color.valueOf("#A7BC40"),
-  useColor: true
-});
-let chalcanthite = extend(OverlayFloor, "chalcanthite", {
-  mapColor: Color.valueOf("#24B6FC"),
-  useColor: true
-});*/
+// fieros
+let fierosCoreZone = extend(Floor, "fieros-core-zone", {});
+
+let niebieskiteBoulder = extend(Prop, "niebieskite-boulder", {});
+let niebieskite = extend(Floor, "niebieskite", {});
 let hotNiebieskite = extend(Floor, "niebieskite-hot", {});
 hotNiebieskite.attributes.set(Attribute.heat, 0.5);
+let niebieskiteWall = extend(Floor, "niebieskite-wall", {});
+
+let cinnabarBoulder = extend(Prop, "cinnabar-boulder", {});
+let cinnabar = extend(Floor, "cinnabar", {});
+let cinnabarWall = extend(Floor, "cinnabar-wall", {});
+
+let lithimentBoulder = extend(Prop, "lithiment-boulder", {});
+let lithiment = extend(Floor, "lithiment", {});
+let lithimentWall = extend(Floor, "lithiment-wall", {});
+
+let mercuricBoulder = extend(Prop, "mercuric-boulder", {});
+let mercuricRock = extend(Floor, "mercuric-rock", {});
+let mercuricWall = extend(Floor, "mercuric-wall", {});
+
+let metacinnabarBoulder = extend(Prop, "metacinnabar-boulder", {});
+let metacinnabar = extend(Floor, "metacinnabar", {});
 let hotMetacinnabar = extend(Floor, "metacinnabar-hot", {});
 hotMetacinnabar.attributes.set(Attribute.heat, 0.5);
-let dimethyl = extend(Floor, "dimethyl", {});
-let cinnabarDMM = extend(Floor, "cinnabar-dimethyl", {});
-let lithimentDMM = extend(Floor, "lithiment-dimethyl", {});
+let metacinnabarWall = extend(Floor, "metacinnabar-wall", {});
+
+let pessegiteBoulder = extend(Prop, "pessegite-boulder", {});
+let pessegite = extend(Floor, "pessegite", {});
+let pessegiteWall = extend(Floor, "pessegite-wall", {});
+let frozenMercury = extend(Floor, "frozen-mercury", {});
+
+let sulfuricBoulder = extend(Prop, "sulfuric-boulder", {});
+let sulfuricRock = extend(Floor, "sulfuric-rock", {});
+let sulfuricRockDense = extend(Floor, "sulfuric-rock-dense", {});
 let sulfuricVent = extend(SteamVent, "sulfuric-vent", {});
 sulfuricVent.attributes.set(Attribute.heat, 0.5);
+let sulfuricWall = extend(Floor, "sulfuric-wall", {});
+
+let dimethyl = extend(Floor, "dimethyl", {});
+let lithimentDMM = extend(Floor, "lithiment-dimethyl", {});
+let lithimentDMMWall = extend(Floor, "lithiment-dimethyl-wall", {});
+let cinnabarDMM = extend(Floor, "cinnabar-dimethyl", {});
+let cinnabarDMMWall = extend(Floor, "cinnabar-dimethyl-wall", {});
+
+// misc
+let dioriteBoulder = extend(Prop, "diorite-boulder", {});
+let diorite = extend(Floor, "diorite", {});
+let dioriteWall = extend(Floor, "diorite-wall", {});
+
+let graniteBoulder = extend(Prop, "granite-boulder", {});
+let granite = extend(Floor, "granite", {});
+let graniteWall = extend(Floor, "granite-wall", {});
+
+let limestoneBoulder = extend(Prop, "limestone-boulder", {});
+let limestone = extend(Floor, "limestone", {});
+let limestoneWall = extend(Floor, "limestone-wall", {});
+
+let tholinBoulder = extend(Prop, "tholin-boulder", {});
+let tholin = extend(Floor, "tholin", {});
+let tholinWall = extend(Floor, "tholin-wall", {});
+let tholinWhiteBoulder = extend(Prop, "tholin-white-boulder", {});
+let tholinWhite = extend(Floor, "tholin-white", {});
+let tholinWhiteWall = extend(Floor, "tholin-white-wall", {});
 
 module.exports = {
-  //vanadinite: vanadinite,
-  //adamite: adamite,
-  //chalcanthite: chalcanthite,
+  // fieros
+  fierosCoreZone: fierosCoreZone,
+  
+  niebieskiteBoulder: niebieskiteBoulder,
+  niebieskite: niebieskite,
   hotNiebieskite: hotNiebieskite,
+  niebieskiteWall: niebieskiteWall,
+  
+  cinnabarBoulder: cinnabarBoulder,
+  cinnabar: cinnabar,
+  cinnabarWall: cinnabarWall,
+  
+  lithimentBoulder: lithimentBoulder,
+  lithiment: lithiment,
+  lithimentWall: lithimentWall,
+  
+  mercuricBoulder: mercuricBoulder,
+  mercuricRock: mercuricRock,
+  mercuricWall: mercuricWall,
+  
+  metacinnabarBoulder: metacinnabarBoulder,
+  metacinnabar: metacinnabar,
   hotMetacinnabar: hotMetacinnabar,
+  metacinnabarWall: metacinnabarWall,
+  
+  pessegiteBoulder: pessegiteBoulder,
+  pessegite: pessegite,
+  pessegiteWall: pessegiteWall,
+  frozenMercury: frozenMercury,
+  
+  sulfuricBoulder: sulfuricBoulder,
+  sulfuricRock: sulfuricRock,
+  sulfuricRockDense: sulfuricRockDense,
+  sulfuricVent: sulfuricVent,
+  sulfuricWall: sulfuricWall,
+  
   dimethyl: dimethyl,
-  cinnabarDMM: cinnabarDMM,
   lithimentDMM: lithimentDMM,
-  sulfuricVent: sulfuricVent
+  lithimentDMMWall: lithimentDMMWall,
+  cinnabarDMM: cinnabarDMM,
+  cinnabarDMMWall: cinnabarDMMWall,
+  
+  // misc
+  dioriteBoulder: dioriteBoulder,
+  diorite: diorite,
+  dioriteWall: dioriteWall,
+  
+  graniteBoulder: graniteBoulder,
+  granite: granite,
+  graniteWall: graniteWall,
+  
+  limestoneBoulder: limestoneBoulder,
+  limestone: limestone,
+  limestoneWall: limestoneWall,
+  
+  tholinBoulder: tholinBoulder,
+  tholin: tholin,
+  tholinWall: tholinWall,
+  tholinWhiteBoulder: tholinWhiteBoulder,
+  tholinWhite: tholinWhite,
+  tholinWhiteWall: tholinWhiteWall,
 };
