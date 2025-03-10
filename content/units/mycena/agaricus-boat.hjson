@@ -34,8 +34,8 @@ weapons: [{
   bullet: {
     type: BasicBulletType
     speed: 9
-    damage: 37
-    lifetime: 20
+    damage: 50
+    lifetime: 18
     width: 12
     height: 12
     shrinkX: 0
@@ -53,7 +53,7 @@ weapons: [{
     pierceBuilding: true
     homingPower: 0.3
     homingRange: 50
-    buildingDamageMultiplier: 2
+    buildingDamageMultiplier: 2.3
   }
 }]
 targetAir: false
