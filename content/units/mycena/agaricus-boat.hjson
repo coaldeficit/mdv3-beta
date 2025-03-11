@@ -35,7 +35,7 @@ weapons: [{
     type: BasicBulletType
     speed: 9
     damage: 50
-    lifetime: 18
+    lifetime: 15
     width: 12
     height: 12
     shrinkX: 0
