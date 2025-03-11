@@ -16,7 +16,7 @@ itemCapacity: 0
 useUnitCap: false
 hitSize: 6
 targetFlags: [null]
-lifetime: 150
+lifetime: 135
 allowChangeCommands: false
 stances: [pursuetarget]
 playerControllable: false
@@ -38,7 +38,7 @@ weapons: [{
   bullet: {
     type: LaserBoltBulletType
     speed: 5.2
-    damage: 18
+    damage: 6
     lifetime: 30
     collidesTeam: false
     healPercent: -1
@@ -47,8 +47,6 @@ weapons: [{
     smokeEffect: hitLaserColor
     hitEffect: hitLaserColor
     despawnEffect: hitLaserColor
-    pierceCap: 3
-    pierceBuilding: true
   }
 }]
 range: 280
