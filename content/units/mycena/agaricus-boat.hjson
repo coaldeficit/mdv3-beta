@@ -70,6 +70,8 @@ weapons: [{
   shootCone: 361
   rotationLimit: 100
   shootY: 7
+  controllable: false
+  autoTarget: true
   shoot: {
     type: ShootPattern
     shots: 2
@@ -79,7 +81,6 @@ weapons: [{
     type: BulletType
     shootEffect: shootBig
     smokeEffect: shootBigSmoke2
-    shake: 1.5
     speed: 0
     keepVelocity: false
     collidesAir: false
