@@ -4,8 +4,8 @@ flying: false
 speed: 0.8
 drag: 0.14
 accel: 0.37
-health: 600
-armor: 3
+health: 720
+armor: 5
 hitSize: 30
 rotateSpeed: 3
 faceTarget: false
@@ -35,7 +35,7 @@ weapons: [{
     type: BasicBulletType
     speed: 9
     damage: 50
-    lifetime: 15
+    lifetime: 20
     width: 12
     height: 12
     shrinkX: 0
