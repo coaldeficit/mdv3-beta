@@ -38,7 +38,7 @@ weapons: [{
   bullet: {
     type: LaserBoltBulletType
     speed: 5.2
-    damage: 6
+    damage: 15
     lifetime: 30
     collidesTeam: false
     healPercent: -1
