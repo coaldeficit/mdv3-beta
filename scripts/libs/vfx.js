@@ -140,6 +140,13 @@ const phaseForeshadowTrail = new Effect(30, e => {
   });
   Drawf.light(e.x, e.y, 60, Pal.bulletYellowBack, 0.6 * e.fout());
 });
+const macrocybeSpores = new Effect(64, e => {
+  Draw.color(Pal.spore)
+  Draw.z(111)
+  Angles.randLenVectors(e.id, 40, e.finpow() * 180, e.rotation, 7, (x, y) => {
+    Fill.circle(e.x + x, e.y + y, e.fout() * 1.5 + 0.65);
+  });
+});
 
 module.exports = {
     lh2status: lh2status,
@@ -157,4 +164,5 @@ module.exports = {
     boltTrailLithium: boltTrailLithium,
     boltTrailBulletum: boltTrailBulletum,
     phaseForeshadowTrail: phaseForeshadowTrail,
+    macrocybeSpores: macrocybeSpores,
 };

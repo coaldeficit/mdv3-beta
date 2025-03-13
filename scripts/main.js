@@ -28,10 +28,11 @@ require("md3/units/refreshconstruct")
 // require('md3/overtower');
 // require('md3/blocks/recoverer');
 require('md3/blocks/frozen-wall');
+require('md3/blocks/puncture');
 require('md3/blocks/instant');
 require('md3/blocks/delay');
-require('md3/blocks/puncture');
 require('md3/blocks/sporangia');
+require('md3/blocks/spore-clumps');
 require('md3/blocks/pelt');
 require('md3/blocks/bolt');
 require('md3/blocks/cinnabar-aqueduct');
@@ -60,6 +61,7 @@ require("md3/units/air/flocker/tundra")
 require("md3/units/naval/mycena/mycena")
 require("md3/units/naval/mycena/panaeolus")
 require("md3/units/naval/mycena/agaricus")
+require("md3/units/naval/mycena/macrocybe")
 
 // bosses
 require("md3/units/bosses/havoc")
