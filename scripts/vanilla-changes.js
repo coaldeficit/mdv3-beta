@@ -107,7 +107,7 @@ function numberedWaves(sector,enemyBase,airOnly,navalWaves) {
     [UnitTypes.risso,UnitTypes.minke,UnitTypes.bryde,UnitTypes.sei,UnitTypes.omura],
     [UnitTypes.retusa,UnitTypes.oxynoe,UnitTypes.cyerce,UnitTypes.aegires,UnitTypes.navanax]
   ]
-  if (Planets.serpulo.sectors.get(268).info.wasCaptured) navalenemies.push([getMDUnit("mycena-boat"),getMDUnit("panaeolus-boat"),getMDUnit("hornet-ship"),getMDUnit("messenger-ship"),getMDUnit("tundra-ship")])
+  if (Planets.serpulo.sectors.get(268).info.wasCaptured) navalenemies.push([getMDUnit("mycena-boat"),getMDUnit("panaeolus-boat"),getMDUnit("agaricus-boat"),getMDUnit("macrocybe-boat"),getMDUnit("tundra-ship")])
       
   // mod compat shenanigans, listed by order of addition to this
     // if you're a mod dev and want compat with this, ping me on discord and i'll try to see what i can do
