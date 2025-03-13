@@ -12,7 +12,7 @@ SporeT4.abilities.add(heal);
 
 const sporeFlame = extend(BulletType, {
   speed: 7,
-  damage: 56,
+  damage: 48,
   lifetime: 24,
   collidesAir: true,
   status: StatusEffects.sporeSlowed,
