@@ -89,7 +89,11 @@ const clumpExplosion = extend(Weapon, {
         }
       }));
       if (develop) {
-        if (Vars.world.tile(Math.round(b.owner.x/8), Math.round(b.owner.y/8)).block() == Blocks.air && !Vars.net.client()) Vars.world.tile(Math.round(b.owner.x/8), Math.round(b.owner.y/8)).setNet(sporangia.sporangia, b.owner.team, 0)
+        if (Vars.world.tile(Math.round(b.owner.x/8), Math.round(b.owner.y/8)) != null) {
+          if (Vars.world.tile(Math.round(b.owner.x/8), Math.round(b.owner.y/8)).block() == Blocks.air && !Vars.net.client()) {
+            Vars.world.tile(Math.round(b.owner.x/8), Math.round(b.owner.y/8)).setNet(sporangia.sporangia, b.owner.team, 0)
+          }
+        }
         b.owner.kill()
       }
     }
