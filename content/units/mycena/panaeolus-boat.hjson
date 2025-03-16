@@ -1,5 +1,5 @@
 name: Panaeolus
-description: Shoots a barrage of oil-filled projectiles and large spores that develop into turrets on contact with land. Self-regenerativ
+description: Shoots a barrage of oil-filled projectiles and large spores that develop into turrets on contact with land. Self-regenerative.
 flying: false
 speed: 1
 drag: 0.12
