@@ -4,8 +4,8 @@ flying: false
 speed: 0.7
 drag: 0.12
 accel: 0.45
-health: 22000
-armor: 13
+health: 16000
+armor: 8
 hitSize: 58
 rotateSpeed: 1.6
 faceTarget: false
