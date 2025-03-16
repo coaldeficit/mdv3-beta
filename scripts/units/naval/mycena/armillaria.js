@@ -9,7 +9,7 @@ let heal = extend(RegenAbility, {
 SporeT5.abilities.add(heal);
 const bombExplosionBullet = extend(BasicBulletType, {
   speed: 8,
-  damage: 6,
+  damage: 16,
   ammoMultiplier: 1,
   lifetime: 21,
   frontColor: Color.valueOf("ffffff"),
