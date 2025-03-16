@@ -3,7 +3,7 @@ SporeT5.constructor = () => extend(UnitWaterMove, {});
 SporeT5.immunities.add(StatusEffects.sporeSlowed);
 SporeT5.immunities.add(StatusEffects.sapped);
 let heal = extend(RegenAbility, {
-  amount: 600/60,
+  amount: 193/60,
   getBundle() {return 'ability.regen'},
 })
 SporeT5.abilities.add(heal);
