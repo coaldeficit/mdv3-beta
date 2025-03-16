@@ -62,6 +62,7 @@ require("md3/units/naval/mycena/mycena")
 require("md3/units/naval/mycena/panaeolus")
 require("md3/units/naval/mycena/agaricus")
 require("md3/units/naval/mycena/macrocybe")
+require("md3/units/naval/mycena/armillaria")
 
 // bosses
 require("md3/units/bosses/havoc")
