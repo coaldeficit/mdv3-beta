@@ -88,4 +88,9 @@ weapons: [{
   }
 }]
 targetAir: false
-research: panaeolus-boat
+research: {
+  parent: panaeolus-boat
+  objectives: [
+    multiplicative-reconstructor
+  ]
+}

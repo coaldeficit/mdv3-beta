@@ -12,4 +12,9 @@ waveTrailX: 7
 trailScl: 1.2
 trailLength: 33
 targetAir: true
-research: mycena-boat
+research: {
+  parent: mycena-boat
+  objectives: [
+    additive-reconstructor
+  ]
+}

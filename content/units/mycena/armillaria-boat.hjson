@@ -13,4 +13,9 @@ waveTrailX: 15
 waveTrailY: -30
 trailScl: 4
 trailLength: 70
-research: macrocybe-boat
+research: {
+  parent: macrocybe-boat
+  objectives: [
+    tetrative-reconstructor
+  ]
+}

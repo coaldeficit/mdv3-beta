@@ -13,4 +13,9 @@ waveTrailX: 24
 waveTrailY: 0
 trailScl: 3
 trailLength: 50
-research: agaricus-boat
+research: {
+  parent: agaricus-boat
+  objectives: [
+    exponential-reconstructor
+  ]
+}
