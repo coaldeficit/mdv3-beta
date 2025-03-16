@@ -19,7 +19,7 @@ const bombExplosionBullet = extend(BasicBulletType, {
   shrinkY: 0,
   shrinkX: 0,
   keepVelocity: false,
-  buildingDamageMultiplier: 2,
+  buildingDamageMultiplier: 1.75,
   shieldDamageMultiplier: 0.5,
   status: StatusEffects.sapped,
   statusDuration: 30,
