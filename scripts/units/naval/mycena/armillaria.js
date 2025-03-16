@@ -117,6 +117,7 @@ const bladeBullet = extend(BasicBulletType, {
   statusDuration: 120,
   spin: 14,
   sprite: 'md3-blade-bullet',
+  shieldDamageMultiplier: 0.25,
 })
 const shootsound = Vars.tree.loadSound("armillaria-blade")
 const bladeGunA = extend(Weapon, {
