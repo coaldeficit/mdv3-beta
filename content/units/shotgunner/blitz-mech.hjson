@@ -3,9 +3,9 @@ name: Blitz
 flying: false
 description: temp
 speed: 0.3
-health: 5300
-armor: 5
-hitSize: 26
+health: 18000
+armor: 10
+hitSize: 36
 rotateSpeed: 0.9
 
 // legs

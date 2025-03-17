@@ -1,6 +1,6 @@
 const blockcheck = require("md3/libs/blockcheck")
 const bulLib = require("md3/libs/bulletlib")
-const sporangia = require("md3/blocks/sporangia")
+const subturrets = require("md3/blocks/subturrets")
 const SporeT2 = extend(UnitType, "panaeolus-boat", {});
 SporeT2.constructor = () => extend(UnitWaterMove, {});
 SporeT2.immunities.add(StatusEffects.sporeSlowed);
@@ -91,7 +91,7 @@ const clumpExplosion = extend(Weapon, {
       if (develop) {
         if (Vars.world.tile(Math.round(b.owner.x/8), Math.round(b.owner.y/8)) != null) {
           if (Vars.world.tile(Math.round(b.owner.x/8), Math.round(b.owner.y/8)).block() == Blocks.air && !Vars.net.client()) {
-            Vars.world.tile(Math.round(b.owner.x/8), Math.round(b.owner.y/8)).setNet(sporangia.sporangia, b.owner.team, 0)
+            Vars.world.tile(Math.round(b.owner.x/8), Math.round(b.owner.y/8)).setNet(subturrets.sporangia, b.owner.team, 0)
           }
         }
         b.owner.kill()

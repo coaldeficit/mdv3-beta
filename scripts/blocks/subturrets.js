@@ -1,4 +1,3 @@
-const bulLib = require("md3/libs/bulletlib")
 let sporangia = extend(PowerTurret, "panaeolus-subturret", {
   description: "Shoots Spores at enemies.",
   health: 100,
@@ -14,7 +13,28 @@ sporangia.buildType = () => extend(PowerTurret.PowerTurretBuild, sporangia, {
     this.super$update();
     if (this.selfkaboomtimer == undefined) this.selfkaboomtimer = 360
     if (this.selfkaboomtimer > 0) {
-      this.selfkaboomtimer--
+      this.selfkaboomtimer -= Time.delta
+    }
+    if (this.selfkaboomtimer <= 0) {
+      this.health = -69420
+      this.damage(1)
+      this.selfkaboomtimer = -1
+    }
+  }
+});
+let blade = extend(PowerTurret, "blitz-subturret", {
+  size: 3,
+  solid: false,
+  destructible: true,
+  update: true,
+  rebuildable: false,
+});
+blade.buildType = () => extend(PowerTurret.PowerTurretBuild, blade, {
+  update(){
+    this.super$update();
+    if (this.selfkaboomtimer == undefined) this.selfkaboomtimer = 720
+    if (this.selfkaboomtimer > 0) {
+      this.selfkaboomtimer -= Time.delta
     }
     if (this.selfkaboomtimer <= 0) {
       this.health = -69420
@@ -25,5 +45,6 @@ sporangia.buildType = () => extend(PowerTurret.PowerTurretBuild, sporangia, {
 });
 
 module.exports = {
-  sporangia: sporangia
+  sporangia: sporangia,
+  blade: blade
 };

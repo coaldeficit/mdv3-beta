@@ -31,7 +31,7 @@ require('md3/blocks/frozen-wall');
 require('md3/blocks/puncture');
 require('md3/blocks/instant');
 require('md3/blocks/delay');
-require('md3/blocks/sporangia');
+require('md3/blocks/subturrets');
 require('md3/blocks/spore-clumps');
 require('md3/blocks/pelt');
 require('md3/blocks/bolt');
@@ -46,7 +46,7 @@ require("md3/units/ground/shotgunner/shotgunner")
 require("md3/units/ground/shotgunner/pounder")
 require("md3/units/ground/shotgunner/slugger")
 require("md3/units/ground/shotgunner/rocketeer")
-require("md3/units/ground/shotgunner/howitzer")
+require("md3/units/ground/shotgunner/blitz")
 
 // air
 // swarmer line
