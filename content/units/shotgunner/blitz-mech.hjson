@@ -17,7 +17,7 @@ lockLegBase: true
 legContinuousMove: true
 legExtension: -6
 legBaseOffset: 20
-legMaxLength: 1.4
+legMaxLength: 1.1
 legMinLength: 0.2
 legLengthScl: .96
 legForwardScl: 1.25
