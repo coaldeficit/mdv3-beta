@@ -1,6 +1,6 @@
 name: Blade
 description: Fires highly damaging Blades and self destructs after 12 seconds.
-health: 3000
+health: 7000
 size: 3
 reload: 16
 range: 130
