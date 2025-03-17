@@ -30,6 +30,44 @@ hovering: true
 legSplashDamage: 32
 legSplashRange: 30
 
+weapons: {
+  add: [
+    {
+      name: blitz-gun
+      top: true
+      rotate: true
+      y: -12
+      x: 17
+      inaccuracy: 45
+      reload: 150
+      shootSound: missile
+      mirror: true
+      rotateSpeed: 1
+      shake: 0
+      shootCone: 361
+      rotationLimit: 100
+      shootY: 11
+      controllable: false
+      autoTarget: true
+      shoot: {
+        type: ShootPattern
+        shots: 18
+        shotDelay: 2
+      }
+      bullet: {
+        type: BulletType
+        shootEffect: shootBig
+        smokeEffect: shootBigSmoke2
+        speed: 0
+        keepVelocity: false
+        collidesAir: false
+        rangeOverride: 232
+        spawnUnit: assault-drone
+      }
+    }
+  ]
+}
+
 itemCapacity: 120
 research: {
   parent: rocketeer-mech
