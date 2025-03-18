@@ -49,7 +49,7 @@ const turretLauncher = extend(Weapon, {
   bullet: turretBullet,
 });
 const missileLauncher = extend(Weapon, {
-  name: "zenith-missiles",
+  name: "md3-blitz-missile-cannon",
   y: 6,
   x: 17,
   top: true,
