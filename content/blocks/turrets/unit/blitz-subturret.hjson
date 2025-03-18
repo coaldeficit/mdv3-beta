@@ -27,8 +27,8 @@ shootType: {
   type: BasicBulletType
   speed: 5
   lifetime: 26
-  damage: 163
-  status: melting
+  damage: 92
+  status: burning
   statusDuration: 180
   frontColor: fccf03
   backColor: fc5a03
