@@ -25,7 +25,7 @@ const turretBullet = extend(BasicBulletType, {
     let develop = true
     let valid = 0
     blockcheck.iterateSquare(Math.round(b.x/8)-1,Math.round(b.y/8)-1,3,3,(other => {
-      if (other.block() != Blocks.air) {
+      if (other.block() != Blocks.air && !(other.block() instanceof Prop && other.block().breakable)) {
         develop = false
       }
       valid++
