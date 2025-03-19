@@ -2,7 +2,7 @@ name: Sporangia
 description: Fires Spores and self-destructs after 6 seconds.
 health: 100
 size: 1
-reload: 20
+reload: 40
 range: 144
 inaccuracy: 4
 rotateSpeed: 5
@@ -18,26 +18,26 @@ shoot: {
     type: ShootSpread
     shots: 2
     spread: 85
-    firstShotDelay: 5
+    firstShotDelay: 10
   }, {
     type: ShootSpread
     shots: 3
     spread: 40
-    firstShotDelay: 10
+    firstShotDelay: 20
   }, {
     type: ShootSpread
     shots: 2
     spread: 85
-    firstShotDelay: 15
+    firstShotDelay: 30
   }]
 }
 shootType: {
   type: BasicBulletType
   speed: 6
   lifetime: 24
-  damage: 9
+  damage: 14
   status: spore-slowed
-  statusDuration: 90
+  statusDuration: 180
   frontColor: 7457CE
   backColor: 7457CE
 }

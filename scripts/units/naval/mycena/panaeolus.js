@@ -110,7 +110,7 @@ const clumpLauncher = extend(Weapon, {
   shootSound: Sounds.none,
   baseRotation: 180,
   shootCone: 361,
-  shoot: new ShootSpread(4,60),
+  shoot: new ShootSpread(3,80),
   bullet: bulLib.makeBullet({
     type: BulletType,
     shootEffect: Fx.none,
