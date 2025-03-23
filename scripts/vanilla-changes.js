@@ -428,7 +428,7 @@ Events.on(ClientLoadEvent, e => {
   // WE LOVE NPC AND IMPACT
   const convertToSurv = [
     24,129,224,225,226,227, // north pole
-    30,60,114,115,121,259,265,
+    30,60,114,115,121,259,265, // south pole
   ]
   for (let i=0;i<convertToSurv.length;i++) {
     Planets.serpulo.sectors.get(convertToSurv[i]).generateEnemyBase = false
