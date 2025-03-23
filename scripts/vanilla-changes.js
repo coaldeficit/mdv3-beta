@@ -381,32 +381,31 @@ function forceSectorDifficulty() {
   Planets.serpulo.sectors.get(182).threat = 0.25
   // high
   Planets.serpulo.sectors.get(36).threat = 0.54
+  Planets.serpulo.sectors.get(60).threat = 0.74
   Planets.serpulo.sectors.get(65).threat = 0.74
+  Planets.serpulo.sectors.get(114).threat = 0.74
+  Planets.serpulo.sectors.get(115).threat = 0.74
   Planets.serpulo.sectors.get(141).threat = 0.7499
   Planets.serpulo.sectors.get(156).threat = 0.54
   Planets.serpulo.sectors.get(162).threat = 0.7499
   Planets.serpulo.sectors.get(178).threat = 0.54
   Planets.serpulo.sectors.get(226).threat = 0.74
+  Planets.serpulo.sectors.get(265).threat = 0.74
   // extreme
-  Planets.serpulo.sectors.get(7).threat = 0.97
+  Planets.serpulo.sectors.get(7).threat = 0.99
   Planets.serpulo.sectors.get(24).threat = 0.92
   Planets.serpulo.sectors.get(84).threat = 0.92
-  Planets.serpulo.sectors.get(117).threat = 0.92
-  Planets.serpulo.sectors.get(127).threat = 0.97
+  Planets.serpulo.sectors.get(127).threat = 0.99
   Planets.serpulo.sectors.get(140).threat = 0.97
   Planets.serpulo.sectors.get(163).threat = 0.97
   Planets.serpulo.sectors.get(235).threat = 0.92
-  Planets.serpulo.sectors.get(258).threat = 0.92
   // erad
-  Planets.serpulo.sectors.get(5).threat = 1.1
-  Planets.serpulo.sectors.get(57).threat = 1.1
-  Planets.serpulo.sectors.get(61).threat = 1.2
   Planets.serpulo.sectors.get(199).threat = 1.1
   Planets.serpulo.sectors.get(225).threat = 1.1
   Planets.serpulo.sectors.get(228).threat = 1.1
   Planets.serpulo.sectors.get(229).threat = 1.2
-  Planets.serpulo.sectors.get(255).threat = 1.2
-  Planets.serpulo.sectors.get(262).threat = 1.2
+  Planets.serpulo.sectors.get(257).threat = 1.2
+  Planets.serpulo.sectors.get(263).threat = 1.42
 }
 
 // ON CLIENT LOAD
@@ -418,9 +417,9 @@ Events.on(ClientLoadEvent, e => {
   const convertToBase = [
     85,223, // its strictly personal
     95,178, // plt area
-    79,140,263, // south pole
+    29,61,79,118,258,261,262, // south pole
     66,128,232,235, // north pole
-    41,45,156,179, // misc sectors
+    41,45,78,156,179, // misc sectors
   ]
   for (let i=0;i<convertToBase.length;i++) {
     Planets.serpulo.sectors.get(convertToBase[i]).generateEnemyBase = true
@@ -429,6 +428,7 @@ Events.on(ClientLoadEvent, e => {
   // WE LOVE NPC AND IMPACT
   const convertToSurv = [
     24,129,224,225,226,227, // north pole
+    30,60,114,115,121,259,265,
   ]
   for (let i=0;i<convertToSurv.length;i++) {
     Planets.serpulo.sectors.get(convertToSurv[i]).generateEnemyBase = false
@@ -473,6 +473,13 @@ Events.on(ClientLoadEvent, e => {
   TechTree.all.find(t => t.content == SectorPresets.impact0078).objectives.add(new Objectives.Research(Blocks.spectre))
   TechTree.all.find(t => t.content == SectorPresets.impact0078).objectives.add(new Objectives.Research(Vars.content.getByName(ContentType.block, "md3-firenado")))
   TechTree.all.find(t => t.content == SectorPresets.impact0078).objectives.add(new Objectives.SectorComplete(Vars.content.getByName(ContentType.sector, "md3-reentry")))
+  // better integrate BE sectors
+  TechTree.all.find(t => t.content == SectorPresets.taintedWoods).objectives.add(new Objectives.SectorComplete(SectorPresets.fungalPass))
+  
+  // UTILITIES
+  MapResizeDialog.minSize = 1 // maps outside of the 50x50 - 600x600 range are unsupported by anuke!!!
+  MapResizeDialog.maxSize = 1000
+  Vars.maxSchematicSize = 100 // we're making entire popular mods unnecessary with this one
 })
 
 // CAPTURE TOAST
