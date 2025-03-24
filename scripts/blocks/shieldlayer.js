@@ -36,8 +36,6 @@ const siliMineField = extend(Weapon, {
     damage: 0,
     splashDamage: 1,
     splashDamageRadius: 32,
-    status: StatusEffects.electrified,
-    statusDuration: 15,
     lifetime: 0,
     shootEffect: Fx.none,
     smokeEffect: Fx.none,
@@ -60,7 +58,7 @@ siliMine.weapons.add(
   siliMineDisplay,
   siliMineField
 );
-siliMine.abilities.add(new ForceFieldAbility(32, 0.3, 70, 999999));
+siliMine.abilities.add(new ForceFieldAbility(32, 0.3, 100, 999999));
 const phaseMine = extend(MissileUnitType, "shieldmine-big", {
   speed: 2,
   hitSize: 6,
@@ -87,8 +85,6 @@ const phaseMineField = extend(Weapon, {
     damage: 0,
     splashDamage: 4,
     splashDamageRadius: 44,
-    status: StatusEffects.electrified,
-    statusDuration: 15,
     lifetime: 0,
     shootEffect: Fx.none,
     smokeEffect: Fx.none,
@@ -112,7 +108,7 @@ phaseMine.weapons.add(
   phaseMineDisplay,
   phaseMineField
 );
-phaseMine.abilities.add(new ForceFieldAbility(44, 0.6, 230, 999999));
+phaseMine.abilities.add(new ForceFieldAbility(44, 0.6, 320, 999999));
 let siliBullet = extend(BulletType, {
   spawnUnit: siliMine,
   ammoMultiplier: 3
