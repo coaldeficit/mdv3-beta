@@ -1,6 +1,6 @@
 name: Shieldlayer
 description: Shoots mines that project shields and disrupt nearby enemy units.
-health: 280
+health: 360
 size: 3
 reload: 180
 range: 200
@@ -37,7 +37,7 @@ consumes: {
   coolant: {
     amount: 0.1
   }
-  power: 5
+  power: 4
 }
 coolantMultiplier: 7
 requirements: [
