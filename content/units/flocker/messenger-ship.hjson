@@ -38,7 +38,7 @@ weapons: [
     speed: 14
     lifetime: 13
     keepVelocity: false
-    damage: 50
+    damage: 36
     pierceCap: 2
     pierceBuilding: true
     status: burning
