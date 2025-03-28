@@ -8,7 +8,6 @@ hitSize: 20
 engineOffset: 13.5
 drag: 0.01
 accel: 0.2
-range: 240
 #rotatespeed: 1
 targetAir: false
 targetFlags: [turret, battery, null]
@@ -34,7 +33,7 @@ weapons: [{
     splashDamage: 54
     splashDamageRadius: 33
     ammoMultiplier: 1
-    lifetime: 80
+    lifetime: 64
     fragBullets: 8
     keepVelocity: false
     fragBullet: {

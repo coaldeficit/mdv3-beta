@@ -25,7 +25,7 @@ weapons: [
   mirror: false
   x: 0
   inaccuracy: 2
-  reload: 600
+  reload: 720
   recoil: 2
   shootSound: minigun-hit
   chargeSound: lasercharge
@@ -37,10 +37,10 @@ weapons: [
   }
   bullet: {
     speed: 14
-    lifetime: 22
+    lifetime: 13
     keepVelocity: false
     damage: 50
-    pierceCap: 3
+    pierceCap: 2
     pierceBuilding: true
     status: burning
     statusDuration: 200
@@ -82,7 +82,7 @@ weapons: [
     splashDamage: 63
     splashDamageRadius: 27
     ammoMultiplier: 1
-    lifetime: 50
+    lifetime: 30
     fragBullets: 8
     fragBullet: {
       type: ArtilleryBulletType
