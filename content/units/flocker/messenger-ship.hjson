@@ -11,7 +11,6 @@ armor: 7
 engineOffset: 0
 #rotateWeapon: true
 #shootCone: 45
-range: 250
 lowAltitude: true
 targetFlags: [turret, battery, null]
 itemCapacity: 30
@@ -79,8 +78,8 @@ weapons: [
     height: 17
     speed: 7
     damage: 6
-    splashDamage: 63
-    splashDamageRadius: 27
+    splashDamage: 33
+    splashDamageRadius: 18
     ammoMultiplier: 1
     lifetime: 30
     fragBullets: 8
@@ -91,9 +90,14 @@ weapons: [
       speed: 2
       width: 12
       height: 13
-      splashDamage: 24
+      splashDamage: 14
       splashDamageRadius: 15
       lifetime: 30
 }}
 }]
-research: hornet-ship
+research: {
+  parent: hornet-ship
+  objectives: [
+    exponential-reconstructor
+  ]
+}

@@ -61,4 +61,9 @@ weapons: [{
       }
   }
 }]
-research: bee-ship
+research: {
+  parent: bee-ship
+  objectives: [
+    multiplicative-reconstructor
+  ]
+}

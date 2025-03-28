@@ -32,4 +32,9 @@ weapons: [{
     height: 4
   }
 }]
-research: flocker-ship
+research: {
+  parent: flocker-ship
+  objectives: [
+    additive-reconstructor
+  ]
+}
