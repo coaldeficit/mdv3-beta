@@ -46,8 +46,7 @@ research: {
   objectives: [
     {
       type: SectorComplete
-      # \/ temporary, todo: replace with some sort of fungal naval sector replacing 268 branching from impact 0078
-      preset: impact0078
+      preset: scourged-rivers
     },
   ]
 }

@@ -1,4 +1,4 @@
-name: Mycena
+scourged-riversname: Mycena
 description: Fires weak artillery from afar. Self-regenerative.
 details: "An experimental unit.\nCultivates a growth of spores on its back, which in turn provides it protection and healing.\nProjectiles are dry spore clusters that ignite on contact with targets.\n\nOrigins unknown, intricate design and recent creation date indicate non-crux origins."
 flying: false
@@ -53,8 +53,7 @@ research: {
   objectives: [
     {
       type: SectorComplete
-      # \/ temporary, todo: replace with some sort of fungal naval sector replacing 268 branching from impact 0078
-      preset: impact0078
+      preset: scourged-rivers
     },
   ]
 }

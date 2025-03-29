@@ -475,6 +475,8 @@ Events.on(ClientLoadEvent, e => {
   TechTree.all.find(t => t.content == SectorPresets.impact0078).objectives.add(new Objectives.SectorComplete(Vars.content.getByName(ContentType.sector, "md3-reentry")))
   // better integrate BE sectors
   TechTree.all.find(t => t.content == SectorPresets.taintedWoods).objectives.add(new Objectives.SectorComplete(SectorPresets.fungalPass))
+  // PLT sector requirements
+  TechTree.all.find(t => t.content == SectorPresets.planetaryTerminal).objectives.add(new Objectives.SectorComplete(Vars.content.getByName(ContentType.sector, "md3-scourged-rivers")))
   
   // UTILITIES
   MapResizeDialog.minSize = 1 // maps outside of the 50x50 - 600x600 range are unsupported by anuke!!!
