@@ -1,4 +1,4 @@
-scourged-riversname: Mycena
+name: Mycena
 description: Fires weak artillery from afar. Self-regenerative.
 details: "An experimental unit.\nCultivates a growth of spores on its back, which in turn provides it protection and healing.\nProjectiles are dry spore clusters that ignite on contact with targets.\n\nOrigins unknown, intricate design and recent creation date indicate non-crux origins."
 flying: false
