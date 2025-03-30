@@ -12,6 +12,7 @@ research: {
     },
     core-nucleus,
     thorium-reactor,
+    mass-driver,
     multiplicative-reconstructor
   ]
 }
