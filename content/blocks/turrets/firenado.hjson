@@ -17,7 +17,7 @@ shootSound: splash
 loopSound: none
 shootEffect: shootLiquid
 liquidCapacity: 100
-ammoPerShot: 12.5
+ammoPerShot: 25
 ammoTypes: {
   slag: {
     type: LiquidBulletType
@@ -27,7 +27,7 @@ ammoTypes: {
     pierceCap: 2
     speed: 7
     knockback: 5
-    ammoMultiplier: 0.08
+    ammoMultiplier: 0.05
     status: melting
     statusDuration: 360
     puddleSize: 24
