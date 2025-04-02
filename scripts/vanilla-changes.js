@@ -83,6 +83,18 @@ UnitTypes.navanax.weapons.get(4).bullet.healPercent = 8 // ...whereas the main g
 // i dont get this
 UnitTypes.mega.isEnemy = true
 
+// VANILLA UNIT IMMUNITIES
+UnitTypes.nova.immunities.add(StatusEffects.electrified) // suggested by sh1p, thought it was a fun idea since i want to add a turret that applies electrified in the future
+UnitTypes.pulsar.immunities.add(StatusEffects.electrified)
+UnitTypes.quasar.immunities.add(StatusEffects.electrified)
+UnitTypes.vela.immunities.add(StatusEffects.electrified)
+UnitTypes.corvus.immunities.add(StatusEffects.electrified)
+UnitTypes.retusa.immunities.add(StatusEffects.electrified) // incase you cant use the nova unit line for some reason but have access to navals
+UnitTypes.oxynoe.immunities.add(StatusEffects.electrified)
+UnitTypes.cyerce.immunities.add(StatusEffects.electrified)
+UnitTypes.aegires.immunities.add(StatusEffects.electrified)
+UnitTypes.navanax.immunities.add(StatusEffects.electrified)
+
 function getMDUnit(unit) {return Vars.content.getByName(ContentType.unit, "md3-" + unit)}
 function getModUnit(mod, unit) {return Vars.content.getByName(ContentType.unit, mod + "-" + unit)}
 
