@@ -2,10 +2,12 @@
 A mod made by CD, meowkitty and 7rodo that features lots of new content, a new planet, various overhauls and more. [Discord Invite](https://discord.gg/9YHA3q8HHq)
 
 ## Contributing
-### Suggesting new Content
-Feel free to join our discord server [(Invite)](https://discord.gg/eEtw5GF2dk), go to the #suggestions channel, say what you want added to this mod, explain why you want it added to this mod and how it would improve this mod.
+### Suggesting new content/balance changes
+Make an issue with the suggestion/feedback template and explain your suggestion in detail and why it would improve the mod.
 ### Reporting bugs
-Make an issue with the bug label and explain it in detail. Please also consider making a pull request that fixes the bug if possible if fixing said bug is too complicated for either of the devs.
+Make an issue with the bug template and explain it in detail.
+### Pull Requests
+It is perfectly fine to make pull requests that fix bugs, however balancing and content addition PRs arent guaranteed to be merged.
 
 ## Importing
 Go to the Mods menu, click/tap on Import Mod, click/tap on Import From Github, enter ``coaldeficit/MoreDefences`` into the box that appears and press OK. The game should close to reload mods. Reopen the game after it closes and you should be able to play with the mod.

@@ -400,6 +400,7 @@ function forceSectorDifficulty() {
   Planets.serpulo.sectors.get(141).threat = 0.7499
   Planets.serpulo.sectors.get(156).threat = 0.54
   Planets.serpulo.sectors.get(162).threat = 0.7499
+  Planets.serpulo.sectors.get(173).threat = 0.54
   Planets.serpulo.sectors.get(178).threat = 0.54
   Planets.serpulo.sectors.get(226).threat = 0.74
   Planets.serpulo.sectors.get(265).threat = 0.74
