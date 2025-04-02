@@ -6,7 +6,7 @@ drag: 0.017
 rotateSpeed: 1
 hitSize: 55
 flying: true
-health: 8500
+health: 7500
 armor: 7
 engineOffset: 0
 #rotateWeapon: true
@@ -24,7 +24,7 @@ weapons: [
   mirror: false
   x: 0
   inaccuracy: 2
-  reload: 720
+  reload: 640
   recoil: 2
   shootSound: minigun-hit
   chargeSound: lasercharge
@@ -38,8 +38,8 @@ weapons: [
     speed: 14
     lifetime: 13
     keepVelocity: false
-    damage: 36
-    pierceCap: 2
+    damage: 45
+    pierceCap: 3
     pierceBuilding: true
     status: burning
     statusDuration: 200
@@ -77,8 +77,8 @@ weapons: [
     width: 19
     height: 17
     speed: 7
-    damage: 6
-    splashDamage: 33
+    damage: 12
+    splashDamage: 42
     splashDamageRadius: 18
     ammoMultiplier: 1
     lifetime: 30
@@ -90,7 +90,7 @@ weapons: [
       speed: 2
       width: 12
       height: 13
-      splashDamage: 14
+      splashDamage: 17
       splashDamageRadius: 15
       lifetime: 30
 }}
