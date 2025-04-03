@@ -1,4 +1,4 @@
-Events.on(ClientLoadEvent, () => { // if ya know ya know
+Events.on(ClientLoadEvent, () => {
   if (Core.settings.getString("md3-internal-campaignwarn") != "accepted") {
     let cause = ""
     if (SectorPresets.impact0078.unlocked()) cause += "Impact 0078 unlocked";
