@@ -1,6 +1,6 @@
 Events.on(ClientLoadEvent, () => {
   if (Core.settings.getBool("md3-autoupdate", true)) {
-    Http.get("https://raw.githubusercontent.com/coaldeficit/mdv3-beta/master/mod.hjson",
+    Http.get("https://raw.githubusercontent.com/coaldeficit/MoreDefences/master/mod.hjson",
       (result) => {
         let response = result.getResultAsString()
         let jsonnery = Jval.read(response)
